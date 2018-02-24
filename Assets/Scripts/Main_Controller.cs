@@ -21,16 +21,54 @@ public class Main_Controller : MonoBehaviour
 	private int chanceToKill = 0;
 	private int tempRes;
 	private int HumidityRes;
+	private List<String> symptoms;
+	private List<String> transmitions;
 	
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["Purge"] retourne un string qui est sa description
 	
 	public readonly Dictionary<String, String> Description = new Dictionary<String, String>
 	{
-		{"Localisation", "Lance la recherche du virus dans le pays selectionne "},
-		{"Oxygen", "Le virus se multiplie au contact de l'air, augmentant sa transmition"}
+		{"Localisation", "Lance la recherche du virus dans le pays selectionne"},
+		{"Recherche de Symptomes", "Lance une recherche visant les symptomes du virus, retourne un des symptomes du virus, s'il l'a"},
+		{"Recherche de Transmitions", "Lance une recherche visant les transmitions du virus, retourne un des transmitions du virus, s'il l'a"}
 	};
 	
+	
+	//Competences :
+	
+	public bool Localisation(int infected)
+	{
+		if (power - 5 >= 0)
+		{
+			power -= 5;
+			return infected != 0;
+		}
+		return false;
+	}
+
+	public String ResearchSymp()
+	{
+		if (power - 5 >= 0)
+		{
+			power -= 5;
+			return symptoms[new System.Random().Next(0,symptoms.Count)];
+		}
+		return "";
+	}
+	
+	public String ResearchTrans()
+	{
+		if (power - 5 >= 0)
+		{
+			power -= 5;
+			return transmitions[new System.Random().Next(0,transmitions.Count)];
+		}
+		return "";
+	}
+	
+	
+	//Start
 	
 	void Start ()
 	{
@@ -45,6 +83,9 @@ public class Main_Controller : MonoBehaviour
 		tempRes = 14;
 		HumidityRes = 50;
 
+
+		symptoms = new List<String>();
+		transmitions = new List<String>();
 	}
 	
 	void Update () {
