@@ -1,46 +1,46 @@
-/*Stats from 2016 exept GDP(==PIB) (2014)
+/*
+Stats from 2016 exept GDP(==PIB) (2014)
 Density=inhabitants/km^2
 GDP in billions US$
 */
 {
     "World":{
-		"Population":7162119000
+		"Population":7162119000,
 		"Continents":{
 			"Asia":{
-			"Population":4436224000
-			"Density":137
-			"Life expectancy":69
+			"Population":4436224000, 
+			"Density":137,
+			"Life expectancy":69,
 			"GDP":27224
-			}
+			},
 			"Africa":{
-			"Population":1216130000
-			"Density":40.6
-			"Life expectancy":53
+			"Population":1216130000,
+			"Density":40.6,
+			"Life expectancy":53,
 			"GDP":3215
-			}
+			},
 			"Europe":{
-			"Population":738849000
-			"Density":32
-			"Life expectancy":74
+			"Population":738849000,
+			"Density":32,
+			"Life expectancy":74,
 			"GDP":19700
-			}
+			},
 			"North America":{
-			"Population":579024000
-			"Density":22.9
-			"Life expectancy":79
+			"Population":579024000,
+			"Density":22.9,
+			"Life expectancy":79,
 			"GDP":20160
-
-			}
+			},
 			"South America":{
-			"Population":422535000
-			"Density":22.8
-			"Life expectancy":73
+			"Population":422535000,
+			"Density":22.8,
+			"Life expectancy":73,
 			"GDP":3990
-			}
+			},
 			"Oceania":{
-			"Population":39901000
-			"Density":4.5
-			"Life expectancy":75
+			"Population":39901000,
+			"Density":4.5,
+			"Life expectancy":75,
 			"GDP":1625
 			}
 		}			

@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
 	[Range ( -90f,  0f )] public float minAngle = -10;
 	[Range (   0f, 90f )] public float maxAngle = 25f;
 
-	[Range (  3f, 10f )] public float minDist = 3f;
+	[Range (  1f, 10f )] public float minDist = 3f;
 	[Range ( 10f, 20f )] public float maxDist = 15f;
 
 	private float x, y;
@@ -46,7 +46,7 @@ public class CameraMovement : MonoBehaviour
 		{
 			this.isAlreadyClicking = false;
 		}
-		if ( Input.GetButton ( "Fire2" ) )
+		if ( this.isAlreadyClicking && Input.GetButton ( "Fire2" ) /*|| Input.GetAxis ( "Mouse ScrollWheel" ) != 0*/ )
 		{
 			DragCamera ();
 		}
@@ -69,7 +69,7 @@ public class CameraMovement : MonoBehaviour
 			Quaternion rotation = Quaternion.Euler ( this.y, this.x, 0f );
 
 			this.distance = Mathf.Clamp ( 
-				this.distance - Input.GetAxis ( "Mouse ScrollWheel" ) * 5f, 
+				this.distance - Input.GetAxis ( "Mouse ScrollWheel" ) * 2f, 
 				this.minDist, 
 				this.maxDist 
 			);
