@@ -25,7 +25,6 @@ public class World : Region
 
 
 public class WorldData : MonoBehaviour {
-	public static List<Region> RegionList;
 	public static World ReadFromJsonFile(string filePath)
 	{
 		return JsonConvert.DeserializeObject<World>(File.ReadAllText(filePath));
