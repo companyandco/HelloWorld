@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Compatibility;
-using UnityEditor;
-using UnityEngine;
-
+﻿
 public class SphericalCoord 
 {
 	// 0 is north pole, 180 is south pole

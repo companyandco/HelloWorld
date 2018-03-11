@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class ClickableEarth : MonoBehaviour
 {
-
-	public Camera Camera;
+	private Camera Camera;
 
 	public GameObject Cube;
 
@@ -16,6 +15,8 @@ public class ClickableEarth : MonoBehaviour
 	{
 		this.MapColorToContinent = new Dictionary <Vector4, Continent> ();
 		PopulateDictionnary ();
+		
+		this.Camera = Camera.main;
 	}
 
 	void PopulateDictionnary ()
