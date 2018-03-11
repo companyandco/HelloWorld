@@ -11,6 +11,8 @@ public class Country
 	public double Density { get; set; }
 	public double Life_expectancy { get; set; }
 	public double GDP { get; set; }
+	public long Infected = 0;
+	public long Dead = 0;
 }
 
 public class Region : Country
@@ -21,8 +23,9 @@ public class World : Region
 {
 }
 
-public class WorldData : MonoBehaviour {
-
+public class WorldData : MonoBehaviour
+{
+	public static List<Region> RegionList;
 	// Use this for initialization
 	void Start () {
 		World Earth = new World ();
@@ -33,13 +36,13 @@ public class WorldData : MonoBehaviour {
 		Region North_America = new Region ();
 		Region South_America = new Region ();
 		Region Oceania = new Region ();
-		List<Region> ContinentList=new List<Region>();
-		ContinentList.Add(Asia);
-		ContinentList.Add(Africa);
-		ContinentList.Add(Europe);
-		ContinentList.Add(South_America);
-		ContinentList.Add(North_America);
-		ContinentList.Add (Oceania);
+		RegionList=new List<Region>();
+		RegionList.Add(Asia);
+		RegionList.Add(Africa);
+		RegionList.Add(Europe);
+		RegionList.Add(South_America);
+		RegionList.Add(North_America);
+		RegionList.Add (Oceania);
 		Asia.Name="Asia";
 		Asia.Population = 4436224000;
 		Asia.Density = 137;
