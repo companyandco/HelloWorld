@@ -13,11 +13,11 @@ public class Country
 	public double GDP { get; set; }
 }
 
-public class Continent : Country
+public class Region : Country
 {
 }
 	
-public class World : Continent
+public class World : Region
 {
 }
 
@@ -27,13 +27,13 @@ public class WorldData : MonoBehaviour {
 	void Start () {
 		World Earth = new World ();
 		Earth.Population = 7162119000;
-		Continent Asia = new Continent ();
-		Continent Africa = new Continent ();
-		Continent Europe = new Continent ();
-		Continent North_America = new Continent ();
-		Continent South_America = new Continent ();
-		Continent Oceania = new Continent ();
-		List<Continent> ContinentList=new List<Continent>();
+		Region Asia = new Region ();
+		Region Africa = new Region ();
+		Region Europe = new Region ();
+		Region North_America = new Region ();
+		Region South_America = new Region ();
+		Region Oceania = new Region ();
+		List<Region> ContinentList=new List<Region>();
 		ContinentList.Add(Asia);
 		ContinentList.Add(Africa);
 		ContinentList.Add(Europe);
