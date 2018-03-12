@@ -261,7 +261,9 @@ public class Main_Controller : MonoBehaviour
 		
 		
 		//TODO appel de l'UI demandant a l'utilisateur de selectionner une region
-
+		//temp solution
+		RegionList[0].infected = 1;
+		
 		totalSane = 0;
 		foreach (var region in RegionList)
 		{
