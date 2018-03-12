@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Timers;
 using JetBrains.Annotations;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Main_Controller : MonoBehaviour
@@ -17,8 +19,17 @@ public class Main_Controller : MonoBehaviour
 		public double Density { get; set; }
 		public double Life_expectancy { get; set; }
 		public double GDP { get; set; }
+		//simon pls
+		public long humidity = 50;
+		public long temp = 14;
+		
 		public long infected = 0;
 		public long dead = 0;
+		public long transmitionHuman = 0;
+		public long transmitionOther = 0;
+		public bool isClosed = false;
+
+
 	}
 
 	public class Region : Country
@@ -46,11 +57,17 @@ public class Main_Controller : MonoBehaviour
 	private int transmitionHuman = 0;
 	private int transmitionOther = 0;
 	private int virulence = 0;
-	private int chanceToKill = 0;
+	private int lethality = 0;
 	private int tempRes;
 	private int HumidityRes;
 	private List<String> symptoms;
 	private List<String> transmitions;
+	private int startHum;
+	private int startTemp;
+	
+	//info def
+	private List<String> gestion;
+	private List<String> research;
 	
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["exemple"] retourne un string qui est sa description
@@ -81,28 +98,33 @@ public class Main_Controller : MonoBehaviour
 	//Competences :
 	//Defense
 	//Gestion
-	public void CloseBorder(Country country1, Country country2)
+	public void CloseBorder(Country country1)
 	{
-		
-		
+		if (power - 10 >= 0)
+		{
+			gestion.Add("Fermeture temporaire");
+			power -= 5;
+			country1.isClosed = true;
+		}
+
 	}
 	//Recherche
 	public bool Localisation(Country country)
 	{
 		if (power - 5 >= 0)
 		{
+			research.Add("Localisation");
 			power -= 5;
 			return country.infected != 0;
 		}
 		return false;
 	}
-
-	//Attaque
-	//Transmition
+	
 	public String ResearchSymp()
 	{
 		if (power - 5 >= 0)
 		{
+			research.Add("Recherche de Symptomes");
 			power -= 5;
 			return symptoms[new System.Random().Next(0,symptoms.Count)];
 		}
@@ -113,44 +135,72 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			research.Add("Recherche de Transmitions");
 			power -= 5;
 			return transmitions[new System.Random().Next(0,transmitions.Count)];
 		}
 		return "";
 	}
 
-	public void Sneezing()
-	{
-		transmitionHuman += 10;
-		virulence += 1;
-	}
-	
-	public void Cough()
-	{
-		transmitionHuman += 5;
-		virulence += 2;
-	}
-	public void SoreThroat()
-	{
-		virulence += 4;
-	}
-	
-	//Symptomes
+	//Attaque
+	//Transmition
 	public void ResHum()
 	{
-		HumidityRes += 10;
+		if (power - 5 >= 0)
+		{
+			transmitions.Add("Resistence a l'humidite");
+			HumidityRes += 10;
+		}
 	}
 	
 	public void ResTemp()
 	{
-		tempRes += 10;
+		if (power - 5 >= 0)
+		{
+			transmitions.Add("Resistence a la temperature");
+			tempRes += 10;
+		}
 	}
 	
 	public void Res()
 	{
-		HumidityRes += 5;
-		tempRes += 5;
+		if (power - 5 >= 0)
+		{
+			transmitions.Add("Resistence au climat");
+			HumidityRes += 5;
+			tempRes += 5;
+		}
 	}
+	
+	//Symptomes
+	public void Sneezing()
+	{
+		if (power - 5 >= 0)
+		{
+			symptoms.Add("Eternuements");
+			transmitionHuman += 10;
+			virulence += 1;
+		}
+	}
+	
+	public void Cough()
+	{
+		if (power - 5 >= 0)
+		{
+			symptoms.Add("Toux");
+			transmitionHuman += 5;
+			virulence += 2;
+		}
+	}
+	public void SoreThroat()
+	{
+		if (power - 5 >= 0)
+		{
+			symptoms.Add("Mal de Gorge");
+			virulence += 4;
+		}
+	}
+	
 	
 	//Start
 	
@@ -222,9 +272,9 @@ public class Main_Controller : MonoBehaviour
 		power = 10;
 		
 		//TODO recuperer la temperature moyenne  de la region et son humidite
+		
 		tempRes = 14;
 		HumidityRes = 50;
-
 
 		symptoms = new List<String>();
 		transmitions = new List<String>();
@@ -249,4 +299,31 @@ public class Main_Controller : MonoBehaviour
                 panel2.SetActive(true);
         }
     }
+
+	private void FixedUpdate()
+	{
+		foreach (var region in RegionList)
+		{
+			if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
+			    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
+			{
+				region.transmitionOther = transmitionOther;
+				if (!region.isClosed)
+					region.transmitionHuman = transmitionHuman;
+			}
+
+			region.infected = region.infected * (transmitionHuman + transmitionOther);
+			region.Population -= region.infected * (transmitionHuman + transmitionOther);
+			if (region.Population < 0)
+			{
+				region.infected += region.Population;
+				region.Population = 0;
+			}
+			region.dead = region.infected * lethality;
+			region.infected -= region.infected * lethality;
+			
+
+		}
+		
+	}
 }
