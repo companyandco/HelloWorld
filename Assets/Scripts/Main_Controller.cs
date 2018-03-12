@@ -46,6 +46,7 @@ public class Main_Controller : MonoBehaviour
     //info sur l'UI
     public static GameObject panel1;
     public static GameObject panel2;
+    public static bool isDefending = true;
 
     //info sur la partie
     public static int time = 0;
@@ -282,23 +283,32 @@ public class Main_Controller : MonoBehaviour
 		transmitions = new List<String>();
 
         //ui
-        panel1 = GameObject.Find("Panel_1");
-        panel2 = GameObject.Find("Panel_2");
+        panel1 = GameObject.Find("Panel_Defensive");
+        panel1.SetActive(false);
+        panel2 = GameObject.Find("Panel_Offensive");
+        panel2.SetActive(false);
+        //a changer pour savoir si l'user attaque ou defend
+        isDefending = true;
     }
 	
 	void Update () {
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("F Key pressed");
-            if (panel1.activeInHierarchy)
-                panel1.SetActive(false);
+            if (isDefending)
+            {
+                if (panel1.activeInHierarchy)
+                    panel1.SetActive(false);
+                else
+                    panel1.SetActive(true);
+            }
             else
-                panel1.SetActive(true);
-
-            if (panel2.activeInHierarchy)
-                panel2.SetActive(false);
-            else
-                panel2.SetActive(true);
+            {
+                if (panel2.activeInHierarchy)
+                    panel2.SetActive(false);
+                else
+                    panel2.SetActive(true);
+            }
         }
     }
 
