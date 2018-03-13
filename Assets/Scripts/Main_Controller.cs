@@ -6,6 +6,12 @@ using Random = UnityEngine.Random;
 
 public class Main_Controller : MonoBehaviour
 {
+	
+	
+	/////////////////////////////////////////////////////////
+	/// Variable
+	/////////////////////////////////////////////////////////
+	
 	public class Region
 	{
 		public string Name;
@@ -21,8 +27,6 @@ public class Main_Controller : MonoBehaviour
 		public float transmitionHuman = 0;
 		public float transmitionOther = 0;
 		public bool isClosed = false;
-
-
 	}
 	
 	public class World : Region
@@ -43,7 +47,8 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	private int power = 10;
+	private int powerO = 10;
+	private int powerD = 10;
 
     //info sur le virus
 	private float transmitionHuman = 0f;
@@ -87,15 +92,17 @@ public class Main_Controller : MonoBehaviour
 	};
 	
 	
-	//Competences :
+	/////////////////////////////////////////////////////////
+	/// Competences
+	/////////////////////////////////////////////////////////
 	//Defense
 	//Gestion
 	public void CloseBorder(Region country1)
 	{
-		if (power - 10 >= 0)
+		if (powerD - 10 >= 0)
 		{
 			gestion.Add("Fermeture temporaire");
-			power -= 5;
+			powerD -= 5;
 			country1.isClosed = true;
 		}
 
@@ -103,30 +110,31 @@ public class Main_Controller : MonoBehaviour
 	//Recherche
 	public void Localisation(Region country)
 	{
-		if (power - 5 >= 0)
+		if (powerD - 5 >= 0)
 		{
 			research.Add("Localisation");
-			power -= 5;
+			powerD += 10;
 			Debug.Log(country.infected != 0);
+			
 		}
 	}
 	
 	public void ResearchSymp()
 	{
-		if (power - 5 >= 0)
+		if (powerD - 5 >= 0)
 		{
 			research.Add("Recherche de Symptomes");
-			power -= 5;
+			powerD -= 5;
 		}
 		Debug.Log(new System.Random().Next(0,symptoms.Count));
 	}
 	
 	public void ResearchTrans()
 	{
-		if (power - 5 >= 0)
+		if (powerD - 5 >= 0)
 		{
 			research.Add("Recherche de Transmitions");
-			power -= 5;
+			powerD -= 5;
 			Debug.Log(new System.Random().Next(0,transmitions.Count));
 		}
 	}
@@ -135,9 +143,9 @@ public class Main_Controller : MonoBehaviour
 	//Transmition
 	public void ResHum()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b1.1 button pressed");
             transmitions.Add("Resistence a l'humidite");
 			HumidityRes += 10;
@@ -146,9 +154,9 @@ public class Main_Controller : MonoBehaviour
 	
 	public void ResTemp()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b1.2 button pressed");
             transmitions.Add("Resistence a la temperature");
 			tempRes += 10;
@@ -157,9 +165,9 @@ public class Main_Controller : MonoBehaviour
 	
 	public void Res()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b1.3 button pressed");
             transmitions.Add("Resistence au climat");
 			HumidityRes += 5;
@@ -170,9 +178,9 @@ public class Main_Controller : MonoBehaviour
 	//Symptomes
 	public void Sneezing()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b2.1 button pressed");
             symptoms.Add("Eternuements");
 			transmitionHuman += 0.1f;
@@ -182,9 +190,9 @@ public class Main_Controller : MonoBehaviour
 	
 	public void Cough()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b2.2 button pressed");
             symptoms.Add("Toux");
 			transmitionHuman += 0.05f;
@@ -194,9 +202,9 @@ public class Main_Controller : MonoBehaviour
 	
 	public void SoreThroat()
 	{
-		if (power - 5 >= 0)
+		if (powerO - 5 >= 0)
 		{
-			power -= 5;
+			powerO -= 5;
             Debug.Log("b2.3 button pressed");
             symptoms.Add("Mal de Gorge");
 			virulence += 4;
@@ -206,9 +214,9 @@ public class Main_Controller : MonoBehaviour
 	
 	public void HeartFailure()
 	{
-		if (power - 20 >= 0)
+		if (powerO - 20 >= 0)
 		{
-			power -= 20;
+			powerO -= 20;
 			Debug.Log("b2.4 button pressed");
 			symptoms.Add("Mal de Gorge");
 			virulence += 4;
@@ -218,7 +226,9 @@ public class Main_Controller : MonoBehaviour
 	}
 	
 	
-	//Start
+	/////////////////////////////////////////////////////////
+	/// Initialisation du gameplay
+	/////////////////////////////////////////////////////////
 	
 	void Start ()
 	{
@@ -227,9 +237,6 @@ public class Main_Controller : MonoBehaviour
 		Earth.regionlist[0].infected = 1;
 		startHum = Earth.regionlist[0].humidity;
 		startTemp = Earth.regionlist[0].temp;
-		
-		//recup de toute la population mondiale saine
-		totalSane = 0;
 		
 		Debug.Log("Total population " + totalSane);
 
@@ -271,6 +278,11 @@ public class Main_Controller : MonoBehaviour
         }
     }
 	
+	
+	/////////////////////////////////////////////////////////
+	/// Interface
+	/////////////////////////////////////////////////////////
+	
 	void Update () {
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -292,58 +304,89 @@ public class Main_Controller : MonoBehaviour
         }
     }
 
-	private int i = 0;
+	
+	/////////////////////////////////////////////////////////
+	/// Gameplay
+	/////////////////////////////////////////////////////////
+	
+	private int i = 1;
+
 	private void FixedUpdate()
 	{
-		if (i != 25)
-			return;
-		
-		foreach (var region in Earth.regionlist)
+		if (i % 25 == 0)
 		{
-			totalSane += region.Population;
-			totalInfected += region.infected;
-			totalDead += region.dead;
-
-			//check if climate is ok
-			if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
-			    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
+			totalSane = 0;
+			totalInfected = 0;
+			totalDead = 0;
+			foreach (var region in Earth.regionlist)
 			{
-				//apply transmitions to region
-				region.transmitionOther = transmitionOther;
-				region.transmitionHuman = transmitionHuman;
+				//get info about the world
+				totalSane += region.Population;
+				totalInfected += region.infected;
+				totalDead += region.dead;
 
-				//if that region has 0 infected
-				if (region.infected == 0)
+				//check if climate is ok
+				if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
+				    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
 				{
-					if (Random.Range(0f, 1f) < transmitionHuman)
-					{
-						region.infected = 1;
-						region.Population -= 1;
-					}
-					else if (region.isClosed && Random.Range(0f, 1f) < transmitionOther)
-					{
-						region.infected = 1;
-						region.Population -= 1;
-					}
+					//apply transmitions to region
+					region.transmitionOther = transmitionOther;
+					region.transmitionHuman = transmitionHuman;
 
+					//if that region has 0 infected
+					if (region.infected == 0)
+					{
+						if (Random.Range(0.1f, 1f) < transmitionOther)
+						{
+							region.infected = 1;
+							region.Population -= 1;
+						}
+						else if (!region.isClosed && Random.Range(0.1f, 1f) < transmitionHuman)
+						{
+							region.infected = 1;
+							region.Population -= 1;
+						}
+
+					}
 				}
+
+				if (region.Population != 0)
+				{
+					long extraInfected = (long) ((transmitionHuman * 0.1f + transmitionOther * 0.1f) * (region.infected + 100));
+					region.infected += extraInfected;
+					region.Population -= extraInfected;
+
+					if (region.Population < 0)
+						region.Population = 0;
+				}
+
+				region.dead = region.infected * (long) lethality;
+				region.infected -= region.infected * (long) lethality;
+
+				//generation de powerO pour le joueur offensif
+				if (region.infected != 0)
+				{
+					if (region.infected < 1000 && region.infected % 200 == 0)
+						powerO++;
+					else if (region.infected < 10000 && region.infected % 2000 == 0)
+						powerO += 2;
+					else if (region.infected < 100000 && region.infected % 20000 == 0)
+						powerO += 3;
+					else if (region.infected < 1000000 && region.infected % 200000 == 0)
+						powerO += 4;
+				}
+
+				//generation passive pour le joueur defensif
+				if (i == 50)
+				{
+					i = 1;
+					powerD++;
+				}
+					
 			}
-
-			if (region.Population != 0)
-			{
-				region.infected += region.infected * ((long) (transmitionHuman * 0.01f) + (long) (transmitionOther * 0.01f));
-				region.Population -= region.infected * ((long) (transmitionHuman * 0.01f) + (long) (transmitionOther * 0.01f));
-
-				if (region.Population < 0)
-					region.Population = 0;
-			}
-
-			region.dead = region.infected * (long)lethality;
-			region.infected -= region.infected * (long)lethality;
-
-			Debug.Log(region.Population + " " + region.infected + " " + region.dead);
-			i = 0;
+			Debug.Log(powerO);
 		}
 		i++;
 	}
+
 }
