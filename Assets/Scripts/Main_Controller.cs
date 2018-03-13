@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Timers;
-using JetBrains.Annotations;
-using NUnit.Framework.Constraints;
-using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -90,7 +83,7 @@ public class Main_Controller : MonoBehaviour
 		{"Eternuements","Provoque des eternuements, augmentant la transmition et la virulence."},
 		{"Toux","Provoque une legere toux, augmentant la transmition et la virulence."},
 		{"Mal de gorge","Provoque une legere toux, augmentant la virulence."},
-		
+		{"Crise cardiaque","Augmente la lethalite de votre virus"},
 	};
 	
 	
@@ -144,6 +137,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b1.1 button pressed");
             transmitions.Add("Resistence a l'humidite");
 			HumidityRes += 10;
@@ -154,6 +148,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b1.2 button pressed");
             transmitions.Add("Resistence a la temperature");
 			tempRes += 10;
@@ -164,6 +159,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b1.3 button pressed");
             transmitions.Add("Resistence au climat");
 			HumidityRes += 5;
@@ -176,6 +172,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b2.1 button pressed");
             symptoms.Add("Eternuements");
 			transmitionHuman += 0.1f;
@@ -187,20 +184,36 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b2.2 button pressed");
             symptoms.Add("Toux");
 			transmitionHuman += 0.05f;
 			virulence += 2;
 		}
 	}
+	
 	public void SoreThroat()
 	{
 		if (power - 5 >= 0)
 		{
+			power -= 5;
             Debug.Log("b2.3 button pressed");
             symptoms.Add("Mal de Gorge");
 			virulence += 4;
 			//TODO envoyer string SoreThroat a l'autre joueur
+		}
+	}
+	
+	public void HeartFailure()
+	{
+		if (power - 20 >= 0)
+		{
+			power -= 20;
+			Debug.Log("b2.4 button pressed");
+			symptoms.Add("Mal de Gorge");
+			virulence += 4;
+			lethality += 0.02f;
+			//TODO envoyer string HeartFailure a l'autre joueur
 		}
 	}
 	
@@ -243,6 +256,7 @@ public class Main_Controller : MonoBehaviour
             cameraD.SetActive(true);
         }
         //TODO: Change this whether we're defending or not.
+		//TODO: Set the currently used camera to be the MainCamera (with the maincamera tag) so that ClickableEarth doesn't go crazy af.
         isDefending = false;
 
         if (isDefending)

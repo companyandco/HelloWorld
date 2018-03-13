@@ -5,8 +5,6 @@ using System.Runtime.Remoting.Messaging;
 
 public class ClickableEarth : MonoBehaviour
 {
-	private Camera Camera;
-
 	public GameObject Cube;
 
 	public Texture2D texture;
@@ -20,8 +18,6 @@ public class ClickableEarth : MonoBehaviour
 	{
 		this.MapColorToContinent = new Dictionary <Vector4, Continent> ();
 		PopulateDictionnary ();
-		
-		this.Camera = Camera.main;
 
 		this.GameManager = this.GameManagerObject.GetComponent <GameManager> ();
 		
@@ -61,7 +57,7 @@ public class ClickableEarth : MonoBehaviour
 
 	private void OnMouseUp ()
 	{
-		Ray ray = this.Camera.ScreenPointToRay ( Input.mousePosition );
+		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
 
 		RaycastHit hit;
 
