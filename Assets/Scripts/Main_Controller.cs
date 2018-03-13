@@ -38,9 +38,11 @@ public class Main_Controller : MonoBehaviour
 	}
 
     //info sur l'UI
-    public GameObject panel1;
-    public GameObject panel2;
-    public bool isDefending = false;
+    public static GameObject panelD;
+    public static GameObject panelO;
+    public static GameObject cameraD;
+    public static GameObject cameraO;
+    public static bool isDefending = true;
 
     //info sur la partie
 	public World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
@@ -218,20 +220,41 @@ public class Main_Controller : MonoBehaviour
 		
 		Debug.Log("Total population " + totalSane);
 
-		//Panels
-		if ( panel1 == null )
-		{
-            panel1 = GameObject.Find ( "Panel_Defensive" );
-			panel1.SetActive ( false );
-		}
-        if ( panel2 == null )
+        //UI start
+        if (panelD == null)
         {
-            panel2 = GameObject.Find ( "Panel_Offensive" );
-			panel2.SetActive ( false );
-		}
-		
-		//TODO: Change this whether we're defending or not.
+            panelD = GameObject.Find("Panel_Defensive");
+            panelD.SetActive(false);
+        }
+        if (panelO == null)
+        {
+            panelO = GameObject.Find("Panel_Offensive");
+            panelO.SetActive(false);
+        }
+
+        if (cameraO == null)
+        {
+            cameraO = GameObject.Find("CameraOffensive");
+            cameraO.SetActive(true);
+        }
+        if (cameraD == null)
+        {
+            cameraD = GameObject.Find("CameraDefensive");
+            cameraD.SetActive(true);
+        }
+        //TODO: Change this whether we're defending or not.
         isDefending = false;
+
+        if (isDefending)
+        {
+            cameraO.SetActive(false);
+            cameraD.SetActive(true);
+        }
+        else
+        {
+            cameraO.SetActive(true);
+            cameraD.SetActive(false);
+        }
     }
 	
 	void Update () {
@@ -240,17 +263,17 @@ public class Main_Controller : MonoBehaviour
             Debug.Log("F Key pressed");
             if (isDefending)
             {
-                if (panel1.activeInHierarchy)
-                    panel1.SetActive(false);
+                if (panelD.activeInHierarchy)
+                    panelD.SetActive(false);
                 else
-                    panel1.SetActive(true);
+                    panelD.SetActive(true);
             }
             else
             {
-                if (panel2.activeInHierarchy)
-                    panel2.SetActive(false);
+                if (panelO.activeInHierarchy)
+                    panelO.SetActive(false);
                 else
-                    panel2.SetActive(true);
+                    panelO.SetActive(true);
             }
         }
     }
