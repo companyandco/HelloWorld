@@ -24,6 +24,7 @@
           <e p="ClickableEarth.cs" t="Include" />
           <e p="Continent.cs" t="Include" />
           <e p="CoordHelper.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="Highlight.cs" t="Include" />
           <e p="Main_Controller.cs" t="Include" />
           <e p="MainMenuLoadingScreen.cs" t="Include" />

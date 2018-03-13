@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Continent
+public class Continent : Region
 {
 
 	private string name;
