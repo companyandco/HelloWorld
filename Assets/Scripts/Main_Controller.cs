@@ -7,73 +7,69 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using JetBrains.Annotations;
 using NUnit.Framework.Constraints;
+using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Main_Controller : MonoBehaviour
 {
-	//////////////////////////////////////////
-	public class Country
+	public class Region
 	{
-		public string Name { get; set; }
-		public long Population { get; set; }
-		public double Density { get; set; }
-		public double Life_expectancy { get; set; }
-		public double GDP { get; set; }
-		//simon pls
-		public long humidity = 50;
-		public long temp = 14;
+		public string Name;
+		public long Population;
+		public double Density;
+		public double Life_expectancy;
+		public double GDP;
+		public int humidity;
+		public int temp;
 		
-		public long infected = 0;
+		public long infected = 0; 
 		public long dead = 0;
-		public long transmitionHuman = 0;
-		public long transmitionOther = 0;
+		public float transmitionHuman = 0;
+		public float transmitionOther = 0;
 		public bool isClosed = false;
 
 
 	}
-
-	public class Region : Country
-	{
-	}
 	
 	public class World : Region
 	{
+		public List<Region> regionlist;
 	}
-	
-	private List<Region> RegionList;
-    //////////////////////////////////////////
 
     //info sur l'UI
-    public static GameObject panel1;
-    public static GameObject panel2;
-    public static bool isDefending = true;
+    public GameObject panel1;
+    public GameObject panel2;
+    public bool isDefending = false;
 
     //info sur la partie
-    public static int time = 0;
-	public static long totalSane;
-	public static long totalInfected;
-	private int power;
+	public World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
+    public int time = 0;
+	public long totalSane;
+	public long totalInfected;
+	public long totalDead;
+	private int power = 10;
 
     //info sur le virus
-	private int transmitionHuman = 0;
-	private int transmitionOther = 0;
+	private float transmitionHuman = 0f;
+	private float transmitionOther = 0f;
 	private int virulence = 0;
 	private int lethality = 0;
-	private int tempRes;
-	private int HumidityRes;
-	private List<String> symptoms;
-	private List<String> transmitions;
+	private int tempRes = 10;
+	private int HumidityRes = 10;
+	private List<string> symptoms = new List<string>();
+	private List<string> transmitions  = new List<string>();
 	private int startHum;
 	private int startTemp;
 	
 	//info def
-	private List<String> gestion;
-	private List<String> research;
+	private List<string> gestion;
+	private List<string> research;
+	
 	
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["exemple"] retourne un string qui est sa description
-	
-	public readonly Dictionary<String, String> Description = new Dictionary<String, String>
+	public readonly Dictionary<string, string> Description = new Dictionary<string, string> ()
 	{
 		//Defense
 		//Gestion
@@ -99,7 +95,7 @@ public class Main_Controller : MonoBehaviour
 	//Competences :
 	//Defense
 	//Gestion
-	public void CloseBorder(Country country1)
+	public void CloseBorder(Region country1)
 	{
 		if (power - 10 >= 0)
 		{
@@ -110,37 +106,34 @@ public class Main_Controller : MonoBehaviour
 
 	}
 	//Recherche
-	public bool Localisation(Country country)
+	public void Localisation(Region country)
 	{
 		if (power - 5 >= 0)
 		{
 			research.Add("Localisation");
 			power -= 5;
-			return country.infected != 0;
+			Debug.Log(country.infected != 0);
 		}
-		return false;
 	}
 	
-	public String ResearchSymp()
+	public void ResearchSymp()
 	{
 		if (power - 5 >= 0)
 		{
 			research.Add("Recherche de Symptomes");
 			power -= 5;
-			return symptoms[new System.Random().Next(0,symptoms.Count)];
 		}
-		return "";
+		Debug.Log(new System.Random().Next(0,symptoms.Count));
 	}
 	
-	public String ResearchTrans()
+	public void ResearchTrans()
 	{
 		if (power - 5 >= 0)
 		{
 			research.Add("Recherche de Transmitions");
 			power -= 5;
-			return transmitions[new System.Random().Next(0,transmitions.Count)];
+			Debug.Log(new System.Random().Next(0,transmitions.Count));
 		}
-		return "";
 	}
 
 	//Attaque
@@ -183,7 +176,7 @@ public class Main_Controller : MonoBehaviour
 		{
             Debug.Log("b2.1 button pressed");
             symptoms.Add("Eternuements");
-			transmitionHuman += 10;
+			transmitionHuman += 0.1f;
 			virulence += 1;
 		}
 	}
@@ -194,7 +187,7 @@ public class Main_Controller : MonoBehaviour
 		{
             Debug.Log("b2.2 button pressed");
             symptoms.Add("Toux");
-			transmitionHuman += 5;
+			transmitionHuman += 0.05f;
 			virulence += 2;
 		}
 	}
@@ -205,6 +198,7 @@ public class Main_Controller : MonoBehaviour
             Debug.Log("b2.3 button pressed");
             symptoms.Add("Mal de Gorge");
 			virulence += 4;
+			//TODO envoyer string SoreThroat a l'autre joueur
 		}
 	}
 	
@@ -213,81 +207,18 @@ public class Main_Controller : MonoBehaviour
 	
 	void Start ()
 	{
-		//////////////////////////////////////////
-		World Earth = new World ();
-		Earth.Population = 7162119000;
-		Region Asia = new Region ();
-		Region Africa = new Region ();
-		Region Europe = new Region ();
-		Region North_America = new Region ();
-		Region South_America = new Region ();
-		Region Oceania = new Region ();
-		RegionList =new List<Region>();
-		RegionList.Add(Asia);
-		RegionList.Add(Africa);
-		RegionList.Add(Europe);
-		RegionList.Add(South_America);
-		RegionList.Add(North_America);
-		RegionList.Add (Oceania);
-		Asia.Name="Asia";
-		Asia.Population = 4436224000;
-		Asia.Density = 137;
-		Asia.Life_expectancy = 69;
-		Asia.GDP = 27224;
-
-		Africa.Name="Africa";
-		Africa.Population = 1216130000;
-		Africa.Density = 40.6;
-		Africa.Life_expectancy = 53;
-		Africa.GDP = 3215;
-
-		Europe.Name="Europe";
-		Europe.Population = 738849000;
-		Europe.Density = 32;
-		Europe.Life_expectancy = 74;
-		Europe.GDP = 19700;
-
-		North_America.Name="North_America";
-		North_America.Population = 579024000;
-		North_America.Density = 22.9;
-		North_America.Life_expectancy = 79;
-		North_America.GDP = 20160;
-
-		South_America.Name="South_America";
-		South_America.Population = 422535000;
-		South_America.Density = 22.8;
-		South_America.Life_expectancy = 73;
-		South_America.GDP = 3990;
-
-		Oceania.Name="Oceania";
-		Oceania.Population = 39901000;
-		Oceania.Density = 4.5;
-		Oceania.Life_expectancy = 75;
-		Oceania.GDP = 1625;
-		//////////////////////////////////////////
-		
-		
 		//TODO appel de l'UI demandant a l'utilisateur de selectionner une region
 		//temp solution
-		RegionList[0].infected = 1;
+		Earth.regionlist[0].infected = 1;
+		startHum = Earth.regionlist[0].humidity;
+		startTemp = Earth.regionlist[0].temp;
 		
+		//recup de toute la population mondiale saine
 		totalSane = 0;
-		foreach (var region in RegionList)
-		{
-			totalSane += region.Population;
-		}
+		
 		Debug.Log("Total population " + totalSane);
-		totalInfected = 1;
-		power = 10;
-		
-		//TODO recuperer la temperature moyenne  de la region et son humidite
-		
-		tempRes = 14;
-		HumidityRes = 50;
 
-		symptoms = new List<String>();
-		transmitions = new List<String>();
-
+		//Panels
 		if ( panel1 == null )
 		{
             panel1 = GameObject.Find ( "Panel_Defensive" );
@@ -300,7 +231,7 @@ public class Main_Controller : MonoBehaviour
 		}
 		
 		//TODO: Change this whether we're defending or not.
-        isDefending = true;
+        isDefending = false;
     }
 	
 	void Update () {
@@ -326,27 +257,53 @@ public class Main_Controller : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		foreach (var region in RegionList)
+		foreach (var region in Earth.regionlist)
 		{
+			totalSane += region.Population;
+			totalInfected += region.infected;
+			totalDead += region.dead;
+			
+			//check if climate is ok
 			if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
 			    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
 			{
+				//apply transmitions to region
 				region.transmitionOther = transmitionOther;
-				if (!region.isClosed)
-					region.transmitionHuman = transmitionHuman;
+				region.transmitionHuman = transmitionHuman;
+				
+				//if that region has 0 infected
+				if (region.infected == 0)
+				{
+					if (Random.Range(0f, 1f) < transmitionHuman)
+					{
+						region.infected = 1;
+						region.Population -= 1;
+					}
+					else if (region.isClosed && Random.Range(0f, 1f) < transmitionOther)
+					{
+						region.infected = 1;
+						region.Population -= 1;
+					}
+
+				}
 			}
 
-			region.infected = region.infected * (transmitionHuman + transmitionOther);
-			region.Population -= region.infected * (transmitionHuman + transmitionOther);
-			if (region.Population < 0)
+			if (region.Population != 0)
 			{
-				region.infected += region.Population;
-				region.Population = 0;
+				region.infected += region.infected * ((long)(transmitionHuman*10f) + (long)(transmitionOther*10f));
+				region.Population -= region.infected * ((long)(transmitionHuman*10f) + (long)(transmitionOther*10f));
+				
+				if (region.Population < 0)
+					region.Population = 0;
 			}
+			
 			region.dead = region.infected * lethality;
 			region.infected -= region.infected * lethality;
-			
 
+			Debug.Log(region.Population + " " + region.infected + " " + region.dead);
+
+			
+			
 		}
 		
 	}
