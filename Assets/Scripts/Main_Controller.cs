@@ -42,29 +42,29 @@ public class Main_Controller : MonoBehaviour
     public bool isDefending = true;
 
     //info sur la partie
-	public World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
+	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
     public int time = 0;
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	public int powerO = 10;
-	private int powerD = 10;
+	public static int powerO = 10;
+	private static int powerD = 10;
 
     //info sur le virus
-	private float transmitionHuman = 0f;
-	private float transmitionOther = 0f;
-	private float virulence = 0;
-	public float lethality = 0;
-	private int tempRes = 10;
-	private int HumidityRes = 10;
-	private List<string> symptoms = new List<string>();
-	private List<string> transmitions  = new List<string>();
+	private static float transmitionHuman = 0f;
+	private static float transmitionOther = 0f;
+	private static float virulence = 0;
+	public static float lethality = 0;
+	private static int tempRes = 10;
+	private static int HumidityRes = 10;
+	private static List<string> symptoms = new List<string>();
+	private static List<string> transmitions  = new List<string>();
 	private int startHum;
 	private int startTemp;
 	
 	//info def
-	private List<string> gestion;
-	private List<string> research;
+	private static List<string> gestion;
+	private static List<string> research;
 	
 	
 	//Dictionnaire contenant toutes les info sur chaque competences:
@@ -97,12 +97,12 @@ public class Main_Controller : MonoBehaviour
 	/////////////////////////////////////////////////////////
 	//Defense
 	//Gestion
-	private bool isBorderClosed = false;
-	public void CloseBorder(Region country1)
+	private static bool closeBorderUsed = false;
+	public static void CloseBorder(Region country1)
 	{
-		if (!isBorderClosed && powerD - 10 >= 0)
+		if (!closeBorderUsed && powerD - 10 >= 0)
 		{
-			isBorderClosed = true;
+			closeBorderUsed = true;
 			gestion.Add("Fermeture temporaire");
 			powerD -= 5;
 			country1.isClosed = true;
@@ -110,20 +110,25 @@ public class Main_Controller : MonoBehaviour
 
 	}
 	//Recherche
-	public void Localisation(Region country)
+	private static bool found = false;
+	public static void Localisation(Region country)
 	{
 		if (powerD - 2 >= 0)
 		{
 			research.Add("Localisation");
 			powerD += 10;
-			Debug.Log(country.infected != 0);
-			
+			if (country.infected != 0)
+			{
+				Debug.Log(true);
+				found = true;
+				//TODO NOTIFICATION
+			}
 		}
 	}
 	
-	public void ResearchSymp()
+	public static void ResearchSymp()
 	{
-		if (powerD - 2 >= 0)
+		if (found && powerD - 2 >= 0)
 		{
 			research.Add("Recherche de Symptomes");
 			powerD -= 2;
@@ -131,9 +136,9 @@ public class Main_Controller : MonoBehaviour
 		Debug.Log(new System.Random().Next(0,symptoms.Count));
 	}
 	
-	public void ResearchTrans()
+	public static void ResearchTrans()
 	{
-		if (powerD - 2 >= 0)
+		if (found && powerD - 2 >= 0)
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
@@ -143,8 +148,8 @@ public class Main_Controller : MonoBehaviour
 
 	//Attaque
 	//Transmition
-	private bool ResHumUsed = false;
-	public void ResHum()
+	private static bool ResHumUsed = false;
+	public static void ResHum()
 	{
 		if (!ResHumUsed && powerO - 5 >= 0)
 		{
@@ -156,8 +161,8 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 	
-	private bool ResTempUsed = false;
-	public void ResTemp()
+	private static bool ResTempUsed = false;
+	public static void ResTemp()
 	{
 		if (!ResTempUsed && powerO - 5 >= 0)
 		{
@@ -169,8 +174,8 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 	
-	private bool ResUsed = false;
-	public void Res()
+	private static bool ResUsed = false;
+	public static void Res()
 	{
 		if (!ResUsed && powerO - 5 >= 0)
 		{
@@ -184,8 +189,8 @@ public class Main_Controller : MonoBehaviour
 	}
 	
 	//Symptomes
-	private bool sneezingUsed = false;
-	public void Sneezing()
+	private static bool sneezingUsed = false;
+	public static void Sneezing()
 	{
 		if (!sneezingUsed && powerO - 5 >= 0)
 		{
@@ -198,8 +203,8 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 
-	private bool CoughUsed = false;
-	public void Cough()
+	private static bool CoughUsed = false;
+	public static void Cough()
 	{
 		if (!CoughUsed &&powerO - 5 >= 0)
 		{
@@ -212,8 +217,8 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 
-	private bool SoreThroatUsed = true;
-	public void SoreThroat()
+	private static bool SoreThroatUsed = true;
+	public static void SoreThroat()
 	{
 		if (!SoreThroatUsed && powerO - 5 >= 0)
 		{
@@ -226,8 +231,8 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 
-	private bool HeartFailureUsed = false;
-	public void HeartFailure()
+	private static bool HeartFailureUsed = false;
+	public static void HeartFailure()
 	{
 		if (!HeartFailureUsed && powerO - 20 >= 0)
 		{
