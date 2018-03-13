@@ -55,8 +55,8 @@ public class Main_Controller : MonoBehaviour
     //info sur le virus
 	private float transmitionHuman = 0f;
 	private float transmitionOther = 0f;
-	private int virulence = 0;
-	private int lethality = 0;
+	private float virulence = 0;
+	private float lethality = 0;
 	private int tempRes = 10;
 	private int HumidityRes = 10;
 	private List<string> symptoms = new List<string>();
@@ -278,14 +278,18 @@ public class Main_Controller : MonoBehaviour
         }
     }
 
+	private int i = 0;
 	private void FixedUpdate()
 	{
+		if (i != 25)
+			return;
+		
 		foreach (var region in Earth.regionlist)
 		{
 			totalSane += region.Population;
 			totalInfected += region.infected;
 			totalDead += region.dead;
-			
+
 			//check if climate is ok
 			if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
 			    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
@@ -293,7 +297,7 @@ public class Main_Controller : MonoBehaviour
 				//apply transmitions to region
 				region.transmitionOther = transmitionOther;
 				region.transmitionHuman = transmitionHuman;
-				
+
 				//if that region has 0 infected
 				if (region.infected == 0)
 				{
@@ -313,21 +317,19 @@ public class Main_Controller : MonoBehaviour
 
 			if (region.Population != 0)
 			{
-				region.infected += region.infected * ((long)(transmitionHuman*10f) + (long)(transmitionOther*10f));
-				region.Population -= region.infected * ((long)(transmitionHuman*10f) + (long)(transmitionOther*10f));
-				
+				region.infected += region.infected * ((long) (transmitionHuman * 0.01f) + (long) (transmitionOther * 0.01f));
+				region.Population -= region.infected * ((long) (transmitionHuman * 0.01f) + (long) (transmitionOther * 0.01f));
+
 				if (region.Population < 0)
 					region.Population = 0;
 			}
-			
-			region.dead = region.infected * lethality;
-			region.infected -= region.infected * lethality;
+
+			region.dead = region.infected * (long)lethality;
+			region.infected -= region.infected * (long)lethality;
 
 			Debug.Log(region.Population + " " + region.infected + " " + region.dead);
-
-			
-			
+			i = 0;
 		}
-		
+		i++;
 	}
 }
