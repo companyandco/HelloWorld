@@ -28,10 +28,13 @@ public class WorldLiveInfos : MonoBehaviour
 
 		string s = "";
 		s += "LastContinentClicked: " + this.GameManager.lastContinentClicked + "\n";
+		
+		/*
 		s += "CurrentWorldPopulation: " + (this.MainController.totalSane + this.MainController.totalInfected) + "\n";
 		s += "CurrentlyInfectedCount: " + this.MainController.totalInfected + "\n";
 		s += "CurrentDeadPeopleCount: " + this.MainController.totalDead + "\n";
-
+		*/
+		
 		this.Text.text = s;
 
 	}

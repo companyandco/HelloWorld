@@ -811,7 +811,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 874434421}
-        m_MethodName: SET_RESOLUTION
+        m_MethodName: SET_QUALITY
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2528,17 +2528,17 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: LOW
+    - m_Text: 640 x 480
       m_Image: {fileID: 0}
-    - m_Text: MEDIUM
+    - m_Text: 1280 x 720
       m_Image: {fileID: 0}
-    - m_Text: HIGH
+    - m_Text: 1920 x 1080
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 874434421}
-        m_MethodName: SET_QUALITY
+        m_MethodName: SET_RESOLUTION
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
