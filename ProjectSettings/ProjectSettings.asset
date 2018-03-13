@@ -638,9 +638,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: d155ba99-8fe1-4961-b81f-0381e83c9211
-  projectName: HelloWorld (1)
-  organizationId: creatorjsa
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
