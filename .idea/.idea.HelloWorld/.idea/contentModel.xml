@@ -24,6 +24,7 @@
           <e p="ClickableEarth.cs" t="Include" />
           <e p="Continent.cs" t="Include" />
           <e p="CoordHelper.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="Highlight.cs" t="Include" />
           <e p="Main_Controller.cs" t="Include" />
           <e p="MainMenuLoadingScreen.cs" t="Include" />
@@ -32,6 +33,7 @@
           <e p="SettingsController.cs" t="Include" />
           <e p="SphericalCoord.cs" t="Include" />
           <e p="WorldData.cs" t="Include" />
+          <e p="WorldLiveInfos.cs" t="Include" />
         </e>
       </e>
       <e p="HelloWorld.sln" t="IncludeFlat" />

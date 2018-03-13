@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 
 public class ClickableEarth : MonoBehaviour
 {
@@ -11,12 +13,20 @@ public class ClickableEarth : MonoBehaviour
 
 	private Dictionary <Vector4, Continent> MapColorToContinent;
 
+	public GameObject GameManagerObject;
+	private GameManager GameManager;
+
 	private void Awake ()
 	{
 		this.MapColorToContinent = new Dictionary <Vector4, Continent> ();
 		PopulateDictionnary ();
 		
 		this.Camera = Camera.main;
+
+		this.GameManager = this.GameManagerObject.GetComponent <GameManager> ();
+		
+		if (this.GameManager == null) 
+			Debug.LogError ( "ClickableEarth::Awake::Couldn't find component GameManager." );
 	}
 
 	void PopulateDictionnary ()
@@ -71,7 +81,7 @@ public class ClickableEarth : MonoBehaviour
 		}
 	}
 
-	public Continent ReadFromMap ( Vector2 uv )
+	public void ReadFromMap ( Vector2 uv )
 	{
 		Vector2 pixelToInspect = new Vector2 ( ( int ) ( uv.x * this.texture.width ), ( int ) ( this.texture.height - ( uv.y * this.texture.height ) ) );
 
@@ -79,11 +89,30 @@ public class ClickableEarth : MonoBehaviour
 
 		Debug.Log ( "Color clicked: " + c );
 
-		Continent continentClicked = MapColorToContinent [c];
+		Continent continentClicked;
+
+		try
+		{
+			continentClicked = MapColorToContinent [c];
+		} catch ( Exception e )
+		{
+			Debug.LogError ( "ReadFromMap::Couldn't read map at these coordinates. Returning null." );
+			
+			Console.WriteLine ( e );
+
+			this.GameManager.lastContinentClicked = null;
+			
+			return;
+		}
 
 		Debug.Log ( "Continent clicked: " + continentClicked.Name );
+		
+		this.GameManager.lastContinentClicked = continentClicked.Name;
 
-		return continentClicked;
+		this.GameManager.OnLastContinentClickedChange ();
+
+		//TODO: Check if the reference to the currently used GameManager is the right one (defense or attack)
+
 	}
 
 }
