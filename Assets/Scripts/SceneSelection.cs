@@ -12,6 +12,7 @@ public class SceneSelection : MonoBehaviour
 	public Scene SettingsScene;
 	public Scene AboutScene;
 	*/
+
 	
 	public void GO_ONLINE ()
 	{
@@ -32,10 +33,13 @@ public class SceneSelection : MonoBehaviour
 	}
 	*/
 
+	public GameObject MainMenuCanvas;
+	public GameObject SettingsCanvas;
+
 	public void GO_SETTINGS ()
 	{
-		Debug.Log ( "GO_SETTINGS" );
-		StartCoroutine ( LoadAsynchronously ( 3 ) );
+		this.MainMenuCanvas.SetActive ( false );
+		this.SettingsCanvas.SetActive ( true );
 	}
 
 	public void GO_ABOUT ()

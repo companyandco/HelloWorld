@@ -29,6 +29,7 @@
           <e p="MainMenuLoadingScreen.cs" t="Include" />
           <e p="PlayerNetworkController.cs" t="Include" />
           <e p="SceneSelection.cs" t="Include" />
+          <e p="SettingsController.cs" t="Include" />
           <e p="SphericalCoord.cs" t="Include" />
           <e p="WorldData.cs" t="Include" />
         </e>
