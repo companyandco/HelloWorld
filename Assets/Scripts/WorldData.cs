@@ -11,6 +11,8 @@ public class Country
 	public double Density { get; set; }
 	public double Life_expectancy { get; set; }
 	public double GDP { get; set; }
+	public double average_humidity { get; set; }
+        public double average_temp { get; set; }
 }
 
 public class Region : Country
@@ -30,6 +32,6 @@ public class WorldData : MonoBehaviour {
 		return JsonConvert.DeserializeObject<World>(File.ReadAllText(filePath));
 	}
 	void Start () {
-		World Earth = ReadFromJsonFile("test.json");
+		World Earth = ReadFromJsonFile("WorldInfos.json");
 	}
 }
