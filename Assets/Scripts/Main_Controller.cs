@@ -149,7 +149,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			transmitions.Add("Resistence a l'humidite");
+            Debug.Log("b1.1 button pressed");
+            transmitions.Add("Resistence a l'humidite");
 			HumidityRes += 10;
 		}
 	}
@@ -158,7 +159,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			transmitions.Add("Resistence a la temperature");
+            Debug.Log("b1.2 button pressed");
+            transmitions.Add("Resistence a la temperature");
 			tempRes += 10;
 		}
 	}
@@ -167,7 +169,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			transmitions.Add("Resistence au climat");
+            Debug.Log("b1.3 button pressed");
+            transmitions.Add("Resistence au climat");
 			HumidityRes += 5;
 			tempRes += 5;
 		}
@@ -178,7 +181,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			symptoms.Add("Eternuements");
+            Debug.Log("b2.1 button pressed");
+            symptoms.Add("Eternuements");
 			transmitionHuman += 10;
 			virulence += 1;
 		}
@@ -188,7 +192,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			symptoms.Add("Toux");
+            Debug.Log("b2.2 button pressed");
+            symptoms.Add("Toux");
 			transmitionHuman += 5;
 			virulence += 2;
 		}
@@ -197,7 +202,8 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (power - 5 >= 0)
 		{
-			symptoms.Add("Mal de Gorge");
+            Debug.Log("b2.3 button pressed");
+            symptoms.Add("Mal de Gorge");
 			virulence += 4;
 		}
 	}
@@ -282,17 +288,14 @@ public class Main_Controller : MonoBehaviour
 		symptoms = new List<String>();
 		transmitions = new List<String>();
 
-		if ( panel1 != null )
+		if ( panel1 == null )
 		{
-			//ui
-			panel1 = GameObject.Find ( "Panel_Defensive" );
+            panel1 = GameObject.Find ( "Panel_Defensive" );
 			panel1.SetActive ( false );
-
 		}
-
-		if ( panel2 != null )
-		{
-			panel2 = GameObject.Find ( "Panel_Offensive" );
+        if ( panel2 == null )
+        {
+            panel2 = GameObject.Find ( "Panel_Offensive" );
 			panel2.SetActive ( false );
 		}
 		
