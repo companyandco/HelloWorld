@@ -47,14 +47,14 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	private int powerO = 10;
+	public int powerO = 10;
 	private int powerD = 10;
 
     //info sur le virus
 	private float transmitionHuman = 0f;
 	private float transmitionOther = 0f;
 	private float virulence = 0;
-	private float lethality = 0;
+	public float lethality = 0;
 	private int tempRes = 10;
 	private int HumidityRes = 10;
 	private List<string> symptoms = new List<string>();
@@ -97,10 +97,12 @@ public class Main_Controller : MonoBehaviour
 	/////////////////////////////////////////////////////////
 	//Defense
 	//Gestion
+	private bool isBorderClosed = false;
 	public void CloseBorder(Region country1)
 	{
-		if (powerD - 10 >= 0)
+		if (!isBorderClosed && powerD - 10 >= 0)
 		{
+			isBorderClosed = true;
 			gestion.Add("Fermeture temporaire");
 			powerD -= 5;
 			country1.isClosed = true;
@@ -110,7 +112,7 @@ public class Main_Controller : MonoBehaviour
 	//Recherche
 	public void Localisation(Region country)
 	{
-		if (powerD - 5 >= 0)
+		if (powerD - 2 >= 0)
 		{
 			research.Add("Localisation");
 			powerD += 10;
@@ -121,30 +123,32 @@ public class Main_Controller : MonoBehaviour
 	
 	public void ResearchSymp()
 	{
-		if (powerD - 5 >= 0)
+		if (powerD - 2 >= 0)
 		{
 			research.Add("Recherche de Symptomes");
-			powerD -= 5;
+			powerD -= 2;
 		}
 		Debug.Log(new System.Random().Next(0,symptoms.Count));
 	}
 	
 	public void ResearchTrans()
 	{
-		if (powerD - 5 >= 0)
+		if (powerD - 2 >= 0)
 		{
 			research.Add("Recherche de Transmitions");
-			powerD -= 5;
+			powerD -= 2;
 			Debug.Log(new System.Random().Next(0,transmitions.Count));
 		}
 	}
 
 	//Attaque
 	//Transmition
+	private bool ResHumUsed = false;
 	public void ResHum()
 	{
-		if (powerO - 5 >= 0)
+		if (!ResHumUsed && powerO - 5 >= 0)
 		{
+			ResHumUsed = true;
 			powerO -= 5;
             Debug.Log("b1.1 button pressed");
             transmitions.Add("Resistence a l'humidite");
@@ -152,10 +156,12 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 	
+	private bool ResTempUsed = false;
 	public void ResTemp()
 	{
-		if (powerO - 5 >= 0)
+		if (!ResTempUsed && powerO - 5 >= 0)
 		{
+			ResTempUsed = true;
 			powerO -= 5;
             Debug.Log("b1.2 button pressed");
             transmitions.Add("Resistence a la temperature");
@@ -163,10 +169,12 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 	
+	private bool ResUsed = false;
 	public void Res()
 	{
-		if (powerO - 5 >= 0)
+		if (!ResUsed && powerO - 5 >= 0)
 		{
+			ResUsed = true;
 			powerO -= 5;
             Debug.Log("b1.3 button pressed");
             transmitions.Add("Resistence au climat");
@@ -176,10 +184,12 @@ public class Main_Controller : MonoBehaviour
 	}
 	
 	//Symptomes
+	private bool sneezingUsed = false;
 	public void Sneezing()
 	{
-		if (powerO - 5 >= 0)
+		if (!sneezingUsed && powerO - 5 >= 0)
 		{
+			sneezingUsed = true;
 			powerO -= 5;
             Debug.Log("b2.1 button pressed");
             symptoms.Add("Eternuements");
@@ -187,11 +197,13 @@ public class Main_Controller : MonoBehaviour
 			virulence += 1;
 		}
 	}
-	
+
+	private bool CoughUsed = false;
 	public void Cough()
 	{
-		if (powerO - 5 >= 0)
+		if (!CoughUsed &&powerO - 5 >= 0)
 		{
+			CoughUsed = true;
 			powerO -= 5;
             Debug.Log("b2.2 button pressed");
             symptoms.Add("Toux");
@@ -199,11 +211,13 @@ public class Main_Controller : MonoBehaviour
 			virulence += 2;
 		}
 	}
-	
+
+	private bool SoreThroatUsed = true;
 	public void SoreThroat()
 	{
-		if (powerO - 5 >= 0)
+		if (!SoreThroatUsed && powerO - 5 >= 0)
 		{
+			SoreThroatUsed = true;
 			powerO -= 5;
             Debug.Log("b2.3 button pressed");
             symptoms.Add("Mal de Gorge");
@@ -211,11 +225,13 @@ public class Main_Controller : MonoBehaviour
 			//TODO envoyer string SoreThroat a l'autre joueur
 		}
 	}
-	
+
+	private bool HeartFailureUsed = false;
 	public void HeartFailure()
 	{
-		if (powerO - 20 >= 0)
+		if (!HeartFailureUsed && powerO - 20 >= 0)
 		{
+			HeartFailureUsed = true;
 			powerO -= 20;
 			Debug.Log("b2.4 button pressed");
 			symptoms.Add("Mal de Gorge");
@@ -352,7 +368,7 @@ public class Main_Controller : MonoBehaviour
 
 				if (region.Population != 0)
 				{
-					long extraInfected = (long) ((transmitionHuman * 0.1f + transmitionOther * 0.1f) * (region.infected + 100));
+					long extraInfected = (long) ((transmitionHuman * 0.2f + transmitionOther * 0.1f) * (region.infected + 100));
 					region.infected += extraInfected;
 					region.Population -= extraInfected;
 
@@ -360,31 +376,32 @@ public class Main_Controller : MonoBehaviour
 						region.Population = 0;
 				}
 
-				region.dead = region.infected * (long) lethality;
-				region.infected -= region.infected * (long) lethality;
+				long extraDead = (long) (region.infected * lethality);
+				region.dead += extraDead;
+				region.infected -= extraDead;
 
 				//generation de powerO pour le joueur offensif
-				if (region.infected != 0)
+				if (region.infected > 200)
 				{
-					if (region.infected < 1000 && region.infected % 200 == 0)
+					if (region.infected < 1000 && region.infected % 200 < 3)
 						powerO++;
-					else if (region.infected < 10000 && region.infected % 2000 == 0)
+					else if (region.infected < 10000 && region.infected % 2000 < 5)
 						powerO += 2;
-					else if (region.infected < 100000 && region.infected % 20000 == 0)
+					else if (region.infected < 100000 && region.infected % 20000 < 10)
 						powerO += 3;
-					else if (region.infected < 1000000 && region.infected % 200000 == 0)
+					else if (region.infected < 1000000 && region.infected % 200000 < 50)
 						powerO += 4;
 				}
 
 				//generation passive pour le joueur defensif
 				if (i == 50)
 				{
-					i = 1;
 					powerD++;
+					time++;
+					i = 1;
 				}
-					
+					Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 			}
-			Debug.Log(powerO);
 		}
 		i++;
 	}
