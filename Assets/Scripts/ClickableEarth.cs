@@ -97,6 +97,8 @@ public class ClickableEarth : MonoBehaviour
 		} catch ( Exception e )
 		{
 			Debug.LogError ( "ReadFromMap::Couldn't read map at these coordinates. Returning null." );
+			
+			Console.WriteLine ( e );
 
 			this.GameManager.lastContinentClicked = null;
 			

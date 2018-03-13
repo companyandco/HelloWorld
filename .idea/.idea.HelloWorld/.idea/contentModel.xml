@@ -33,6 +33,7 @@
           <e p="SettingsController.cs" t="Include" />
           <e p="SphericalCoord.cs" t="Include" />
           <e p="WorldData.cs" t="Include" />
+          <e p="WorldLiveInfos.cs" t="Include" />
         </e>
       </e>
       <e p="HelloWorld.sln" t="IncludeFlat" />
