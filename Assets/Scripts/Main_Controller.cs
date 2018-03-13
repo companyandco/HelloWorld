@@ -38,11 +38,11 @@ public class Main_Controller : MonoBehaviour
 	}
 
     //info sur l'UI
-    public static GameObject panelD;
-    public static GameObject panelO;
-    public static GameObject cameraD;
-    public static GameObject cameraO;
-    public static bool isDefending = true;
+    public GameObject panelD;
+    public GameObject panelO;
+    public GameObject cameraD;
+    public GameObject cameraO;
+    public bool isDefending = true;
 
     //info sur la partie
 	public World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
