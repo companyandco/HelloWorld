@@ -282,12 +282,21 @@ public class Main_Controller : MonoBehaviour
 		symptoms = new List<String>();
 		transmitions = new List<String>();
 
-        //ui
-        panel1 = GameObject.Find("Panel_Defensive");
-        panel1.SetActive(false);
-        panel2 = GameObject.Find("Panel_Offensive");
-        panel2.SetActive(false);
-        //a changer pour savoir si l'user attaque ou defend
+		if ( panel1 != null )
+		{
+			//ui
+			panel1 = GameObject.Find ( "Panel_Defensive" );
+			panel1.SetActive ( false );
+
+		}
+
+		if ( panel2 != null )
+		{
+			panel2 = GameObject.Find ( "Panel_Offensive" );
+			panel2.SetActive ( false );
+		}
+		
+		//TODO: Change this whether we're defending or not.
         isDefending = true;
     }
 	
