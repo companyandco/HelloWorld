@@ -12,20 +12,33 @@ public class AI : MonoBehaviour
 	}
 
 	
-	private int i = 1;
+	private int i = 0;
 
 	private void FixedUpdate()
 	{
-		if (i == 25)
+		if (i == 150)
 		{
-			
 			if (!Main_Controller_def.found)
-			Main_Controller_def.Localisation(
-				Main_Controller.Earth.regionlist[Random.Range(0, Main_Controller.Earth.regionlist.Count)]);
-			i = 1;
-			
+				Main_Controller_def.Localisation(
+					Main_Controller.Earth.regionlist[Random.Range(0, Main_Controller.Earth.regionlist.Count)]);
+			else
+			{
+				if (!Main_Controller_def.foundSymp){
+					Main_Controller_def.ResearchSymp();
+				}
+				else
+				{
+					if (!Main_Controller_def.foundTrans)
+						Main_Controller_def.ResearchTrans();
+					else
+						Main_Controller_def.ResearchAntidote();
+				}
+				
+				
+			}			
 			
 
+			i = 0;
 		}
 		else
 			i++;

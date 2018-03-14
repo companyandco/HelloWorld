@@ -27,7 +27,7 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	public void CloseBorderButton()
 	{
-		CloseBorder(Main_Controller.GetRegionFromName(GameManager.lastContinentClicked));
+		CloseBorder(Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked));
 	}
 	//Recherche
 	public static bool found = false;
@@ -45,35 +45,56 @@ public class Main_Controller_def : MonoBehaviour {
 			}
 		}
 	}
-	public void LocalisationButton(Main_Controller.Region country)
+	public void LocalisationButton()
 	{
-		Localisation(country);
+		Localisation(Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked));
 	}
-	
+
+	public static bool foundSymp = false;
 	public static void ResearchSymp()
 	{
-		if (found && powerD - 2 >= 0)
+		if (found && powerD - 2 >= 0 && Main_Controller.symptoms.Count != 0)
 		{
 			research.Add("Recherche de Symptomes");
 			powerD -= 2;
+			foundSymp = true;
+			Debug.Log(new System.Random().Next(0,Main_Controller.symptoms.Count));
 		}
-		Debug.Log(new System.Random().Next(0,Main_Controller.symptoms.Count));
 	}
 	public void ResearchSympButton()
 	{
 		ResearchSymp();
 	}
 	
+	public static bool foundTrans = false;
 	public static void ResearchTrans()
 	{
-		if (found && powerD - 2 >= 0)
+		if (found && powerD - 2 >= 0 && Main_Controller.transmitions.Count != 0)
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
+			foundTrans = true;
 			Debug.Log(new System.Random().Next(0,Main_Controller.transmitions.Count));
+				
 		}
 	}
 	public void ResearchTransButton()
+	{
+		ResearchTrans();
+	}
+	
+	public static bool vaccineFound = false;
+	public static void ResearchAntidote()
+	{
+		if (found && foundTrans && foundSymp && powerD - 5 >= 0)
+		{
+			research.Add("Recherche de Transmitions");
+			powerD -= 5;
+			Debug.Log(new System.Random().Next(0,Main_Controller.transmitions.Count));
+			vaccineFound = true;
+		}
+	}
+	public void ResearchAntidoteButton()
 	{
 		ResearchTrans();
 	}

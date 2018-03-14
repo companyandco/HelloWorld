@@ -39,7 +39,7 @@ public class Main_Controller : MonoBehaviour
     public GameObject panelO;
     public GameObject cameraD;
     public GameObject cameraO;
-    public bool isDefending = true;
+    public bool isDefending;
 
     //info sur la partie
 	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
@@ -131,7 +131,7 @@ public class Main_Controller : MonoBehaviour
         }
         //TODO: Change this whether we're defending or not.
 		//TODO: Set the currently used camera to be the MainCamera (with the maincamera tag) so that ClickableEarth doesn't go crazy af.
-        isDefending = false;
+        isDefending = true;
 
         if (isDefending)
         {
@@ -205,11 +205,13 @@ public class Main_Controller : MonoBehaviour
 					{
 						if (Random.Range(0.1f, 1f) < transmitionOther)
 						{
+							Debug.Log(transmitionOther);
 							region.infected = 1;
 							region.Population -= 1;
 						}
 						else if (!region.isClosed && Random.Range(0.1f, 1f) < transmitionHuman)
 						{
+							Debug.Log(transmitionHuman);
 							region.infected = 1;
 							region.Population -= 1;
 						}
@@ -217,7 +219,8 @@ public class Main_Controller : MonoBehaviour
 					}
 				}
 
-				if (region.Population != 0)
+				//update infected
+				if (region.Population != 0 && region.infected != 0)
 				{
 					long extraInfected = (long) ((transmitionHuman * 0.2f + transmitionOther * 0.1f) * (region.infected + 100));
 					region.infected += extraInfected;
@@ -226,13 +229,21 @@ public class Main_Controller : MonoBehaviour
 					if (region.Population < 0)
 						region.Population = 0;
 				}
-
+				
+				//update dead
 				long extraDead = (long) (region.infected * lethality);
 				region.dead += extraDead;
 				region.infected -= extraDead;
 				
+				//update vaccined
+				if (Main_Controller_def.vaccineFound)
+				{
+					long extraSane = (long) (region.infected * 0.1);
+					region.Population += extraSane;
+					region.infected -= extraSane;
+				}
 
-				//generation de powerO pour le joueur offensif
+				//PowerO generation
 				if (region.infected > 200)
 				{
 					if (region.infected < 1000 && region.infected % 100 < 4)
@@ -245,7 +256,7 @@ public class Main_Controller : MonoBehaviour
 						Main_Controller_off.powerO += 4;
 				}
 
-				//generation passive pour le joueur defensif
+				//PowerD generation
 				if (i == 50)
 				{
 					Main_Controller_def.powerD++;
@@ -257,6 +268,15 @@ public class Main_Controller : MonoBehaviour
 			}
 		}
 		i++;
+	}
+
+	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	{
+		
+	}
+	public void OnRpcOnSpellUsedCallback(string msg)
+	{
+		
 	}
 
 }
