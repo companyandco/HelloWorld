@@ -7,8 +7,6 @@ public class CameraMovement : MonoBehaviour
 {
 	private bool isAlreadyClicking = false;
 
-	public Transform target;
-
 	private float distance = 10f;
 
 	[Range ( 0f, 250f )] public float xSpeed = 50f;
@@ -58,35 +56,32 @@ public class CameraMovement : MonoBehaviour
 		{
 			return;
 		}
+		
+		this.x += Input.GetAxis ( "Mouse X" ) * this.xSpeed * this.distance * 0.02f;
+		this.y -= Input.GetAxis ( "Mouse Y" ) * this.ySpeed * 0.02f;
 
-		if ( this.target )
+		this.y = ClampAngle ( this.y, this.minAngle, this.maxAngle );
+			
+		Quaternion rotation = Quaternion.Euler ( this.y, this.x, 0f );
+
+		this.distance = Mathf.Clamp ( 
+			this.distance - Input.GetAxis ( "Mouse ScrollWheel" ) * 2f, 
+			this.minDist, 
+			this.maxDist 
+		);
+
+		RaycastHit hit;
+			
+		if ( Physics.Linecast ( Vector3.zero, this.transform.position, out hit ) )
 		{
-			this.x += Input.GetAxis ( "Mouse X" ) * this.xSpeed * this.distance * 0.02f;
-			this.y -= Input.GetAxis ( "Mouse Y" ) * this.ySpeed * 0.02f;
-
-			this.y = ClampAngle ( this.y, this.minAngle, this.maxAngle );
-			
-			Quaternion rotation = Quaternion.Euler ( this.y, this.x, 0f );
-
-			this.distance = Mathf.Clamp ( 
-				this.distance - Input.GetAxis ( "Mouse ScrollWheel" ) * 2f, 
-				this.minDist, 
-				this.maxDist 
-			);
-
-			RaycastHit hit;
-			
-			if ( Physics.Linecast ( this.target.position, this.transform.position, out hit ) )
-			{
-				this.distance -= hit.distance;
-			}
-			
-			Vector3 negDistance = new Vector3 ( 0.0f, 0.0f, -this.distance );
-			Vector3 position = rotation * negDistance + this.target.position;
-
-			this.transform.rotation = rotation;
-			this.transform.position = position;
+			this.distance -= hit.distance;
 		}
+			
+		Vector3 negDistance = new Vector3 ( 0.0f, 0.0f, -this.distance );
+		Vector3 position = rotation * negDistance;
+
+		this.transform.rotation = rotation;
+		this.transform.position = position;
 	}
 
 	public static float ClampAngle ( float angle, float min, float max )

@@ -12,17 +12,11 @@ public class ClickableEarth : MonoBehaviour
 	private Dictionary <Vector4, Continent> MapColorToContinent;
 
 	public GameObject GameManagerObject;
-	private GameManager GameManager;
 
-	private void Awake ()
+	void Start ()
 	{
 		this.MapColorToContinent = new Dictionary <Vector4, Continent> ();
 		PopulateDictionnary ();
-
-		this.GameManager = this.GameManagerObject.GetComponent <GameManager> ();
-		
-		if (this.GameManager == null) 
-			Debug.LogError ( "ClickableEarth::Awake::Couldn't find component GameManager." );
 	}
 
 	void PopulateDictionnary ()
@@ -92,20 +86,20 @@ public class ClickableEarth : MonoBehaviour
 			continentClicked = MapColorToContinent [c];
 		} catch ( Exception e )
 		{
-			Debug.LogError ( "ReadFromMap::Couldn't read map at these coordinates. Returning null." );
+			Debug.Log ( "ReadFromMap::Couldn't read map at these coordinates. Returning Oceans." );
 			
 			Console.WriteLine ( e );
 
-			this.GameManager.lastContinentClicked = null;
+			PlayerGameManager.lastContinentClicked = "Oceans";
 			
 			return;
 		}
 
 		Debug.Log ( "Continent clicked: " + continentClicked.Name );
 		
-		this.GameManager.lastContinentClicked = continentClicked.Name;
+		PlayerGameManager.lastContinentClicked = continentClicked.Name;
 
-		this.GameManager.OnLastContinentClickedChange ();
+		PlayerGameManager.OnLastContinentClickedChange ();
 
 		//TODO: Check if the reference to the currently used GameManager is the right one (defense or attack)
 

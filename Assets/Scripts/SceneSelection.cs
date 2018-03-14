@@ -17,13 +17,13 @@ public class SceneSelection : MonoBehaviour
 	public void GO_ONLINE ()
 	{
 		Debug.Log ( "GO_ONLINE" );
-		StartCoroutine ( LoadAsynchronously ( 2 ) );
+		StartCoroutine ( LoadAsynchronously ( 1 ) );
 	}
 
 	public void GO_OFFLINE_NEW_GAME ()
 	{		
 		Debug.Log ( "GO_OFFLINE_NEW_GAME" );
-		StartCoroutine ( LoadAsynchronously ( 1 ) );
+		//StartCoroutine ( LoadAsynchronously ( 1 ) );
 	}
 	
 	/*
@@ -45,7 +45,7 @@ public class SceneSelection : MonoBehaviour
 	public void GO_ABOUT ()
 	{
 		Debug.Log ( "GO_ABOUT" );
-		StartCoroutine ( LoadAsynchronously ( 4 ) );
+		//StartCoroutine ( LoadAsynchronously ( 4 ) );
 	}
 	
 	public GameObject loadingScreen;
