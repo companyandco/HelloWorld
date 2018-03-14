@@ -1,8 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Main_Controller_def : MonoBehaviour {
+
+	public static Main_Controller_def Instance; //for notification,see https://answers.unity.com/questions/753488/error-an-object-reference-is-required-to-access-no-2.html
+	void Awake(){
+		Instance = this;
+		GameObject notif=GameObject.Find("Notifications");
+	}
 
 	//variables
 	public static int powerD = 10;
@@ -13,6 +20,7 @@ public class Main_Controller_def : MonoBehaviour {
 	
 	//Defense
 	//Gestion
+	public GameObject notif;
 	private static bool closeBorderUsed = false;
 	public static void CloseBorder(Main_Controller.Region country)
 	{
@@ -31,17 +39,22 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	//Recherche
 	public static bool found = false;
+
 	public static void Localisation(Main_Controller.Region country)
 	{
 		if (powerD - 2 >= 0)
 		{
 			research.Add("Localisation");
 			powerD += 10;
-			if (country.infected != 0)
-			{
-				Debug.Log(true);
+			if (country.infected != 0) {
+				Debug.Log (true);
 				found = true;
-				//TODO NOTIFICATION
+				//NOTIFICATION
+				Main_Controller_def.Instance.notif.GetComponent<Canvas> ().enabled = true;
+				Main_Controller_def.Instance.notif.GetComponent<Text> ().text = "infected found in " + country.Name;
+			} else {
+				Main_Controller_def.Instance.notif.GetComponent<Canvas> ().enabled = true;
+				Main_Controller_def.Instance.notif.GetComponent<Text> ().text = "no infected found in " + country.Name;
 			}
 		}
 	}
@@ -98,4 +111,5 @@ public class Main_Controller_def : MonoBehaviour {
 	{
 		ResearchTrans();
 	}
+		
 }
