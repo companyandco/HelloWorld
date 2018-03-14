@@ -266,6 +266,17 @@ public class Main_Controller : MonoBehaviour
 					Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 					Debug.Log(Main_Controller_off.powerO);
 			}
+			
+			//check if game is over 
+			if (totalInfected == 0 && totalDead == 0)
+			{
+				//TODO Def win
+			}
+
+			if (totalInfected == 0 && totalSane == 0)
+			{
+				//TODO Att win
+			}
 		}
 		i++;
 	}

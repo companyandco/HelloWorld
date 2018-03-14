@@ -23,12 +23,12 @@ public class AI : MonoBehaviour
 					Main_Controller.Earth.regionlist[Random.Range(0, Main_Controller.Earth.regionlist.Count)]);
 			else
 			{
-				if (!Main_Controller_def.foundSymp){
+				if (Main_Controller_def.foundSymptoms.Count != Main_Controller.symptoms.Count){
 					Main_Controller_def.ResearchSymp();
 				}
 				else
 				{
-					if (!Main_Controller_def.foundTrans)
+					if (Main_Controller_def.foundTransmitions.Count != Main_Controller.transmitions.Count)
 						Main_Controller_def.ResearchTrans();
 					else
 						Main_Controller_def.ResearchAntidote();

@@ -17,6 +17,8 @@ public class Main_Controller_def : MonoBehaviour {
 	//info def
 	private static List<string> gestion;
 	private static List<string> research;
+	public static List<string> foundSymptoms = new List<string>();
+	public static List<string> foundTransmitions  = new List<string>();
 	
 	//Defense
 	//Gestion
@@ -63,15 +65,17 @@ public class Main_Controller_def : MonoBehaviour {
 		Localisation(Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked));
 	}
 
-	public static bool foundSymp = false;
+	
 	public static void ResearchSymp()
 	{
 		if (found && powerD - 2 >= 0 && Main_Controller.symptoms.Count != 0)
 		{
 			research.Add("Recherche de Symptomes");
+			
 			powerD -= 2;
-			foundSymp = true;
-			Debug.Log(new System.Random().Next(0,Main_Controller.symptoms.Count));
+			string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
+			if (!foundSymptoms.Contains(foundSymp))
+			foundSymptoms.Add(foundSymp);
 		}
 	}
 	public void ResearchSympButton()
@@ -86,8 +90,9 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
-			foundTrans = true;
-			Debug.Log(new System.Random().Next(0,Main_Controller.transmitions.Count));
+			string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
+			if (!foundSymptoms.Contains(foundTrans))
+				foundSymptoms.Add(foundTrans);
 				
 		}
 	}
@@ -99,7 +104,9 @@ public class Main_Controller_def : MonoBehaviour {
 	public static bool vaccineFound = false;
 	public static void ResearchAntidote()
 	{
-		if (found && foundTrans && foundSymp && powerD - 5 >= 0)
+		if (powerD - 5 >= 0 && 
+		    foundTransmitions.Count == Main_Controller.transmitions.Count && 
+		    foundSymptoms.Count == Main_Controller.symptoms.Count)
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 5;
