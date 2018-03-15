@@ -101,8 +101,6 @@ public class ClickableEarth : MonoBehaviour
 
 		PlayerGameManager.OnLastContinentClickedChange ();
 
-		//TODO: Check if the reference to the currently used GameManager is the right one (defense or attack)
-
 	}
 
 }

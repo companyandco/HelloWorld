@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
@@ -30,12 +31,12 @@ public class PlayerScript : MonoBehaviour {
 	{
 		Debug.Log ( "Going to sleep." );
 
-		StartThisThing ();
+		StartCoroutine ( StartThisThing () );
 	}
 	
-	void StartThisThing()
+	IEnumerator StartThisThing()
 	{
-		Thread.Sleep ( 6000 );
+		yield return new WaitForSeconds ( 6 );
 
 		teamId = PhotonNetwork.countOfPlayers;
 		
