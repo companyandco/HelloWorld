@@ -37,8 +37,7 @@ public class Main_Controller : MonoBehaviour
     //info sur l'UI
     public GameObject panelD;
     public GameObject panelO;
-    public GameObject cameraD;
-    public GameObject cameraO;
+    public GameObject camera;
     public bool isDefending;
 
     //info sur la partie
@@ -119,30 +118,14 @@ public class Main_Controller : MonoBehaviour
             panelO.SetActive(false);
         }
 
-        if (cameraO == null)
+        if (camera == null)
         {
-            cameraO = GameObject.Find("CameraOffensive");
-            cameraO.SetActive(true);
-        }
-        if (cameraD == null)
-        {
-            cameraD = GameObject.Find("CameraDefensive");
-            cameraD.SetActive(true);
+            camera = GameObject.Find("main");
+            camera.SetActive(true);
         }
         //TODO: Change this whether we're defending or not.
 		//TODO: Set the currently used camera to be the MainCamera (with the maincamera tag) so that ClickableEarth doesn't go crazy af.
-        isDefending = true;
-
-        if (isDefending)
-        {
-            cameraO.SetActive(false);
-            cameraD.SetActive(true);
-        }
-        else
-        {
-            cameraO.SetActive(true);
-            cameraD.SetActive(false);
-        }
+        isDefending = false;
     }
 	
 	
