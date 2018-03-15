@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
+	public static bool isSP = false;
 
 	// Use this for initialization
 	void Start()
 	{
-
+		isSP = true;
 	}
 
 	
@@ -16,7 +17,7 @@ public class AI : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (i == 150)
+		if (i == 300)
 		{
 			if (!Main_Controller_def.found)
 				Main_Controller_def.Localisation(
@@ -33,11 +34,7 @@ public class AI : MonoBehaviour
 					else
 						Main_Controller_def.ResearchAntidote();
 				}
-				
-				
 			}			
-			
-
 			i = 0;
 		}
 		else

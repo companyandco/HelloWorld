@@ -193,15 +193,13 @@ public class Main_Controller : MonoBehaviour
 					//if that region has 0 infected
 					if (region.infected == 0)
 					{
-						if (Random.Range(0.1f, 1f) < transmitionOther)
+						if (Random.Range(0.1f, 10f) < transmitionOther)
 						{
-							Debug.Log(transmitionOther);
 							region.infected = 1;
 							region.Population -= 1;
 						}
-						else if (!region.isClosed && Random.Range(0.1f, 1f) < transmitionHuman)
+						else if (!region.isClosed && Random.Range(0.04f, 15f) < transmitionHuman)
 						{
-							Debug.Log(transmitionHuman);
 							region.infected = 1;
 							region.Population -= 1;
 						}
@@ -221,16 +219,23 @@ public class Main_Controller : MonoBehaviour
 				}
 				
 				//update dead
-				long extraDead = (long) (region.infected * lethality);
-				region.dead += extraDead;
-				region.infected -= extraDead;
-				
-				//update vaccined
-				if (Main_Controller_def.vaccineFound)
+				if (lethality != 0 && region.infected != 0)
 				{
-					long extraSane = (long) (region.infected * 0.1);
+					long extraDead = (long) (region.infected * lethality) + 7;
+					region.dead += extraDead;
+					region.infected -= extraDead;
+					if (region.infected < 0)
+						region.infected = 0;
+				}
+
+				//update vaccined
+				if (Main_Controller_def.vaccineFound && region.infected != 0)
+				{
+					long extraSane = (long) (region.infected * 0.1) + 7;
 					region.Population += extraSane;
 					region.infected -= extraSane;
+					if (region.infected < 0)
+						region.infected = 0;
 				}
 
 				//PowerO generation
@@ -254,8 +259,9 @@ public class Main_Controller : MonoBehaviour
 					i = 1;
 				}
 					Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
-					Debug.Log(Main_Controller_off.powerO);
+					
 			}
+			Debug.Log(Main_Controller_off.powerO);
 			
 			//check if game is over 
 			if (totalInfected == 0 && totalDead == 0)

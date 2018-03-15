@@ -17,8 +17,8 @@ public class Main_Controller_def : MonoBehaviour {
 	public static int powerD = 10;
 	
 	//info def
-	private static List<string> gestion;
-	private static List<string> research;
+	private static List<string> gestion = new List<string>();
+	private static List<string> research = new List<string>();
 	public static List<string> foundSymptoms = new List<string>();
 	public static List<string> foundTransmitions  = new List<string>();
 	
@@ -56,7 +56,6 @@ public class Main_Controller_def : MonoBehaviour {
 	
 	//Recherche
 	public static bool found = false;
-
 	public static bool Localisation(Main_Controller.Region country)
 	{
 		if ( powerD - 2 >= 0 )
@@ -68,13 +67,21 @@ public class Main_Controller_def : MonoBehaviour {
 				Debug.Log ( true );
 				found = true;
 				//NOTIFICATION
-				Main_Controller_def.Instance.notif.GetComponent <Canvas> ().enabled = true;
-				Main_Controller_def.Instance.notif.GetComponent <Text> ().text = "infected found in " + country.Name;
+				if (!AI.isSP)
+				{
+					Main_Controller_def.Instance.notif.GetComponent<Canvas>().enabled = true;
+					Main_Controller_def.Instance.notif.GetComponent<Text>().text = "infected found in " + country.Name;
+				}
+
 				return true;
 			} else
 			{
-				Main_Controller_def.Instance.notif.GetComponent<Canvas> ().enabled = true;
-				Main_Controller_def.Instance.notif.GetComponent<Text> ().text = "no infected found in " + country.Name;
+				if (!AI.isSP)
+				{
+					Main_Controller_def.Instance.notif.GetComponent<Canvas>().enabled = true;
+					Main_Controller_def.Instance.notif.GetComponent<Text>().text = "no infected found in " + country.Name;
+				}
+
 				return false;
 			}
 		}
