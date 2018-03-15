@@ -152,7 +152,7 @@ public class Main_Controller_off : MonoBehaviour {
 			HeartFailureUsed = true;
 			powerO -= 20;
 			Debug.Log("b2.4 button pressed");
-			Main_Controller.symptoms.Add("Mal de Gorge");
+			Main_Controller.symptoms.Add("Crise cardiaque");
 			Main_Controller.virulence += 4;
 			Main_Controller.lethality += 0.02f;
 			return true;
@@ -163,6 +163,73 @@ public class Main_Controller_off : MonoBehaviour {
 	public void HeartFailureButton()
 	{
 		if (HeartFailure())
+			;
+	}
+	
+	private static bool diarrheaUsed = false;
+	public static bool Diarrhea()
+	{
+		if (!diarrheaUsed && powerO - 10 >= 0)
+		{
+			diarrheaUsed = true;
+			powerO -= 10;
+			Debug.Log("b2.5 button pressed");
+			Main_Controller.symptoms.Add("Diarrhee");
+			Main_Controller.transmitionHuman += 0.05f;
+			Main_Controller.virulence += 2;
+			Main_Controller.lethality += 0.01f;
+			return true;
+		}
+
+		return false;
+	}
+	public void DiarrheaButton()
+	{
+		if (Diarrhea())
+			;
+	}
+	private static bool feverUsed = false;
+	public static bool Fever()
+	{
+		if (!feverUsed && powerO - 5 >= 0)
+		{
+			feverUsed = true;
+			powerO -= 5;
+			Debug.Log("b2.6 button pressed");
+			Main_Controller.symptoms.Add("Fievre");
+			Main_Controller.virulence += 3;
+			Main_Controller.lethality += 0.01f;
+			return true;
+		}
+
+		return false;
+	}
+	public void FeverButton()
+	{
+		if (Fever())
+			;
+	}
+
+	private static bool nauseaUsed = false;
+	public static bool Nausea()
+	{
+		if (!nauseaUsed && powerO - 5 >= 0)
+		{
+			nauseaUsed = true;
+			powerO -= 5;
+			Debug.Log("b2.7 button pressed");
+			Main_Controller.symptoms.Add("Nausee");
+			Main_Controller.transmitionHuman += 0.2f;
+			Main_Controller.virulence += 1;
+			Main_Controller.lethality += 0.005f;
+			return true;
+		}
+
+		return false;
+	}
+	public void NauseaButton()
+	{
+		if (Nausea())
 			;
 	}
 }
