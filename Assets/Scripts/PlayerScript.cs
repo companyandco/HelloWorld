@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
@@ -12,11 +11,13 @@ public class PlayerScript : MonoBehaviour {
 
 	public GameObject MainControllerPrefab;
 
-	private Main_Controller MainControllerSelf, MainControllerOther;
+	public GameObject WorldLiveInfosPrefab;
+
+	private Main_Controller MainController;
 	
-	private PhotonView PhotonView;
-	
-	private int teamId;
+	private PhotonView photonView;
+
+	private int teamId = -1;
 
 	public int SetTeamId
 	{
@@ -27,47 +28,63 @@ public class PlayerScript : MonoBehaviour {
 	
 	void Start ()
 	{
-		
 		Debug.Log ( "Going to sleep." );
-		
+
+		StartThisThing ();
+	}
+	
+	void StartThisThing()
+	{
 		Thread.Sleep ( 6000 );
-		
-		Debug.Log ( PhotonNetwork.countOfPlayersInRooms );
+
+		teamId = PhotonNetwork.countOfPlayers;
 		
 		//TODO: differentiate both prefabs.
-		//TODO: Instatiate pannels and camera for this Main_Controller. (LOCAL)
-		MainControllerSelf = Instantiate ( this.MainControllerPrefab ).GetComponent<Main_Controller> ();
-		
-		MainControllerOther = Instantiate ( this.MainControllerPrefab ).GetComponent<Main_Controller> ();
-		
-		this.MainControllerSelf.isDefending = this.teamId % 2 != 0;
+		//TODO/FIXME: Instatiate pannels and camera for this Main_Controller does it twice... (LOCAL)
+		MainController = Instantiate ( this.MainControllerPrefab ).GetComponent <Main_Controller> ();
 
-		this.MainControllerOther.isDefending = !this.MainControllerSelf.isDefending;
-		
-		this.PhotonView = GetComponent <PhotonView> ();
-		
+		this.MainController.player = this;
+
+		this.MainController.name = "Main_Controller_Self";
+
+		this.MainController.isDefending = this.teamId % 2 != 0;
+
+		this.photonView = GetComponent <PhotonView> ();
+
+		GameObject worldLiveInfoInstance = Instantiate ( WorldLiveInfosPrefab, Vector3.zero, Quaternion.identity );
+
+		worldLiveInfoInstance.GetComponentInChildren <WorldLiveInfos> ().MainControllerObject = MainController.transform.gameObject;
 	}
 
+	public string spellIUsed = "";
+
+	public Main_Controller.Region myCountry;
+	
 	public void OnSpellUsed (string spellUsed)
 	{
-		this.PhotonView.RPC ( "SendString", PhotonTargets.Others, spellUsed );
+		this.spellIUsed = spellUsed;
+		
+		this.photonView.RPC ( "SendString", PhotonTargets.Others, spellIUsed );
 	}
 
 	public void OnSpellUsed (string spellUsed, Main_Controller.Region country)
 	{
-		this.PhotonView.RPC ( "SendString", PhotonTargets.Others, spellUsed, country );
+		this.spellIUsed = spellUsed;
+		this.myCountry = country;
+		
+		this.photonView.RPC ( "SendString", PhotonTargets.Others, spellIUsed, myCountry );
 	}
 
 	[PunRPC]
 	void SendString ( string s )
 	{
-		this.MainControllerOther.OnRpcOnSpellUsedCallback ( s );
+		this.MainController.OnRpcOnSpellUsedCallback ( s );
 	}
 
 	[PunRPC]
 	void SendString ( string s, Main_Controller.Region country )
 	{
-		this.MainControllerOther.OnRpcOnSpellUsedCallbackRegion ( s, country );
+		this.MainController.OnRpcOnSpellUsedCallbackRegion ( s, country );
 	}
 	
 }

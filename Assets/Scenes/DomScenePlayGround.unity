@@ -5054,6 +5054,7 @@ MonoBehaviour:
   totalSane: 0
   totalInfected: 0
   totalDead: 0
+  player: {fileID: 0}
 --- !u!4 &1598332167
 Transform:
   m_ObjectHideFlags: 0

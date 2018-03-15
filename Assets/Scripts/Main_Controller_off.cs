@@ -7,8 +7,8 @@ public class Main_Controller_off : MonoBehaviour {
 
 	//variables
 	public static int powerO = 10;
-	
 
+	public Main_Controller mc;
 	
 	//Attaque
 	//Transmition
@@ -28,7 +28,8 @@ public class Main_Controller_off : MonoBehaviour {
 	}
 	public void ResHumButton()
 	{
-		if (ResHum());
+		if (ResHum())
+			this.mc.OnSpellUsed ( "ResHum" );
 	}
 	
 	
@@ -48,7 +49,8 @@ public class Main_Controller_off : MonoBehaviour {
 	}
 	public void ResTempButton()
 	{
-		if (ResTemp());
+		if (ResTemp())
+			this.mc.OnSpellUsed ( "ResTemp" );
 	}
 	
 	
@@ -70,7 +72,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void ResButton()
 	{
 		if (Res())
-			;
+			this.mc.OnSpellUsed ( "Res" );
 	}
 	
 	
@@ -96,7 +98,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void SneezingButton()
 	{
 		if (Sneezing())
-			;
+			this.mc.OnSpellUsed ( "Sneezing" );
 	}
 
 	private static bool CoughUsed = false;
@@ -118,7 +120,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void CoughButton()
 	{
 		if (Cough())
-			;
+			this.mc.OnSpellUsed ( "Cough" );
 	}
 
 	
@@ -140,7 +142,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void SoreThroatButton()
 	{
 		if (SoreThroat())
-			;
+			this.mc.OnSpellUsed ( "SoreThroat" );
 	}
 
 	
@@ -152,7 +154,7 @@ public class Main_Controller_off : MonoBehaviour {
 			HeartFailureUsed = true;
 			powerO -= 20;
 			Debug.Log("b2.4 button pressed");
-			Main_Controller.symptoms.Add("Crise cardiaque");
+			Main_Controller.symptoms.Add("Mal de Gorge");
 			Main_Controller.virulence += 4;
 			Main_Controller.lethality += 0.02f;
 			return true;
@@ -163,7 +165,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void HeartFailureButton()
 	{
 		if (HeartFailure())
-			;
+			this.mc.OnSpellUsed ( "HeartFailure" );
 	}
 	
 	private static bool diarrheaUsed = false;
@@ -186,7 +188,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void DiarrheaButton()
 	{
 		if (Diarrhea())
-			;
+			this.mc.OnSpellUsed ( "Diarrhea" );
 	}
 	private static bool feverUsed = false;
 	public static bool Fever()
@@ -207,7 +209,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void FeverButton()
 	{
 		if (Fever())
-			;
+			this.mc.OnSpellUsed ( "Fever" );
 	}
 
 	private static bool nauseaUsed = false;
@@ -230,6 +232,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void NauseaButton()
 	{
 		if (Nausea())
-			;
+			this.mc.OnSpellUsed ( "Nausea" );
 	}
+
 }

@@ -77,7 +77,7 @@ public class ClickableEarth : MonoBehaviour
 
 		Color c = this.texture.GetPixel ( ( int ) pixelToInspect.x, ( int ) pixelToInspect.y );
 
-		Debug.Log ( "Color clicked: " + c );
+		//Debug.Log ( "Color clicked: " + c );
 
 		Continent continentClicked;
 
@@ -86,7 +86,7 @@ public class ClickableEarth : MonoBehaviour
 			continentClicked = MapColorToContinent [c];
 		} catch ( Exception e )
 		{
-			Debug.Log ( "ReadFromMap::Couldn't read map at these coordinates. Returning Oceans." );
+			//Debug.Log ( "ReadFromMap::Couldn't read map at these coordinates. Returning Oceans." );
 			
 			Console.WriteLine ( e );
 
@@ -95,7 +95,7 @@ public class ClickableEarth : MonoBehaviour
 			return;
 		}
 
-		Debug.Log ( "Continent clicked: " + continentClicked.Name );
+		//Debug.Log ( "Continent clicked: " + continentClicked.Name );
 		
 		PlayerGameManager.lastContinentClicked = continentClicked.Name;
 

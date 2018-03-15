@@ -11,6 +11,8 @@ public class Main_Controller_def : MonoBehaviour {
 		GameObject notif=GameObject.Find("Notifications");
 	}
 
+	public Main_Controller mc;
+	
 	//variables
 	public static int powerD = 10;
 	
@@ -38,39 +40,60 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 
 	}
-	public void CloseBorderButton()
+	public void CloseBorderButton(Main_Controller.Region region = null)
 	{
-		if (CloseBorder(Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked)))
-			//TODO;
+		bool isUsed;
+		if ( region == null )
+		{
+			isUsed = CloseBorder ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
+		} else
+		{
+			isUsed = CloseBorder ( region );
+		}
+		if (isUsed) 
+			this.mc.OnSpellUsed ( "CloseBorder" );
 	}
+	
 	//Recherche
 	public static bool found = false;
 
 	public static bool Localisation(Main_Controller.Region country)
 	{
-		if (powerD - 2 >= 0)
+		if ( powerD - 2 >= 0 )
 		{
-			research.Add("Localisation");
+			research.Add ( "Localisation" );
 			powerD += 10;
-			if (country.infected != 0) {
-				Debug.Log (true);
+			if ( country.infected != 0 )
+			{
+				Debug.Log ( true );
 				found = true;
 				//NOTIFICATION
-				Main_Controller_def.Instance.notif.GetComponent<Canvas> ().enabled = true;
-				Main_Controller_def.Instance.notif.GetComponent<Text> ().text = "infected found in " + country.Name;
+				Main_Controller_def.Instance.notif.GetComponent <Canvas> ().enabled = true;
+				Main_Controller_def.Instance.notif.GetComponent <Text> ().text = "infected found in " + country.Name;
 				return true;
-			} else {
+			} else
+			{
 				Main_Controller_def.Instance.notif.GetComponent<Canvas> ().enabled = true;
 				Main_Controller_def.Instance.notif.GetComponent<Text> ().text = "no infected found in " + country.Name;
 				return false;
 			}
 		}
+
 		return false;
 	}
-	public void LocalisationButton()
+	
+	public void LocalisationButton(Main_Controller.Region country = null)
 	{
-		if (Localisation(Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked)))
-			//TODO;
+		bool isUsed;
+		if ( country == null )
+		{
+			isUsed = Localisation ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
+		} else
+		{
+			isUsed = Localisation ( country );
+		}
+		if(isUsed)
+			this.mc.OnSpellUsed ( "Localisation" );
 	}
 
 	
@@ -92,7 +115,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchSympButton()
 	{
 		if(ResearchSymp())
-			;
+			this.mc.OnSpellUsed ( "ResearchSymp" );
 	}
 	
 	public static bool foundTrans = false;
@@ -113,7 +136,8 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchTransButton()
 	{
 		if (ResearchTrans())
-			;
+			this.mc.OnSpellUsed ( "ResearchTrans" );
+
 	}
 	
 	public static bool vaccineFound = false;
@@ -133,7 +157,9 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	public void ResearchAntidoteButton()
 	{
-		if (ResearchTrans());
+		if (ResearchTrans())
+			this.mc.OnSpellUsed ( "ResearchAntidote" );
+
 	}
 		
 }

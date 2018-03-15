@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework.Constraints;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -46,6 +43,13 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
+	public PlayerScript player;
+
+	public GameObject MainControllerDefPrefab;
+	public GameObject MainControllerOffPrefab;
+	
+	public Main_Controller_def mcd;
+	public Main_Controller_off mco;
 	
 	//info sur le virus
 	public static float transmitionHuman = 0f;
@@ -99,6 +103,20 @@ public class Main_Controller : MonoBehaviour
 	
 	void Start ()
 	{
+		panelD = Instantiate ( this.panelD );
+		panelO = Instantiate ( this.panelO );
+
+		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
+		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
+
+		mcd.mc = this;
+		mco.mc = this;
+		
+		StartTheGame ();
+    }
+
+	void StartTheGame ()
+	{
 		//TODO appel de l'UI demandant a l'utilisateur de selectionner une region
 		//temp solution
 		Earth.regionlist[0].infected = 1;
@@ -106,27 +124,16 @@ public class Main_Controller : MonoBehaviour
 		startHum = Earth.regionlist[0].humidity;
 		startTemp = Earth.regionlist[0].temp;
 
-        //UI start
-        if (panelD == null)
-        {
-            panelD = GameObject.Find("Panel_Defensive");
-        }
-        panelD.SetActive(false);
-        if (panelO == null)
-        {
-            panelO = GameObject.Find("Panel_Offensive");
-        }
-        panelO.SetActive(false);
+		//UI start
+		panelD.SetActive(this.isDefending);	
+		panelO.SetActive(!this.isDefending);
 
-        if (camera == null)
-        {
-            camera = GameObject.Find("main");
-        }
-        camera.SetActive(true);
-        //TODO: Change this whether we're defending or not.
-        //TODO: Set the currently used camera to be the MainCamera (with the maincamera tag) so that ClickableEarth doesn't go crazy af.
-        isDefending = true;
-    }
+		if (camera == null)
+		{
+			camera = Camera.main.transform.gameObject;
+		}
+		camera.SetActive(true);
+	}
 	
 	
 	/////////////////////////////////////////////////////////
@@ -264,13 +271,75 @@ public class Main_Controller : MonoBehaviour
 		i++;
 	}
 
-	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	public void OnSpellUsed (string spellName)
 	{
-		
-	}
-	public void OnRpcOnSpellUsedCallback(string msg)
-	{
-		
+		this.player.OnSpellUsed ( spellName );
 	}
 
+	public void OnSpellUsed ( string spellName, Region country )
+	{
+		this.player.OnSpellUsed ( spellName, country );
+	}
+
+	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	{
+		switch ( msg )
+		{
+			case "CloseBorder":
+				mcd.CloseBorderButton ( region );
+				break;
+			case "Localisation":
+				this.mcd.LocalisationButton ( region );
+				break;
+			default:
+				Debug.Log ( "WTF?" );
+				break;
+		}
+	}
+		
+	public void OnRpcOnSpellUsedCallback(string msg)
+	{
+		switch ( msg )
+		{
+			case "ResearchSymp":
+				this.mcd.ResearchSympButton ();
+				break;
+			case "ResearchTrans":
+				this.mcd.ResearchTransButton ();
+				break;
+			case "ResHum":
+				this.mco.ResHumButton ();
+				break;
+			case "ResTemp":
+				this.mco.ResTempButton ();
+				break;
+			case "Res":
+				this.mco.ResButton ();
+				break;
+			case "Sneezing":
+				this.mco.SneezingButton ();
+				break;
+			case "Cough":
+				this.mco.CoughButton ();
+				break;
+			case "SoreThroat":
+				mco.SoreThroatButton();
+				break;
+			case "HeartFailure":
+				mco.HeartFailureButton ();
+				break;
+			case "Diarrhea":
+				this.mco.DiarrheaButton ();
+				break;
+			case "Fever":
+				this.mco.FeverButton ();
+				break;
+			case "Nausea":
+				this.mco.NauseaButton ();
+				break;
+			default:
+				Debug.Log ( "WTF?" );
+				break;
+		}
+	}
 }

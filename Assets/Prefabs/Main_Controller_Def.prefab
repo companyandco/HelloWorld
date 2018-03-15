@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1828626398568282}
+  m_RootGameObject: {fileID: 1579619179244856}
   m_IsPrefabParent: 1
---- !u!1 &1828626398568282
+--- !u!1 &1579619179244856
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4899412061398300}
-  - component: {fileID: 114666228510905096}
+  - component: {fileID: 4442738670521312}
+  - component: {fileID: 114000620210344006}
   m_Layer: 0
-  m_Name: Main_Controller
+  m_Name: Main_Controller_Def
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4899412061398300
+--- !u!4 &4442738670521312
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1828626398568282}
+  m_GameObject: {fileID: 1579619179244856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,29 +40,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114666228510905096
+--- !u!114 &114000620210344006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1828626398568282}
+  m_GameObject: {fileID: 1579619179244856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c267e9941f4e77d4399af0a8f6d18f40, type: 3}
+  m_Script: {fileID: 11500000, guid: 43c57b59994b77b43a65246eb1ce5de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelD: {fileID: 1435869604131820, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
-  panelO: {fileID: 1582647355194532, guid: fd158aabea30afb41bce57b67d645a22, type: 2}
-  camera: {fileID: 0}
-  isDefending: 0
-  time: 0
-  totalSane: 2185202922000
-  totalInfected: 0
-  totalDead: 0
-  player: {fileID: 0}
-  MainControllerDefPrefab: {fileID: 1579619179244856, guid: 293b9d596813b074aa02f674a490da54,
-    type: 2}
-  MainControllerOffPrefab: {fileID: 1973305692386050, guid: a20ee4e121bfbaf489283391793e70ef,
-    type: 2}
-  mcd: {fileID: 0}
-  mco: {fileID: 0}
+  notif: {fileID: 0}
