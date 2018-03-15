@@ -26,6 +26,7 @@ public class WorldLiveInfos : MonoBehaviour
 		string s = "";
 
 		s += "LastContinentClicked: " + PlayerGameManager.lastContinentClicked + "\n";
+		s += "InfectedPeopleCountInThisRegion: " + Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ).infected + "\n";
 		s += "CurrentWorldPopulation: " + (this.MainController.totalSane + this.MainController.totalInfected) + "\n";
 		s += "CurrentlyInfectedCount: " + this.MainController.totalInfected + "\n";
 		s += "CurrentDeadPeopleCount: " + this.MainController.totalDead + "\n";

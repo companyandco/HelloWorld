@@ -131,6 +131,7 @@
           <e p="Main_Controller_def.cs" t="Include" />
           <e p="Main_Controller_off.cs" t="Include" />
           <e p="MainMenuLoadingScreen.cs" t="Include" />
+          <e p="MultiplayerLoading.cs" t="Include" />
           <e p="NetworkManager.cs" t="Include" />
           <e p="PlayerGameManager.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
