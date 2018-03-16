@@ -26,7 +26,7 @@ public class SceneSelection : MonoBehaviour
 		SceneManager.LoadScene ("SinglePlayer");
 	}
 	
-	public voif GO_MAIN_MENU (){
+	public void GO_MAIN_MENU (){
 		SceneManager.LoadScene ("main_menu");
 	}
 	
