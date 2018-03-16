@@ -266,14 +266,13 @@ public class Main_Controller : MonoBehaviour
 			Debug.Log(Main_Controller_off.powerO);
 			
 			//check if game is over 
-			if (totalInfected == 0 && totalDead == 0)
-			{
-				//TODO Def win
-			}
-
 			if (totalInfected == 0 && totalSane == 0)
 			{
-				//TODO Att win
+				Application.LoadLevel ("victoire");
+			}
+			if (totalInfected == 0)
+			{
+				Application.LoadLevel("defaite");
 			}
 		}
 		i++;
