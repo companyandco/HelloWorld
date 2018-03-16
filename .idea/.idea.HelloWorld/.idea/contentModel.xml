@@ -133,6 +133,7 @@
           <e p="MainMenuLoadingScreen.cs" t="Include" />
           <e p="MultiplayerLoading.cs" t="Include" />
           <e p="NetworkManager.cs" t="Include" />
+          <e p="Notif_Handle.cs" t="Include" />
           <e p="PlayerGameManager.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="SceneSelection.cs" t="Include" />
