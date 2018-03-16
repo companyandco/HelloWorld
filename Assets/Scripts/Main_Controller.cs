@@ -103,8 +103,8 @@ public class Main_Controller : MonoBehaviour
 	
 	void Start ()
 	{
-		panelD = Instantiate ( this.panelD );
-		panelO = Instantiate ( this.panelO );
+		//panelD = Instantiate ( this.panelD );
+		//panelO = Instantiate ( this.panelO );
 
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
 		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
