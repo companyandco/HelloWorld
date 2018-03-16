@@ -23,7 +23,8 @@ public class NetworkManager : MonoBehaviour
 
 	void OnJoinedLobby ()
 	{
-		PhotonNetwork.JoinRoom ( this.roomName );
+        PhotonNetwork.JoinOrCreateRoom(this.roomName, null, null);
+		//PhotonNetwork.JoinRoom ( this.roomName );
 	}
 
 	void OnPhotonJoinRoomFailed ()
