@@ -26,6 +26,10 @@ public class SceneSelection : MonoBehaviour
 		SceneManager.LoadScene ("SinglePlayer");
 	}
 	
+	public voif GO_MAIN_MENU (){
+		SceneManager.LoadScene ("main_menu")
+	}
+	
 	/*
 	public void GO_OFFLINE_LOAD_GAME ()
 	{
