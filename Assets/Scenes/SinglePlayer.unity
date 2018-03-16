@@ -1794,7 +1794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "ResHum \t"
+  m_Text: "Resistance Humidit\xE9"
 --- !u!222 &1150262923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4379,7 +4379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ResTemp
+  m_Text: Resistance Temperature
 --- !u!222 &1885052281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4740,7 +4740,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Res
+  m_Text: Resistance Climat
 --- !u!222 &2043529001
 CanvasRenderer:
   m_ObjectHideFlags: 0
