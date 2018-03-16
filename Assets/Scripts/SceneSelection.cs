@@ -27,7 +27,7 @@ public class SceneSelection : MonoBehaviour
 	}
 	
 	public voif GO_MAIN_MENU (){
-		SceneManager.LoadScene ("main_menu")
+		SceneManager.LoadScene ("main_menu");
 	}
 	
 	/*
