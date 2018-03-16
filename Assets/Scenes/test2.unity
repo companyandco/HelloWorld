@@ -3635,7 +3635,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1828626398568282, guid: 4d64e29ad0e52e24998675b1a2d95726, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114666228510905096, guid: 4d64e29ad0e52e24998675b1a2d95726,
         type: 2}
@@ -3662,6 +3662,11 @@ Prefab:
       propertyPath: MainControllerOffPrefab
       value: 
       objectReference: {fileID: 1695824744}
+    - target: {fileID: 114666228510905096, guid: 4d64e29ad0e52e24998675b1a2d95726,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 2001073955}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d64e29ad0e52e24998675b1a2d95726, type: 2}
   m_IsPrefabParent: 0
