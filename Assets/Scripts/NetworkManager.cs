@@ -47,7 +47,7 @@ public class NetworkManager : MonoBehaviour
 		
 		GameObject go = PhotonNetwork.Instantiate ( "player", Vector3.zero, Quaternion.identity, (byte)PhotonNetwork.countOfPlayersInRooms );
 		
-		go.name = "Player" + PhotonNetwork.countOfPlayersInRooms + 1;
+		go.name = "Player" + (PhotonNetwork.countOfPlayersInRooms + 1);
 		
 		PlayerScript ps = go.GetComponent <PlayerScript> ();
 
