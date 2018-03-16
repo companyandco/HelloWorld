@@ -36,19 +36,19 @@ public class NetworkManager : MonoBehaviour
 	{
 		Debug.Log ( "RoomJoined" );
 		
-		/*
+		
 		string objectToSpawn = "Player" + (PhotonNetwork.countOfPlayersInRooms % 2 + 1) % 10;
 		
-		//Debug.Log ( objectToSpawn );
+		Debug.Log ( objectToSpawn );
 
 		Cube = PhotonNetwork.Instantiate ( objectToSpawn, Vector3.zero, Quaternion.identity, 0 );
-		*/
+		
 
 		//Debug.Log ( "Joined, spawning." );
 		
 		GameObject go = PhotonNetwork.Instantiate ( "player", Vector3.zero, Quaternion.identity, (byte)PhotonNetwork.countOfPlayersInRooms );
 		
-		go.name = "Player" + (PhotonNetwork.countOfPlayersInRooms + 1);
+		go.name = "Player" /*+ (PhotonNetwork.countOfPlayersInRooms + 1)*/;
 		
 		PlayerScript ps = go.GetComponent <PlayerScript> ();
 
@@ -64,10 +64,10 @@ public class NetworkManager : MonoBehaviour
 
 	void Update ()
 	{
-		/*
+		
 		if (Input.GetKeyDown ( KeyCode.B ))
 			MoveCube ();
-		*/
+		
 	}
 
 	private void OnGUI ()
