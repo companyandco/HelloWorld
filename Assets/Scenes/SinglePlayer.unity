@@ -1904,6 +1904,60 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1163516531
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976456779681022, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114818918271269918, guid: f3cf94dae633fbe4a86baa967dd774bd,
+        type: 2}
+      propertyPath: m_Text
+      value: "Continent:        {0}\nPopulation infect\xE9 dans la r\xE9gion:    {1}\nPopulation
+        mondiale saine:    {2}\nPopulation mondiale infect\xE9e:    {3}\nPopulation
+        mondiale morte: {4}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114428238416949346, guid: f3cf94dae633fbe4a86baa967dd774bd,
+        type: 2}
+      propertyPath: MainControllerObject
+      value: 
+      objectReference: {fileID: 240224865}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f3cf94dae633fbe4a86baa967dd774bd, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1264145793
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,15 +25,16 @@ public class WorldLiveInfos : MonoBehaviour
 
 		string s = "";
 
-        s += "LastContinentClicked: " + PlayerGameManager.lastContinentClicked + "\n";
+        s += "Continent: " + PlayerGameManager.lastContinentClicked + "\n";
         var region = Main_Controller.GetRegionFromName(PlayerGameManager.lastContinentClicked);
         if (region != null)
-            s += "InfectedPeopleCountInThisRegion: " + region.infected + "\n";
+            s += "Population infecté dans la région: " + region.infected + "\n";
         else
-            s += "InfectedPeopleCountInThisRegion: " + "None" + "\n";
-        s += "CurrentWorldPopulation: " + (this.MainController.totalSane + this.MainController.totalInfected) + "\n";
-        s += "CurrentlyInfectedCount: " + this.MainController.totalInfected + "\n";
-        s += "CurrentDeadPeopleCount: " + this.MainController.totalDead + "\n";
+            s += "Population infecté dans la région: " + "aucun" + "\n";
+        s += "Population mondiale saine: " + (this.MainController.totalSane + this.MainController.totalInfected) + "\n";
+        s += "Population mondiale infectée: " + this.MainController.totalInfected + "\n";
+        s += "Population mondiale morte: " + this.MainController.totalDead + "\n";
+		s += "puissance: " + Main_Controller_off.powerO + "\n";
         this.Text.text = s;
 
 

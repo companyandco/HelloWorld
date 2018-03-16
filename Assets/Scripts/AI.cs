@@ -23,7 +23,7 @@ public class AI : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if ( i == 500 )
+		if ( i == 450 )
 		{
 			if ( !Main_Controller_def.found )
 			{
@@ -33,7 +33,7 @@ public class AI : MonoBehaviour
 			} else
 			{
 				this.hasFound = true;
-				if (Main_Controller_def.foundSymptoms.Count != Main_Controller.symptoms.Count){
+				if (Main_Controller.symptoms.Count > 3 && Main_Controller_def.foundSymptoms.Count != Main_Controller.symptoms.Count){
 					Main_Controller_def.ResearchSymp();
 				}
 				else
@@ -50,12 +50,12 @@ public class AI : MonoBehaviour
 			i++;
 		}
 
-		if ( this.hasFound )
+		if ( Main_Controller_def.found )
 		{
-			this.text.text = "Ai has found antidote: \n" + "true";
+			this.text.text = "L'IA a localisé le virus: \n" + "vrai";
 		} else
 		{
-			this.text.text = "Ai has found antidote: \n" + "false";			
+			this.text.text = "L'IA a localisé le virus: \n" + "faux";			
 		}
 	}
 }
