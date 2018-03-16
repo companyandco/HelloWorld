@@ -57,17 +57,23 @@ public class NetworkManager : MonoBehaviour
 
 	private GameObject Cube;
 	
-	void MoveCube ()
+	void MoveUp ()
 	{
 		this.Cube.transform.position += Vector3.up;
+	}
+	
+	void MoveDown ()
+	{
+		this.Cube.transform.position -= Vector3.up;
 	}
 
 	void Update ()
 	{
 		
 		if (Input.GetKeyDown ( KeyCode.B ))
-			MoveCube ();
-		
+			MoveDown ();
+		if ( Input.GetKeyDown ( KeyCode.H ) )
+			MoveUp ();
 	}
 
 	private void OnGUI ()
