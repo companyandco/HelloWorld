@@ -31,7 +31,4 @@ public class WorldData : MonoBehaviour {
 	{
 		return JsonConvert.DeserializeObject<Main_Controller.World>(File.ReadAllText(filePath));
 	}
-	void Start () {
-		Main_Controller.World Earth = ReadFromJsonFile("Assets/WorldInfos.json");
-	}
 }
