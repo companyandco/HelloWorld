@@ -28,7 +28,7 @@ public class MainMenuLoadingScreen : MonoBehaviour
 		}
 
 		this.img.enabled = true;
-
+		vp.isLooping = true;
 	}
 	
 	void Update () {

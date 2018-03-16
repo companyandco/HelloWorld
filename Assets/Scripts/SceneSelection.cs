@@ -22,8 +22,7 @@ public class SceneSelection : MonoBehaviour
 
 	public void GO_OFFLINE_NEW_GAME ()
 	{		
-		Debug.Log ( "GO_OFFLINE_NEW_GAME" );
-		//StartCoroutine ( LoadAsynchronously ( 1 ) );
+		Application.LoadLevel ("SinglePlayer");
 	}
 	
 	/*

@@ -40,15 +40,16 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 
 	}
-	public void CloseBorderButton(Main_Controller.Region region = null)
+	public void CloseBorderButton()
 	{
 		bool isUsed;
-		if ( region == null )
+		if ( Main_Controller.netRegion == null )
 		{
 			isUsed = CloseBorder ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
 		} else
 		{
-			isUsed = CloseBorder ( region );
+			isUsed = CloseBorder ( Main_Controller.netRegion );
+			Main_Controller.netRegion = null;
 		}
 		if (isUsed) 
 			this.mc.OnSpellUsed ( "CloseBorder" );
@@ -89,15 +90,16 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 	}
 	
-	public void LocalisationButton(Main_Controller.Region country = null)
+	public void LocalisationButton()
 	{
 		bool isUsed;
-		if ( country == null )
+		if ( Main_Controller.netRegion == null )
 		{
 			isUsed = Localisation ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
 		} else
 		{
-			isUsed = Localisation ( country );
+			isUsed = Localisation ( Main_Controller.netRegion );
+			Main_Controller.netRegion = null;
 		}
 		if(isUsed)
 			this.mc.OnSpellUsed ( "Localisation" );

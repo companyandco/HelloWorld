@@ -159,6 +159,8 @@ public class Main_Controller : MonoBehaviour
                     panelO.SetActive(true);
             }
         }
+		else if (Input.GetKeyDown(KeyCode.Escape))
+	        Application.LoadLevel ("main_menu");
     }
 
 	
@@ -239,7 +241,7 @@ public class Main_Controller : MonoBehaviour
 				}
 
 				//PowerO generation
-				if (region.infected > 200)
+				if (region.infected > 100)
 				{
 					if (region.infected < 1000 && region.infected % 100 < 4)
 						Main_Controller_off.powerO++;
@@ -287,15 +289,17 @@ public class Main_Controller : MonoBehaviour
 		this.player.OnSpellUsed ( spellName, country );
 	}
 
+	public static Region netRegion = null;
 	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
 	{
+		netRegion = region;
 		switch ( msg )
 		{
 			case "CloseBorder":
-				mcd.CloseBorderButton ( region );
+				mcd.CloseBorderButton ();
 				break;
 			case "Localisation":
-				this.mcd.LocalisationButton ( region );
+				this.mcd.LocalisationButton ();
 				break;
 			default:
 				Debug.Log ( "WTF?" );
