@@ -17,12 +17,13 @@ public class SceneSelection : MonoBehaviour
 	public void GO_ONLINE ()
 	{
 		Debug.Log ( "GO_ONLINE" );
-		StartCoroutine ( LoadAsynchronously ( 1 ) );
+		SceneManager.LoadScene ( 1 );
+		//StartCoroutine ( LoadAsynchronously ( 1 ) );
 	}
 
 	public void GO_OFFLINE_NEW_GAME ()
 	{		
-		Application.LoadLevel ("SinglePlayer");
+		SceneManager.LoadScene ("SinglePlayer");
 	}
 	
 	/*
@@ -47,6 +48,7 @@ public class SceneSelection : MonoBehaviour
 		//StartCoroutine ( LoadAsynchronously ( 4 ) );
 	}
 	
+	/*
 	public GameObject loadingScreen;
 
 	public Slider slider;
@@ -82,4 +84,5 @@ public class SceneSelection : MonoBehaviour
 			yield return null;
 		}
 	}
+	*/
 }

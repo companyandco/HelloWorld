@@ -68,23 +68,6 @@ public class NetworkManager : MonoBehaviour
 			MoveCube ();
 		*/
 	}
-	
-
-	void SpawnMyPlayer ()
-	{
-		/*
-		GameObject go = PhotonNetwork.Instantiate ( "player", Vector3.zero, Quaternion.identity, 0 );
-
-		PlayerScript ps = go.GetComponent <PlayerScript> ();
-
-		ps.SetTeamId = PhotonNetwork.countOfPlayersInRooms;
-
-		if ( PhotonNetwork.countOfPlayersInRooms % 2 == 0 )
-		{
-			//TODO
-		}
-		*/
-	}
 
 	private void OnGUI ()
 	{
