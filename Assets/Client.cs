@@ -66,7 +66,10 @@ public class Client : MonoBehaviour
 				Send ( "CWHO|" + this.ClientName + "|" + ( this.IsHost ? 1 : 0 ) );
 				break;
 			case "SCON":
-				UserConnected ( aData [1], IsHost ); //TODO: define if it's a host or not.
+				UserConnected ( aData [1], IsHost );
+				break;
+			case "SMOV":
+				//TODO: call that on the Main_Controllers (CallBacks)
 				break;
 		}
 	}

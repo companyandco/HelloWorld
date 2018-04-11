@@ -110,7 +110,7 @@ public class Server : MonoBehaviour
 				Broadcast ( "SCON|" + c.clientName, this.clients );
 				break;
 			case "CMOV":
-				Broadcast ( "SMOV|" + aData [1], c );
+				Broadcast ( "SMOV|" + aData[1], this.clients );
 				break;
 		}
 	}
