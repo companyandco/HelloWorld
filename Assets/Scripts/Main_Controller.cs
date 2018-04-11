@@ -8,6 +8,24 @@ public class Main_Controller : MonoBehaviour
 	/////////////////////////////////////////////////////////
 	/// Variable
 	/////////////////////////////////////////////////////////
+
+	
+	
+	
+
+	/////////////////////////////////////////////////////////
+	/// NETWORKING SHIT RIGHT HERE
+	/////////////////////////////////////////////////////////
+	
+	private Client c;
+	
+	/////////////////////////////////////////////////////////
+	/// NETWORKING SHIT RIGHT HERE
+	/////////////////////////////////////////////////////////
+	
+	
+	
+	
 	
 	public class Region
 	{
@@ -105,6 +123,9 @@ public class Main_Controller : MonoBehaviour
 	{
 		//panelD = Instantiate ( this.panelD );
 		//panelO = Instantiate ( this.panelO );
+
+		c = FindObjectOfType <Client> ();
+		isDefending = this.c.IsHost;
 
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
 		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
@@ -280,12 +301,16 @@ public class Main_Controller : MonoBehaviour
 
 	public void OnSpellUsed (string spellName)
 	{
-		this.player.OnSpellUsed ( spellName );
+
+		////// NETWORKING //////
+		this.c.Send ( "CMOV|" + spellName );
+
+		//this.player.OnSpellUsed ( spellName );
 	}
 
 	public void OnSpellUsed ( string spellName, Region country )
 	{
-		this.player.OnSpellUsed ( spellName, country );
+		//this.player.OnSpellUsed ( spellName, country );
 	}
 
 	public static Region netRegion = null;

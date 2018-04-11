@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviour
 
 		//Debug.Log ( "Joined, spawning." );
 		
-		GameObject go = PhotonNetwork.Instantiate ( "player", Vector3.zero, Quaternion.identity, (byte)PhotonNetwork.countOfPlayersInRooms );
+		GameObject go = PhotonNetwork.Instantiate ( "playerPrefab", Vector3.zero, Quaternion.identity, (byte)PhotonNetwork.countOfPlayersInRooms );
 		
 		go.name = "Player" /*+ (PhotonNetwork.countOfPlayersInRooms + 1)*/;
 		

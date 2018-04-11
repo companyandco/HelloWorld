@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114426403801882162}
   - component: {fileID: 114682631462807284}
   m_Layer: 0
-  m_Name: player
+  m_Name: playerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
     type: 2}
   WorldLiveInfosPrefab: {fileID: 1150068232435196, guid: 46df611b304594b429f063255d209343,
     type: 2}
+  spellIUsed: 
 --- !u!114 &114682631462807284
 MonoBehaviour:
   m_ObjectHideFlags: 1
