@@ -38,8 +38,8 @@ public class Main_Controller_off : MonoBehaviour {
 	{
 		if (!ResTempUsed && powerO - 5 >= 0)
 		{
-			ResTempUsed = true;
 			powerO -= 5;
+			ResTempUsed = true;
             Debug.Log("b1.2 button pressed");
 			Main_Controller.transmitions.Add("Resistence a la temperature");
 			Main_Controller.tempRes += 10;
@@ -234,6 +234,116 @@ public class Main_Controller_off : MonoBehaviour {
 	{
 		if (Nausea() && !AI.isSP)
 			this.mc.OnSpellUsed ( "Nausea" );
+	}
+	
+	private static bool DepressionUsed = false;
+	public static bool Depression()
+	{
+		if (!DepressionUsed && powerO - 5 >= 0)
+		{
+			DepressionUsed = true;
+			powerO -= 5;
+			Main_Controller.symptoms.Add("Depression");
+			Main_Controller.transmitionHuman -= 0.05f;
+			Main_Controller.virulence += 1;
+			Main_Controller.lethality += 0.007f;
+			return true;
+		}
+
+		return false;
+	}
+	public void DepressionButton()
+	{
+		if (Nausea() && !AI.isSP)
+			this.mc.OnSpellUsed ( "Depression" );
+	}
+	
+	private static bool DepressionUsed = false;
+	public static bool Depression()
+	{
+		if (!DepressionUsed && powerO - 5 >= 0)
+		{
+			DepressionUsed = true;
+			powerO -= 5;
+			Main_Controller.symptoms.Add("Depression");
+			Main_Controller.transmitionHuman -= 0.05f;
+			Main_Controller.virulence += 1;
+			Main_Controller.lethality += 0.007f;
+			return true;
+		}
+
+		return false;
+	}
+	public void DepressionButton()
+	{
+		if (Depression() && !AI.isSP)
+			this.mc.OnSpellUsed ( "Depression" );
+	}
+	
+	
+	private static bool FluUsed = false;
+	public static bool Flu()
+	{
+		if (!FluUsed && powerO - 5 >= 0)
+		{
+			FluUsed = true;
+			powerO -= 5;
+			Main_Controller.symptoms.Add("Flu");
+			Main_Controller.transmitionHuman += 0.3f;
+			Main_Controller.virulence += 2;
+			Main_Controller.lethality += 0f;
+			return true;
+		}
+
+		return false;
+	}
+	public void FluButton()
+	{
+		if (Flu() && !AI.isSP)
+			this.mc.OnSpellUsed ( "Flu" );
+	}
+	
+	private static bool InsomniaUsed = false;
+	public static bool Insomnia()
+	{
+		if (!InsomniaUsed && powerO - 5 >= 0)
+		{
+			InsomniaUsed = true;
+			powerO -= 5;
+			Main_Controller.symptoms.Add("Insomnia");
+			Main_Controller.virulence += 1;
+			Main_Controller.lethality += 0.007f;
+			return true;
+		}
+
+		return false;
+	}
+	public void InsomniaButton()
+	{
+		if (Insomnia() && !AI.isSP)
+			this.mc.OnSpellUsed ( "Insomnia" );
+	}
+	
+	private static bool StrokeUsed = false;
+	public static bool Stroke()
+	{
+		if (!StrokeUsed && powerO - 5 >= 0)
+		{
+			StrokeUsed = true;
+			powerO -= 5;
+			Main_Controller.symptoms.Add("Stroke");
+			Main_Controller.transmitionHuman -= 0.05f;
+			Main_Controller.virulence += 5;
+			Main_Controller.lethality += 0.1f;
+			return true;
+		}
+
+		return false;
+	}
+	public void StrokeButton()
+	{
+		if (Stroke() && !AI.isSP)
+			this.mc.OnSpellUsed ( "Stroke" );
 	}
 
 }
