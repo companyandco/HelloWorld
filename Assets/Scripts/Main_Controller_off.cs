@@ -258,29 +258,6 @@ public class Main_Controller_off : MonoBehaviour {
 			this.mc.OnSpellUsed ( "Depression" );
 	}
 	
-	private static bool DepressionUsed = false;
-	public static bool Depression()
-	{
-		if (!DepressionUsed && powerO - 5 >= 0)
-		{
-			DepressionUsed = true;
-			powerO -= 5;
-			Main_Controller.symptoms.Add("Depression");
-			Main_Controller.transmitionHuman -= 0.05f;
-			Main_Controller.virulence += 1;
-			Main_Controller.lethality += 0.007f;
-			return true;
-		}
-
-		return false;
-	}
-	public void DepressionButton()
-	{
-		if (Depression() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Depression" );
-	}
-	
-	
 	private static bool FluUsed = false;
 	public static bool Flu()
 	{
