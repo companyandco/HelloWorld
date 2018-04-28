@@ -129,7 +129,13 @@ public class Main_Controller : MonoBehaviour
 		//panelO = Instantiate ( this.panelO );
 
 		c = FindObjectOfType <Client> ();
-		isDefending = this.c.IsHost;
+		if (c != null) 
+		{
+			isDefending = this.c.IsHost;
+		} else 
+		{
+			isDefending = false;
+		}
 
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
 		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
