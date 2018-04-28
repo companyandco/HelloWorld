@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Main_Controller : MonoBehaviour
@@ -72,6 +73,9 @@ public class Main_Controller : MonoBehaviour
 	public List <RandomEvent> eventsList;
 	public int maxRand=100;
 	public int tempIndex;
+
+	public static int Tcd = 50;
+	public static int Scd = 50;
 	
 	//info sur le virus
 	public static float transmitionHuman = 0f;
@@ -199,7 +203,7 @@ public class Main_Controller : MonoBehaviour
             }
         }
 		else if (Input.GetKeyDown(KeyCode.Escape))
-	        Application.LoadLevel ("main_menu");
+	        SceneManager.LoadScene("main_menu");
     }
 
 	
@@ -213,6 +217,12 @@ public class Main_Controller : MonoBehaviour
 	{
 		if (i % 25 == 0)
 		{
+			//update cooldowns
+			if (Tcd > 0)
+				Tcd--;
+			if (Scd > 0)
+				Scd--;
+			
 			totalSane = 0;
 			totalInfected = 0;
 			totalDead = 0;
@@ -323,11 +333,11 @@ public class Main_Controller : MonoBehaviour
 			//check if game is over 
 			if (totalInfected == 0 && totalSane == 0)
 			{
-				Application.LoadLevel ("victoire");
+				SceneManager.LoadScene("victoire");
 			}
 			if (totalInfected == 0)
 			{
-				Application.LoadLevel("defaite");
+				SceneManager.LoadScene("defaite");
 			}
 		}
 		i++;

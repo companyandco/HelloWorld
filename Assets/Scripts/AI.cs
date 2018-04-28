@@ -34,12 +34,12 @@ public class AI : MonoBehaviour
 			{
 				this.hasFound = true;
 				if (Main_Controller.symptoms.Count > 3 && Main_Controller_def.foundSymptoms.Count != Main_Controller.symptoms.Count){
-					Main_Controller_def.ResearchSymp();
+					Main_Controller_def.ResearchSymp(Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)]);
 				}
 				else
 				{
 					if (Main_Controller_def.foundTransmitions.Count != Main_Controller.transmitions.Count)
-						Main_Controller_def.ResearchTrans();
+						Main_Controller_def.ResearchTrans(Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)]);
 					else
 						Main_Controller_def.ResearchAntidote();
 				}

@@ -106,16 +106,16 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 
 	
-	public static bool ResearchSymp()
+	public static bool ResearchSymp(string symptom)
 	{
-		if (found && powerD - 2 >= 0 && Main_Controller.symptoms.Count != 0)
+		if (Main_Controller.Scd == 0 && found && powerD - 2 >= 0 && Main_Controller.symptoms.Count != 0)
 		{
 			research.Add("Recherche de Symptomes");
-			
 			powerD -= 2;
-			string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
-			if (!foundSymptoms.Contains(foundSymp))
-			foundSymptoms.Add(foundSymp);
+			Main_Controller.Scd = 10;
+			//string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
+			if (!foundSymptoms.Contains(symptom))
+			foundSymptoms.Add(symptom);
 			return true;
 		}
 
@@ -123,20 +123,21 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	public void ResearchSympButton()
 	{
-		if(ResearchSymp())
+		if(ResearchSymp("a mettre"))//TODO output la valeur la liste ici
 			this.mc.OnSpellUsed ( "ResearchSymp" );
 	}
 	
 	public static bool foundTrans = false;
-	public static bool ResearchTrans()
+	public static bool ResearchTrans(string transmition)
 	{
-		if (found && powerD - 2 >= 0 && Main_Controller.transmitions.Count != 0)
+		if (Main_Controller.Tcd == 0 && found && powerD - 2 >= 0 && Main_Controller.transmitions.Count != 0)
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
-			string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
-			if (!foundSymptoms.Contains(foundTrans)){
-				foundSymptoms.Add(foundTrans);
+			Main_Controller.Tcd = 10;
+			//string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
+			if (!foundSymptoms.Contains(transmition)){
+				foundSymptoms.Add(transmition);
 				return true;
 				}
 		}
@@ -144,7 +145,7 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	public void ResearchTransButton()
 	{
-		if (ResearchTrans())
+		if (ResearchTrans("a mettre"))//TODO output la valeur la liste ici
 			this.mc.OnSpellUsed ( "ResearchTrans" );
 
 	}
@@ -166,9 +167,12 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 	public void ResearchAntidoteButton()
 	{
-		if (ResearchTrans())
+		if (ResearchAntidote())
 			this.mc.OnSpellUsed ( "ResearchAntidote" );
 
 	}
+	
+	
+	
 		
 }
