@@ -69,6 +69,10 @@ public class Main_Controller : MonoBehaviour
 	public Main_Controller_def mcd;
 	public Main_Controller_off mco;
 	
+	public List <RandomEvent> eventsList;
+	public int maxRand=100;
+	public int tempIndex;
+	
 	//info sur le virus
 	public static float transmitionHuman = 0f;
 	public static float transmitionOther = 0f;
@@ -133,6 +137,8 @@ public class Main_Controller : MonoBehaviour
 		mcd.mc = this;
 		mco.mc = this;
 		
+		RandomEvents();
+		
 		StartTheGame ();
     }
 
@@ -156,6 +162,12 @@ public class Main_Controller : MonoBehaviour
 		camera.SetActive(true);
 	}
 	
+	void RandomEvents()
+	{
+		eventsList=new List<RandomEvent>();
+		eventsList.Add (new RandomEvent());
+		eventsList[0].Init("test event", 0f, 0, 0f, 500, GetRegionFromName ("Asia"));
+	}
 	
 	/////////////////////////////////////////////////////////
 	/// Interface
@@ -259,6 +271,22 @@ public class Main_Controller : MonoBehaviour
 					region.infected -= extraSane;
 					if (region.infected < 0)
 						region.infected = 0;
+				}
+				
+				//update randomEvents
+				if(eventsList.Count>0)
+				{
+					if (Random.Range (1, maxRand)==1) 
+					{
+						tempIndex = Random.Range (0, eventsList.Count);
+						eventsList [tempIndex].ApplyChanges();
+						eventsList.Remove (eventsList [tempIndex]);
+						maxRand -= 1;
+					}
+					if (maxRand <= 1) 
+					{
+						maxRand = 100;
+					}
 				}
 
 				//PowerO generation
