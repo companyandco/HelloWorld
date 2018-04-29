@@ -62,7 +62,6 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	public PlayerScript player;
 
 	public GameObject MainControllerDefPrefab;
 	public GameObject MainControllerOffPrefab;

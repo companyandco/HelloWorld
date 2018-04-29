@@ -138,13 +138,18 @@ public class MultiplayerMenuManager : MonoBehaviour
 		this.ConnectMenu.SetActive ( false );
 
 		Server s = FindObjectOfType <Server> ();
-		if ( s != null )
-			Destroy ( s.gameObject );
+        if (s != null)
+        {
+            s.server.Stop ();
+            Destroy(s.gameObject);
+        }
 
 		Client c = FindObjectOfType <Client> ();
-		if ( c != null )
-			Destroy ( c.gameObject );
-
+        if (c != null)
+        {
+            c.socket.Close ();
+            Destroy(c.gameObject);
+        }
 	}
 	
 	public void StartGame ()

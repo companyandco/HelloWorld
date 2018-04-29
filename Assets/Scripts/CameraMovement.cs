@@ -7,22 +7,24 @@ public class CameraMovement : MonoBehaviour
 {
 	private bool isAlreadyClicking = false;
 
-	private float distance = 10f;
+	private float distance = 15f;
 
 	[Range ( 0f, 250f )] public float xSpeed = 50f;
 	[Range ( 0f, 250f )] public float ySpeed = 50f;
 
-	[Range ( -90f,  0f )] public float minAngle = -10;
-	[Range (   0f, 90f )] public float maxAngle = 25f;
+	[Range ( -90f,  0f )] public float minAngle = -15f;
+	[Range (   0f, 90f )] public float maxAngle = 35f;
 
-	[Range (  1f, 10f )] public float minDist = 3f;
-	[Range ( 10f, 20f )] public float maxDist = 15f;
+	[Range (  1f, 10f )] public float minDist = 5f;
+	[Range ( 10f, 20f )] public float maxDist = 25f;
 
 	private float x, y;
 	private Rigidbody rb;
 
 	void Start ()
 	{
+		this.transform.position = new Vector3 ( 0, 0, -this.distance );
+		
 		var angles = this.transform.eulerAngles;
 		this.x = angles.x;
 		this.y = angles.y;
