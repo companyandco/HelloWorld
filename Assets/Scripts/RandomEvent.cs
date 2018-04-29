@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomEvent : MonoBehaviour {
+public class RandomEvent{
 
 	// Random events occuring during the game, feel free to add attributes and Changes in ApplyChanges
 	public string text;
