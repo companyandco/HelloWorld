@@ -70,7 +70,7 @@ public class Main_Controller : MonoBehaviour
 	public Main_Controller_off mco;
 	
 	public List <RandomEvent> eventsList;
-	public int maxRand=100;
+	public int maxRand=1000;
 	public int tempIndex;
 
 	public static int Tcd = 50;
@@ -176,7 +176,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("test event", 0f, 0, 0f, 500, GetRegionFromName ("Asia"));
+		eventsList[0].Init("test event", 0f, 0, 0f, 0, null);
 	}
 	
 	/////////////////////////////////////////////////////////
@@ -301,7 +301,7 @@ public class Main_Controller : MonoBehaviour
 					}
 					if (maxRand <= 1) 
 					{
-						maxRand = 100;
+						maxRand = 1000;
 					}
 				}
 
