@@ -87,6 +87,7 @@ public class Main_Controller : MonoBehaviour
 	public static List<string> transmitions  = new List<string>();
 	public static int startHum;
 	public static int startTemp;
+	public static float HighDensityRes = 0.15f;
 	
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["exemple"] retourne un string qui est sa description

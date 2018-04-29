@@ -75,6 +75,26 @@ public class Main_Controller_off : MonoBehaviour {
 			this.mc.OnSpellUsed ( "Res" );
 	}
 	
+	private static bool HighDensityResUsed = false;
+	public static bool HighDensityRes()
+	{
+		if (!ResUsed && powerO - 5 >= 0)
+		{
+			HighDensityResUsed = true;
+			powerO -= 5;
+			Main_Controller.transmitions.Add("Bonus haute densité");
+			Main_Controller.HighDensityRes += 0.05f;
+			return true;
+		}
+
+		return false;
+	}
+	public void HighDensityResButton()
+	{
+		if (Res() && !AI.isSP)
+			this.mc.OnSpellUsed ( "HighDensityRes" );
+	}
+	
 	
 	//Symptomes
 	private static bool sneezingUsed = false;
