@@ -78,7 +78,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 					c.ConnectToServer ( "localhost", 6321 ); // we're the server, connect to ourself
 					// don't hardcode the port.
 
-					Debug.Log ( "We're connected as Host & Client!" );
+					//Debug.Log ( "We're connected as Host & Client!" );
 				}
 
 			}
@@ -119,7 +119,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 				this.ConnectMenu.SetActive ( false );
 				
-				Debug.Log ( "We're connected as Client!" );
+				//Debug.Log ( "We're connected as Client!" );
 			}
 		} catch ( Exception e )
 		{

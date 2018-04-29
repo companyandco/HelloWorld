@@ -96,7 +96,7 @@ public class Server : MonoBehaviour
 
 	private void OnIncomingData ( ServerClient c, string data )
 	{
-		Debug.Log ( "Server: " + data );
+		//Debug.Log ( "Server: " + data );
 
 		string[] aData = data.Split ( '|' );
 		switch ( aData[0] )
@@ -154,12 +154,12 @@ public class Server : MonoBehaviour
 
 		this.clients.Add ( sc );
 
-		Debug.Log ( "Somebody has connected !" );
+		//Debug.Log ( "Somebody has connected !" );
 
 		Broadcast ( "SWHO|" + allUsers, this.clients [this.clients.Count - 1] );
 		
 		// this should give us the ip of the person that just connected.
-		//Debug.Log ( sc.clientName + " : ip : " + ( ( IPEndPoint ) sc.tcp.Client.RemoteEndPoint ).Address );
+		Debug.Log ( sc.clientName + " : ip : " + ( ( IPEndPoint ) sc.tcp.Client.RemoteEndPoint ).Address );
 
 		StartListening ();
 	}

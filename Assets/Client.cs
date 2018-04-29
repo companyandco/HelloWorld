@@ -51,7 +51,7 @@ public class Client : MonoBehaviour
 	private void OnIncomingData ( string data )
 	{
 		// TODO: link this to actual game.
-		Debug.Log ( "Client: " + data );
+		//Debug.Log ( "Client: " + data );
 
 		string[] aData = data.Split ( '|' );
 
@@ -92,6 +92,8 @@ public class Client : MonoBehaviour
 			c.name = userName;
 
 			this.players.Add ( c );
+			
+			Debug.Log ( "Client: UserConnected: " + c.name );
 
 			/*
 			foreach ( GameClient client in this.players )
