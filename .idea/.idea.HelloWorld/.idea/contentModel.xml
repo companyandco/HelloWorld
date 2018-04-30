@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\kenny\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_HelloWorld.-1102987183.00" t="ExcludeRecursive" />
-    <e p="C:\Users\kenny\Documents\GitHub\HelloWorld" t="IncludeRecursive">
+    <e p="C:\Users\domin\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_HelloWorld.2136708837.00" t="ExcludeRecursive" />
+    <e p="C:\Users\domin\Desktop\fichier_prog\projetS2\GitHub\HelloWorld" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Client.cs" t="Include" />
+        <e p="MultiplayerMenuManager.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
@@ -123,25 +125,20 @@
         <e p="Scripts" t="Include">
           <e p="AI.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
-          <e p="ClickableEarth.cs" t="Include" />
           <e p="Continent.cs" t="Include" />
-          <e p="CoordHelper.cs" t="Include" />
+          <e p="EarthGeneration.cs" t="Include" />
           <e p="Highlight.cs" t="Include" />
           <e p="Main_Controller.cs" t="Include" />
           <e p="Main_Controller_def.cs" t="Include" />
           <e p="Main_Controller_off.cs" t="Include" />
           <e p="MainMenuLoadingScreen.cs" t="Include" />
-          <e p="MultiplayerLoading.cs" t="Include" />
-          <e p="NetworkManager.cs" t="Include" />
           <e p="Notif_Handle.cs" t="Include" />
-          <e p="PlayerGameManager.cs" t="Include" />
-          <e p="PlayerScript.cs" t="Include" />
+          <e p="RandomEvent.cs" t="Include" />
           <e p="SceneSelection.cs" t="Include" />
           <e p="SettingsController.cs" t="Include" />
-          <e p="SphericalCoord.cs" t="Include" />
           <e p="WorldData.cs" t="Include" />
-          <e p="WorldLiveInfos.cs" t="Include" />
         </e>
+        <e p="Server.cs" t="Include" />
       </e>
       <e p="HelloWorld.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
