@@ -351,7 +351,7 @@ public class Main_Controller : MonoBehaviour
 				Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 				
 				
-				//ui update
+				//ui update -BEGIN
 				listText[j++].text = region.infected + "\n" +
 				                   region.Population + "\n" +
 				                   (region.Population + region.infected) + "\n" +
@@ -361,21 +361,24 @@ public class Main_Controller : MonoBehaviour
 			                     totalSane + "\n" +
 			                     (totalSane + totalInfected) + "\n" +
 			                     totalDead;
+			//ui update -END
 			if (isDefending)
 				PowerDText.text = mcd.PowerD.ToString();
 			else
 				PowerOText.text = mco.PowerO.ToString();
 			//end ui update
 			Debug.Log(Main_Controller_off.powerO);
-			
+
 			//check if game is over 
 			if (totalInfected == 0 && totalSane == 0)
 			{
 				SceneManager.LoadScene("victoire");
+				return;
 			}
 			if (totalInfected == 0)
 			{
 				SceneManager.LoadScene("defaite");
+				return;
 			}
 		}
 		i++;
