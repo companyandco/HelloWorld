@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -53,6 +54,18 @@ public class Main_Controller : MonoBehaviour
     //info sur l'UI
     public GameObject panelD;
     public GameObject panelO;
+	public GameObject powerD;
+	public GameObject powerO;
+	public Text PowerDText;
+	public Text PowerOText;
+	public Text WorldDataText;
+	public Text NaDataText;
+	public Text SaDataText;
+	public Text EuDataText;
+	public Text AfricaDataText;
+	public Text OceaniaDataText;
+	public Text AsiaDataText;
+	public List<Text> listText;
     public GameObject camera;
     public bool isDefending;
 
@@ -131,6 +144,13 @@ public class Main_Controller : MonoBehaviour
 	{
 		//panelD = Instantiate ( this.panelD );
 		//panelO = Instantiate ( this.panelO );
+		listText.Add(AsiaDataText);
+		listText.Add(EuDataText);
+		listText.Add(SaDataText);
+		listText.Add(NaDataText);
+		listText.Add(OceaniaDataText);
+		listText.Add(AfricaDataText);
+
 
 		c = FindObjectOfType <Client> ();
 		if (c != null) 
@@ -138,7 +158,8 @@ public class Main_Controller : MonoBehaviour
 			isDefending = this.c.IsHost;
 		} else 
 		{
-			isDefending = false;
+			if(isDefending == null)
+				isDefending = false;
 		}
 
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
@@ -162,13 +183,13 @@ public class Main_Controller : MonoBehaviour
 		startTemp = Earth.regionlist[0].temp;
 
 		//UI start
+		powerD.SetActive(this.isDefending);	
+		powerO.SetActive(!this.isDefending);
 		panelD.SetActive(this.isDefending);	
 		panelO.SetActive(!this.isDefending);
 
 		if (camera == null)
-		{
 			camera = Camera.main.transform.gameObject;
-		}
 		camera.SetActive(true);
 	}
 	
@@ -183,7 +204,8 @@ public class Main_Controller : MonoBehaviour
 	/// Interface
 	/////////////////////////////////////////////////////////
 	
-	void Update () {
+	void Update ()
+	{
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("F Key pressed");
@@ -226,6 +248,7 @@ public class Main_Controller : MonoBehaviour
 			totalSane = 0;
 			totalInfected = 0;
 			totalDead = 0;
+			int j = 0;
 			foreach (var region in Earth.regionlist)
 			{
 				//get info about the world
@@ -325,9 +348,24 @@ public class Main_Controller : MonoBehaviour
 					time++;
 					i = 1;
 				}
-					Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
-					
+				Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
+				
+				
+				//ui update
+				listText[j++].text = region.infected + "\n" +
+				                   (region.Population - region.infected) + "\n" +
+				                   (region.Population - region.dead) + "\n" +
+				                   region.dead;
 			}
+			WorldDataText.text = totalInfected + "\n" +
+			                     totalSane + "\n" +
+			                     (totalSane + totalInfected) + "\n" +
+			                     totalDead;
+			if (isDefending)
+				PowerDText.text = mcd.PowerD.ToString();
+			else
+				PowerOText.text = mco.PowerO.ToString();
+			//end ui update
 			Debug.Log(Main_Controller_off.powerO);
 			
 			//check if game is over 

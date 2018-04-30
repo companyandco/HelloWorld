@@ -16,6 +16,11 @@ public class Main_Controller_def : MonoBehaviour {
 	//variables
 	public static int powerD = 10;
 	
+	public int PowerD
+	{
+		get { return powerD; }
+	}
+
 	//info def
 	private static List<string> gestion = new List<string>();
 	private static List<string> research = new List<string>();

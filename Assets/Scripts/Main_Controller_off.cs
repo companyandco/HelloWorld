@@ -7,6 +7,11 @@ public class Main_Controller_off : MonoBehaviour {
 
 	//variables
 	public static int powerO = 30;
+	
+	public int PowerO
+	{
+		get { return powerO; }
+	}
 
 	public Main_Controller mc;
 	
