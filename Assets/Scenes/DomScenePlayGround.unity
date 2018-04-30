@@ -1207,7 +1207,7 @@ MonoBehaviour:
   AsiaDataText: {fileID: 1152587296}
   listText: []
   camera: {fileID: 510390156}
-  isDefending: 1
+  isDefending: 0
   time: 0
   totalSane: 0
   totalInfected: 0

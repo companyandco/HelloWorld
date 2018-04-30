@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 222239714545082090}
   - component: {fileID: 114623392022976214}
   m_Layer: 0
-  m_Name: powerD_text
+  m_Name: powerO_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1422,13 +1422,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '123 123 123
+  m_Text: '0
 
-    123 123 123
+    0
 
-    123 123 123
+    0
 
-    123 123 123'
+    0'
 --- !u!114 &114197758640294350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1515,13 +1515,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '123 123 123
+  m_Text: '0
 
-    123 123 123
+    0
 
-    123 123 123
+    0
 
-    123 123 123'
+    0'
 --- !u!114 &114212372463433822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1747,13 +1747,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '123 123 123
+  m_Text: '0
 
-    123 123 123
+    0
 
-    123 123 123
+    0
 
-    123 123 123'
+    0'
 --- !u!114 &114355177336750258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1970,7 +1970,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: a
+  m_Text: '0
+
+    0
+
+    0
+
+    0'
 --- !u!114 &114447908511673390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2100,7 +2106,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: 0
 --- !u!114 &114524588331217100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2176,13 +2182,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1 123 123 123
+  m_Text: '0
 
-    1 123 123 123
+    0
 
-    1 123 123 123
+    0
 
-    1 123 123 123'
+    0'
 --- !u!114 &114581273203069392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2269,7 +2275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: 0
 --- !u!114 &114643159556033388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2428,13 +2434,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '123 123 123
+  m_Text: '0
 
-    123 123 123
+    0
 
-    123 123 123
+    0
 
-    123 123 123'
+    0'
 --- !u!114 &114753966208443456
 MonoBehaviour:
   m_ObjectHideFlags: 1
