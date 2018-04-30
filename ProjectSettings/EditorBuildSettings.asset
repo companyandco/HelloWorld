@@ -8,3 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/test3.unity
     guid: 8b6cfdb219c93a742b3b3a9b64c942dd
+  - enabled: 1
+    path: Assets/Scenes/SinglePlayer.unity
+    guid: b1dac7c8256784e4097675e9b36c46c0
+  - enabled: 1
+    path: Assets/Scenes/defaite.unity
+    guid: 664445d4e1d8d364685dca789a2f02b8
+  - enabled: 1
+    path: Assets/Scenes/victoire.unity
+    guid: 91c20f5e515458f488ba90ab790e5a8f
+  - enabled: 1
+    path: Assets/Scenes/main_menu.unity
+    guid: 1693816f764e3f94db0e491706020ee6
