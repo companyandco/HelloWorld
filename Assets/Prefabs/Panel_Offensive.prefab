@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224705565545486516}
   - component: {fileID: 222138598315443068}
   - component: {fileID: 114909498730514428}
+  - component: {fileID: 114114119663075972}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -90,6 +91,7 @@ GameObject:
   - component: {fileID: 224683379755026102}
   - component: {fileID: 222240313935452858}
   - component: {fileID: 114950688997886594}
+  - component: {fileID: 114350130712345740}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -232,6 +234,7 @@ GameObject:
   - component: {fileID: 224390722667869412}
   - component: {fileID: 222827626803943656}
   - component: {fileID: 114453681508753856}
+  - component: {fileID: 114041566154569670}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -249,6 +252,7 @@ GameObject:
   - component: {fileID: 224658970196666306}
   - component: {fileID: 222716439948419108}
   - component: {fileID: 114954194740696884}
+  - component: {fileID: 114343953191934474}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -266,6 +270,7 @@ GameObject:
   - component: {fileID: 224811286896771708}
   - component: {fileID: 222740615132802754}
   - component: {fileID: 114271259163462616}
+  - component: {fileID: 114808508712843330}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -318,6 +323,7 @@ GameObject:
   - component: {fileID: 224561776854753524}
   - component: {fileID: 222945296908796420}
   - component: {fileID: 114355661400853820}
+  - component: {fileID: 114907117621957098}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -339,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1758674167787572
 GameObject:
   m_ObjectHideFlags: 1
@@ -403,6 +409,7 @@ GameObject:
   - component: {fileID: 224697958037904320}
   - component: {fileID: 222852502467588852}
   - component: {fileID: 114906161537400518}
+  - component: {fileID: 114445657575051780}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -420,6 +427,7 @@ GameObject:
   - component: {fileID: 224143673720796698}
   - component: {fileID: 222681025223679110}
   - component: {fileID: 114727620738926578}
+  - component: {fileID: 114898283911288508}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -437,6 +445,7 @@ GameObject:
   - component: {fileID: 224227781106899650}
   - component: {fileID: 222077379516198418}
   - component: {fileID: 114000068488938036}
+  - component: {fileID: 114740838233419666}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -551,6 +560,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Sympt\xF4mes"
+--- !u!114 &114041566154569670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587536973728520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114065789670419582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +628,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114114119663075972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058852822315474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114118123000900314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,6 +858,34 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114343953191934474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606816835103074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114350130712345740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306508313466574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114355661400853820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -906,6 +971,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114445657575051780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846663670777540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114453681508753856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1287,6 +1366,34 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Mal de Gorge
+--- !u!114 &114740838233419666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916147350641514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114808508712843330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617620112117736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114850919089997552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1360,6 +1467,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114898283911288508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854856945930024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114906161537400518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1393,6 +1514,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Crise \nCardiaque"
+--- !u!114 &114907117621957098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703617710000604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114909498730514428
 MonoBehaviour:
   m_ObjectHideFlags: 1

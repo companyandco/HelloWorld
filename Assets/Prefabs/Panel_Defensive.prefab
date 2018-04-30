@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 224445711047617988}
   - component: {fileID: 222830435955519482}
   - component: {fileID: 114073886475412844}
+  - component: {fileID: 114291647403864718}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -73,6 +74,7 @@ GameObject:
   - component: {fileID: 224974436724059588}
   - component: {fileID: 222408203885737028}
   - component: {fileID: 114252359728639826}
+  - component: {fileID: 114551045810650146}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -122,6 +124,7 @@ GameObject:
   - component: {fileID: 224008746122527072}
   - component: {fileID: 222840282508157246}
   - component: {fileID: 114006141448976866}
+  - component: {fileID: 114046622195887312}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -245,6 +248,7 @@ GameObject:
   - component: {fileID: 224524568479158604}
   - component: {fileID: 222448754434631776}
   - component: {fileID: 114931796027991386}
+  - component: {fileID: 114298662092227852}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -262,6 +266,7 @@ GameObject:
   - component: {fileID: 224420403546233616}
   - component: {fileID: 222177509404064458}
   - component: {fileID: 114506973322684098}
+  - component: {fileID: 114393184607666160}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -364,6 +369,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Localisation
+--- !u!114 &114046622195887312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490665489157068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114073886475412844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -563,6 +582,34 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "fermeture d'une fronti\xE8re"
+--- !u!114 &114291647403864718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198646269911224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114298662092227852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873296839459488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114320284312117042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -631,6 +678,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114393184607666160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1896721608413378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114431165503136466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,6 +752,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Recherche de transmissions
+--- !u!114 &114551045810650146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1230042039069620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114592057075739816
 MonoBehaviour:
   m_ObjectHideFlags: 1
