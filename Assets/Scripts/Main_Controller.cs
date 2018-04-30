@@ -353,8 +353,8 @@ public class Main_Controller : MonoBehaviour
 				
 				//ui update
 				listText[j++].text = region.infected + "\n" +
-				                   (region.Population - region.infected) + "\n" +
-				                   (region.Population - region.dead) + "\n" +
+				                   region.Population + "\n" +
+				                   (region.Population + region.infected) + "\n" +
 				                   region.dead;
 			}
 			WorldDataText.text = totalInfected + "\n" +
