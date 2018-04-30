@@ -88,6 +88,7 @@ public class Main_Controller : MonoBehaviour
 
 	public static int Tcd = 50;
 	public static int Scd = 50;
+	public static string sanitaryBonus = "";
 	
 	//info sur le virus
 	public static float transmitionHuman = 0f;
@@ -305,7 +306,12 @@ public class Main_Controller : MonoBehaviour
 				//update vaccined
 				if (Main_Controller_def.vaccineFound && region.infected != 0)
 				{
-					long extraSane = (long) (region.infected * 0.1) + 7;
+					long extraSane;
+					if (region.Name == sanitaryBonus)
+						extraSane = (long) (region.infected * 0.2) + 7;
+					else
+						extraSane = (long) (region.infected * 0.1) + 7;
+					
 					region.Population += extraSane;
 					region.infected -= extraSane;
 					if (region.infected < 0)

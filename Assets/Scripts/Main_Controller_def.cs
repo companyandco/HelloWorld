@@ -180,6 +180,24 @@ public class Main_Controller_def : MonoBehaviour {
 
 	}
 	
+	public static bool SanitaryCampaign(Main_Controller.Region region)
+	{
+		if (powerD - 5 >= 0 && vaccineFound)
+		{
+			research.Add("Sanitary campaign");
+			powerD -= 5;
+			Main_Controller.sanitaryBonus = region.Name;
+			return true;
+		}
+		return false;
+	}
+	public void sanitaryCampaignButton()
+	{
+		if (ResearchAntidote())
+			this.mc.OnSpellUsed ( "SanitaryCampaign" );
+
+	}
+	
 	
 	
 		
