@@ -29,7 +29,7 @@ public class Main_Controller : MonoBehaviour
 	
 	
 	
-	public class Region
+	public class Country
 	{
 		public string Name;
 		public long Population;
@@ -38,12 +38,17 @@ public class Main_Controller : MonoBehaviour
 		public double GDP;
 		public int humidity;
 		public int temp;
-		
+
 		public long infected = 0; 
 		public long dead = 0;
 		public float transmitionHuman = 0;
 		public float transmitionOther = 0;
 		public bool isClosed = false;
+	}
+
+	public class Region:Country
+	{
+		public List<Country> countrylist;
 	}
 	
 	public class World : Region
