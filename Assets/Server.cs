@@ -12,11 +12,14 @@ public class Server : MonoBehaviour
 	private List <ServerClient> clients;
 	private List <ServerClient> disconnectList;
 
-	public TcpListener server;
+	private TcpListener server;
 	private bool isServerStarted;
 
 	public void Init ()
 	{
+		DontDestroyOnLoad ( gameObject );
+
+
 		this.clients = new List <ServerClient> ();
 		this.disconnectList = new List <ServerClient> ();
 
@@ -32,10 +35,9 @@ public class Server : MonoBehaviour
 			Debug.Log ( "Socket error: " + e.Message );
 		}
 
-        DontDestroyOnLoad(gameObject);
-    }
+	}
 
-    private void Update ()
+	private void Update ()
 	{
 		if ( !this.isServerStarted )
 			return;
