@@ -7,11 +7,6 @@ public class Main_Controller_off : MonoBehaviour {
 
 	//variables
 	public static int powerO = 30;
-	
-	public int PowerO
-	{
-		get { return powerO; }
-	}
 
 	public Main_Controller mc;
 	
@@ -24,7 +19,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			ResHumUsed = true;
 			powerO -= 5;
-            Debug.Log("b1.1 button pressed");
             Main_Controller.transmitions.Add("Resistence a l'humidite");
 			Main_Controller.HumidityRes += 10;
 			return true;
@@ -45,7 +39,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			powerO -= 5;
 			ResTempUsed = true;
-            Debug.Log("b1.2 button pressed");
 			Main_Controller.transmitions.Add("Resistence a la temperature");
 			Main_Controller.tempRes += 10;
 			return true;

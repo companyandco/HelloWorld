@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +16,6 @@ public class Main_Controller_def : MonoBehaviour {
 	
 	//variables
 	public static int powerD = 10;
-	
-	public int PowerD
-	{
-		get { return powerD; }
-	}
 
 	//info def
 	private static List<string> gestion = new List<string>();
@@ -117,7 +113,7 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Symptomes");
 			powerD -= 2;
-			Main_Controller.Scd = 10;
+			Main_Controller.Scd = (int)(15-Main_Controller.virulence);;
 			//string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
 			if (!foundSymptoms.Contains(symptom))
 			foundSymptoms.Add(symptom);
@@ -139,7 +135,7 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
-			Main_Controller.Tcd = 10;
+			Main_Controller.Tcd = (int)(15-Main_Controller.virulence);
 			//string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
 			if (!foundSymptoms.Contains(transmition)){
 				foundSymptoms.Add(transmition);

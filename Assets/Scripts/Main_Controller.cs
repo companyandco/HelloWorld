@@ -80,13 +80,6 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	public PlayerScript player;
-
-	public GameObject MainControllerDefPrefab;
-	public GameObject MainControllerOffPrefab;
-	
-	public Main_Controller_def mcd;
-	public Main_Controller_off mco;
 	
 	public List <RandomEvent> eventsList;
 	public int maxRand=50000;
@@ -145,12 +138,6 @@ public class Main_Controller : MonoBehaviour
 			if(isDefending == null)
 				isDefending = false;
 		}
-
-		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
-		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
-
-		mcd.mc = this;
-		mco.mc = this;
 		
 		RandomEvents();
 		
@@ -352,9 +339,9 @@ public class Main_Controller : MonoBehaviour
 			                     totalDead;
 			//ui update -END
 			if (isDefending)
-				PowerDText.text = mcd.PowerD.ToString();
+				PowerDText.text = Main_Controller_def.powerD.ToString();
 			else
-				PowerOText.text = mco.PowerO.ToString();
+				PowerOText.text = Main_Controller_off.powerO.ToString();
 			//end ui update
 			Debug.Log(Main_Controller_off.powerO);
 
@@ -388,16 +375,15 @@ public class Main_Controller : MonoBehaviour
 	}
 
 	public static Region netRegion = null;
-	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	public static void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
 	{
-		netRegion = region;
 		switch ( msg )
 		{
 			case "CloseBorder":
-				mcd.CloseBorderButton ();
+				Main_Controller_def.CloseBorder(region);
 				break;
 			case "Localisation":
-				this.mcd.LocalisationButton ();
+				Main_Controller_def.Localisation(region);
 				break;
 			default:
 				Debug.Log ( "WTF?" );
@@ -405,45 +391,47 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 		
-	public void OnRpcOnSpellUsedCallback(string msg)
+	public static void OnRpcOnSpellUsedCallback(string msg)
 	{
 		switch ( msg )
 		{
+			//def
 			case "ResearchSymp":
-				this.mcd.ResearchSympButton ();
+				Main_Controller_def.ResearchSymp("res");//TODO
 				break;
 			case "ResearchTrans":
-				this.mcd.ResearchTransButton ();
+				Main_Controller_def.ResearchTrans("sneezing");//TODO
 				break;
+				//off
 			case "ResHum":
-				this.mco.ResHumButton ();
+				Main_Controller_off.ResHum();
 				break;
 			case "ResTemp":
-				this.mco.ResTempButton ();
+				Main_Controller_off.ResTemp();
 				break;
 			case "Res":
-				this.mco.ResButton ();
+				Main_Controller_off.Res();
 				break;
 			case "Sneezing":
-				this.mco.SneezingButton ();
+				Main_Controller_off.Sneezing();
 				break;
 			case "Cough":
-				this.mco.CoughButton ();
+				Main_Controller_off.Cough();
 				break;
 			case "SoreThroat":
-				mco.SoreThroatButton();
+				Main_Controller_off.SoreThroat();
 				break;
 			case "HeartFailure":
-				mco.HeartFailureButton ();
+				Main_Controller_off.HeartFailure();
 				break;
 			case "Diarrhea":
-				this.mco.DiarrheaButton ();
+				Main_Controller_off.Diarrhea();
 				break;
 			case "Fever":
-				this.mco.FeverButton ();
+				Main_Controller_off.Fever();
 				break;
 			case "Nausea":
-				this.mco.NauseaButton ();
+				Main_Controller_off.Nausea();
 				break;
 			default:
 				Debug.Log ( "WTF?" );
