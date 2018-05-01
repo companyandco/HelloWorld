@@ -81,9 +81,10 @@
 {"Name":"Mauritania","Population":4000000,"Density":4.40,"Life_expectancy":63.43,"GDP":4.63,"average_humidity":-1,"average_temp":2},
 {"Name":"Central Africa","Population":124000000,"Density":51.91,"Life_expectancy":61.22,"GDP":56.38,"average_humidity":0,"average_temp":1},
 {"Name":"West Africa","Population":320000000,"Density":107.93,"Life_expectancy":59.5,"GDP":536.79,"average_humidity":0,"average_temp":1},
+{"Name":"East Africa","Population":535900000,"Density":107.93,"Life_expectancy":59.5,"GDP":536.79,"average_humidity":0,"average_temp":1}
 ],
-"Name":"Africa","Population":886500000,"Density":40.6,"Life_expectancy":53.0,"GDP":3215.0,"average_humidity":-2,"average_temp":2}],
-"Name":"Earth","Population":6729834000,"Density":0.0,"Life_expectancy":0.0,"GDP":0.0,"average_humidity":0,"average_temp":0}
+"Name":"Africa","Population":1206400000,"Density":40.6,"Life_expectancy":53.0,"GDP":3215.0,"average_humidity":-2,"average_temp":2}],
+"Name":"Earth","Population":7049734000,"Density":0.0,"Life_expectancy":0.0,"GDP":0.0,"average_humidity":0,"average_temp":0}
 /*
 ASIA:
 Central Asia contains : Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan
