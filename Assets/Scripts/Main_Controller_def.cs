@@ -57,7 +57,7 @@ public class Main_Controller_def : MonoBehaviour {
 			Main_Controller.netRegion = null;
 		}
 		if (isUsed) 
-			this.mc.OnSpellUsed ( "CloseBorder" );
+			Main_Controller.OnSpellUsed ( "CloseBorder" );
 	}
 	
 	//Recherche
@@ -107,7 +107,7 @@ public class Main_Controller_def : MonoBehaviour {
 			Main_Controller.netRegion = null;
 		}
 		if(isUsed)
-			this.mc.OnSpellUsed ( "Localisation" );
+			Main_Controller.OnSpellUsed ( "Localisation" );
 	}
 
 	
@@ -129,7 +129,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchSympButton()
 	{
 		if(ResearchSymp("a mettre"))//TODO output la valeur la liste ici
-			this.mc.OnSpellUsed ( "ResearchSymp" );
+			Main_Controller.OnSpellUsed ( "ResearchSymp" );
 	}
 	
 	public static bool foundTrans = false;
@@ -151,7 +151,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchTransButton()
 	{
 		if (ResearchTrans("a mettre"))//TODO output la valeur la liste ici
-			this.mc.OnSpellUsed ( "ResearchTrans" );
+			Main_Controller.OnSpellUsed ( "ResearchTrans" );
 
 	}
 	
@@ -173,7 +173,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchAntidoteButton()
 	{
 		if (ResearchAntidote())
-			this.mc.OnSpellUsed ( "ResearchAntidote" );
+			Main_Controller.OnSpellUsed ( "ResearchAntidote" );
 
 	}
 	
@@ -191,7 +191,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void sanitaryCampaignButton()
 	{
 		if (ResearchAntidote())
-			this.mc.OnSpellUsed ( "SanitaryCampaign" );
+			Main_Controller.OnSpellUsed ( "SanitaryCampaign" );
 
 	}
 	

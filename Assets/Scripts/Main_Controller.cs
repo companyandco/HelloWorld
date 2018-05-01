@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ public class Main_Controller : MonoBehaviour
 	/// NETWORKING SHIT RIGHT HERE
 	/////////////////////////////////////////////////////////
 	
-	private Client c;
+	private static Client c;
 	
 	/////////////////////////////////////////////////////////
 	/// NETWORKING SHIT RIGHT HERE
@@ -67,7 +68,7 @@ public class Main_Controller : MonoBehaviour
 	public Text AsiaDataText;
 	public List<Text> listText;
     public GameObject camera;
-    public bool isDefending;
+    public static bool isDefending;
 
     //info sur la partie
 	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
@@ -75,7 +76,6 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	public PlayerScript player;
 
 	public GameObject MainControllerDefPrefab;
 	public GameObject MainControllerOffPrefab;
@@ -121,6 +121,7 @@ public class Main_Controller : MonoBehaviour
 	
 	void Start ()
 	{
+		Debug.Log("started");
 		//panelD = Instantiate ( this.panelD );
 		//panelO = Instantiate ( this.panelO );
 		listText.Add(AsiaDataText);
@@ -130,17 +131,6 @@ public class Main_Controller : MonoBehaviour
 		listText.Add(OceaniaDataText);
 		listText.Add(AfricaDataText);
 
-
-		c = FindObjectOfType <Client> ();
-		if (c != null) 
-		{
-			isDefending = this.c.IsHost;
-		} else 
-		{
-			if(isDefending == null)
-				isDefending = false;
-		}
-
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
 		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
 
@@ -148,6 +138,13 @@ public class Main_Controller : MonoBehaviour
 		mco.mc = this;
 		
 		RandomEvents();
+
+		GameObject go = GameObject.Find ( "Client" );
+
+		if ( go == null )
+			go = GameObject.Find ( "Host" );
+		if (go != null)
+			isDefending = go.GetComponent <Client> ().IsHost;
 		
 		StartTheGame ();
     }
@@ -162,10 +159,10 @@ public class Main_Controller : MonoBehaviour
 		startTemp = Earth.regionlist[0].temp;
 
 		//UI start
-		powerD.SetActive(this.isDefending);	
-		powerO.SetActive(!this.isDefending);
-		panelD.SetActive(this.isDefending);	
-		panelO.SetActive(!this.isDefending);
+		powerD.SetActive(isDefending);	
+		powerO.SetActive(!isDefending);
+		panelD.SetActive(isDefending);	
+		panelO.SetActive(!	isDefending);
 
 		if (camera == null)
 			camera = Camera.main.transform.gameObject;
@@ -214,8 +211,16 @@ public class Main_Controller : MonoBehaviour
 	
 	private int i = 1;
 
+	private bool sale = false;
 	private void FixedUpdate()
 	{
+		Debug.Log("update");
+		if (!sale)
+		{
+			Start();
+			sale = true;
+		}
+			
 		if (i % 25 == 0)
 		{
 			//update cooldowns
@@ -368,31 +373,46 @@ public class Main_Controller : MonoBehaviour
 		i++;
 	}
 
-	public void OnSpellUsed (string spellName)
+	public static void OnSpellUsed (string spellName)
 	{
-
-		////// NETWORKING //////
-		this.c.Send ( "CMOV|" + spellName );
-
-		//this.player.OnSpellUsed ( spellName );
+		c = FindObjectOfType <Client> ();
+		if (c != null) 
+		{
+			Debug.Log(c.ClientName);
+			isDefending = c.IsHost;
+		} else 
+		{
+			Debug.Log("buuuuuuu");
+			isDefending = false;
+		}
+		
+		c.Send ( "CSPELL|" + spellName );
 	}
 
-	public void OnSpellUsed ( string spellName, Region country )
+	public static void OnSpellUsed ( string spellName, Region country )
 	{
-		//this.player.OnSpellUsed ( spellName, country );
+		c = FindObjectOfType <Client> ();
+		if (c != null) 
+		{
+			isDefending = c.IsHost;
+		} else 
+		{
+			isDefending = false;
+		}
+		
+		c.Send ( "CSPELLR|" + spellName + "|" + country.Name );
 	}
 
 	public static Region netRegion = null;
-	public void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	public static void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
 	{
-		netRegion = region;
 		switch ( msg )
 		{
 			case "CloseBorder":
-				mcd.CloseBorderButton ();
+				Main_Controller_def.CloseBorder (region);
 				break;
 			case "Localisation":
-				this.mcd.LocalisationButton ();
+				Main_Controller_def.Localisation (region);
 				break;
 			default:
 				Debug.Log ( "WTF?" );
@@ -400,45 +420,45 @@ public class Main_Controller : MonoBehaviour
 		}
 	}
 		
-	public void OnRpcOnSpellUsedCallback(string msg)
+	public static void OnRpcOnSpellUsedCallback(string msg)
 	{
 		switch ( msg )
 		{
-			case "ResearchSymp":
-				this.mcd.ResearchSympButton ();
-				break;
-			case "ResearchTrans":
-				this.mcd.ResearchTransButton ();
-				break;
+			//case "ResearchSymp":
+				//Main_Controller_def.ResearchSymp ();
+				//break;
+			//case "ResearchTrans":
+				//Main_Controller_def.ResearchTransButton ();
+				//break;
 			case "ResHum":
-				this.mco.ResHumButton ();
+				Main_Controller_off.ResHum ();
 				break;
 			case "ResTemp":
-				this.mco.ResTempButton ();
+				Main_Controller_off.ResTemp ();
 				break;
 			case "Res":
-				this.mco.ResButton ();
+				Main_Controller_off.Res ();
 				break;
 			case "Sneezing":
-				this.mco.SneezingButton ();
+				Main_Controller_off.Sneezing ();
 				break;
 			case "Cough":
-				this.mco.CoughButton ();
+				Main_Controller_off.Cough ();
 				break;
 			case "SoreThroat":
-				mco.SoreThroatButton();
+				Main_Controller_off.SoreThroat();
 				break;
 			case "HeartFailure":
-				mco.HeartFailureButton ();
+				Main_Controller_off.HeartFailure ();
 				break;
 			case "Diarrhea":
-				this.mco.DiarrheaButton ();
+				Main_Controller_off.Diarrhea ();
 				break;
 			case "Fever":
-				this.mco.FeverButton ();
+				Main_Controller_off.Fever ();
 				break;
 			case "Nausea":
-				this.mco.NauseaButton ();
+				Main_Controller_off.Nausea ();
 				break;
 			default:
 				Debug.Log ( "WTF?" );

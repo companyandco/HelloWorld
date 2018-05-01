@@ -25,6 +25,8 @@ public class Client : MonoBehaviour
 		players = new List <GameClient> ();
 		
 		DontDestroyOnLoad ( gameObject );
+
+		//MainController = GameObject.Find ( "MainController" ).GetComponent <Main_Controller> ();
 	}
 	
 	public bool ConnectToServer ( string host, int port )
@@ -62,16 +64,27 @@ public class Client : MonoBehaviour
 				{
 					UserConnected ( aData[i], false );
 				}
-
+				
 				Send ( "CWHO|" + this.ClientName + "|" + ( this.IsHost ? 1 : 0 ) );
 				break;
 			case "SCON":
 				UserConnected ( aData [1], IsHost );
 				break;
-			case "SMOV":
-				//TODO: call that on the Main_Controllers (CallBacks)
+			case "SSPELL":
+				Main_Controller.OnRpcOnSpellUsedCallback ( aData[1] );
+				break;
+			case "SSPELLR":
+				Main_Controller.OnRpcOnSpellUsedCallbackRegion ( aData [1], Main_Controller.GetRegionFromName ( aData [2] ) );
+				break;
+			case "SSTART":
+				StartTheGame ();
 				break;
 		}
+	}
+
+	private void StartTheGame ()
+	{
+		MultiplayerMenuManager.Instance.StartGame ();
 	}
 
 	public void Send ( string data )
@@ -95,20 +108,6 @@ public class Client : MonoBehaviour
 			
 			Debug.Log ( "Client: UserConnected: " + c.name );
 
-			/*
-			foreach ( GameClient client in this.players )
-			{
-				Debug.Log ( client.name );
-			}
-			*/
-		} else
-		{
-			//Debug.Log ( "It came from there, that little slut." );
-		}
-
-		if ( this.players.Count == 2 )
-		{
-			MultiplayerMenuManager.Instance.StartGame ();
 		}
 	}
 

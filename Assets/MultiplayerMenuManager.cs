@@ -60,7 +60,9 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 				s.Init ();
 
-				GameObject clientGameObject = Instantiate ( ClientPrefab ) as GameObject;
+				GameObject clientGameObject = Instantiate ( ClientPrefab );
+				
+				clientGameObject.name = "Host";
 
 				if ( clientGameObject != null )
 				{
@@ -92,6 +94,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 	public void CONNECT_TO_SERVER ()
 	{
+		 
 		string hostAddress = this.HostAddressInputField.GetComponent <InputField> ().text;
 
 		if ( hostAddress == null || hostAddress == "" )
@@ -100,7 +103,9 @@ public class MultiplayerMenuManager : MonoBehaviour
 		try
 		{
 
-			GameObject clientGameObject = Instantiate ( ClientPrefab ) as GameObject;
+			GameObject clientGameObject = Instantiate ( ClientPrefab );
+
+			clientGameObject.name = "Client";
 
 			if ( clientGameObject != null )
 			{
@@ -116,7 +121,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 				}
 				
 				c.ConnectToServer ( hostAddress, 6321 ); // don't hardcode the port.
-
+				
 				this.ConnectMenu.SetActive ( false );
 				
 				//Debug.Log ( "We're connected as Client!" );
@@ -149,8 +154,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 	
 	public void StartGame ()
 	{
-		Debug.Log ( "StartGame" );
-		//SceneManager.LoadScene ( "bite" );
+		SceneManager.LoadScene ( "MultiPlayer" );
 	}
 	
 }

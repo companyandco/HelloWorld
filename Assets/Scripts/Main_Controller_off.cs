@@ -34,7 +34,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void ResHumButton()
 	{
 		if (ResHum() && !AI.isSP)
-			this.mc.OnSpellUsed ( "ResHum" );
+			Main_Controller.OnSpellUsed ( "ResHum" );
 	}
 	
 	
@@ -55,7 +55,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void ResTempButton()
 	{
 		if (ResTemp() && !AI.isSP)
-			this.mc.OnSpellUsed ( "ResTemp" );
+			Main_Controller.OnSpellUsed ( "ResTemp" );
 	}
 	
 	
@@ -77,7 +77,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void ResButton()
 	{
 		if (Res() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Res" );
+			Main_Controller.OnSpellUsed ( "Res" );
 	}
 	
 	private static bool HighDensityResUsed = false;
@@ -97,7 +97,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void HighDensityResButton()
 	{
 		if (Res() && !AI.isSP)
-			this.mc.OnSpellUsed ( "HighDensityRes" );
+			Main_Controller.OnSpellUsed ( "HighDensityRes" );
 	}
 	
 	
@@ -123,7 +123,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void SneezingButton()
 	{
 		if (Sneezing() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Sneezing" );
+			Main_Controller.OnSpellUsed ( "Sneezing" );
 	}
 
 	private static bool CoughUsed = false;
@@ -145,7 +145,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void CoughButton()
 	{
 		if (Cough() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Cough" );
+			Main_Controller.OnSpellUsed ( "Cough" );
 	}
 
 	
@@ -168,7 +168,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void SoreThroatButton()
 	{
 		if (SoreThroat() && !AI.isSP)
-			this.mc.OnSpellUsed ( "SoreThroat" );
+			Main_Controller.OnSpellUsed ( "SoreThroat" );
 	}
 
 	
@@ -191,7 +191,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void HeartFailureButton()
 	{
 		if (HeartFailure() && !AI.isSP)
-			this.mc.OnSpellUsed ( "HeartFailure" );
+			Main_Controller.OnSpellUsed ( "HeartFailure" );
 	}
 	
 	private static bool diarrheaUsed = false;
@@ -214,7 +214,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void DiarrheaButton()
 	{
 		if (Diarrhea() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Diarrhea" );
+			Main_Controller.OnSpellUsed ( "Diarrhea" );
 	}
 	private static bool feverUsed = false;
 	public static bool Fever()
@@ -235,7 +235,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void FeverButton()
 	{
 		if (Fever() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Fever" );
+			Main_Controller.OnSpellUsed ( "Fever" );
 	}
 
 	private static bool nauseaUsed = false;
@@ -258,7 +258,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void NauseaButton()
 	{
 		if (Nausea() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Nausea" );
+			Main_Controller.OnSpellUsed ( "Nausea" );
 	}
 	
 	private static bool DepressionUsed = false;
@@ -280,7 +280,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void DepressionButton()
 	{
 		if (Nausea() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Depression" );
+			Main_Controller.OnSpellUsed ( "Depression" );
 	}
 	
 	private static bool FluUsed = false;
@@ -302,7 +302,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void FluButton()
 	{
 		if (Flu() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Flu" );
+			Main_Controller.OnSpellUsed ( "Flu" );
 	}
 	
 	private static bool InsomniaUsed = false;
@@ -323,7 +323,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void InsomniaButton()
 	{
 		if (Insomnia() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Insomnia" );
+			Main_Controller.OnSpellUsed ( "Insomnia" );
 	}
 	
 	private static bool StrokeUsed = false;
@@ -345,7 +345,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void StrokeButton()
 	{
 		if (Stroke() && !AI.isSP)
-			this.mc.OnSpellUsed ( "Stroke" );
+			Main_Controller.OnSpellUsed ( "Stroke" );
 	}
 
 }

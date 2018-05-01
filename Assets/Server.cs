@@ -19,7 +19,6 @@ public class Server : MonoBehaviour
 	{
 		DontDestroyOnLoad ( gameObject );
 
-
 		this.clients = new List <ServerClient> ();
 		this.disconnectList = new List <ServerClient> ();
 
@@ -109,8 +108,11 @@ public class Server : MonoBehaviour
 				
 				Broadcast ( "SCON|" + c.clientName, this.clients );
 				break;
-			case "CMOV":
-				Broadcast ( "SMOV|" + aData[1], this.clients );
+			case "CSPELL":
+				Broadcast ( "SSPELL|" + aData [1], this.clients );
+				break;
+			case "CSPELLR":
+				Broadcast ( "SSPELLR|" + aData [1] + "|" + aData [2], this.clients );
 				break;
 		}
 	}
@@ -159,10 +161,17 @@ public class Server : MonoBehaviour
 		Broadcast ( "SWHO|" + allUsers, this.clients [this.clients.Count - 1] );
 		
 		// this should give us the ip of the person that just connected.
-		Debug.Log ( sc.clientName + " : ip : " + ( ( IPEndPoint ) sc.tcp.Client.RemoteEndPoint ).Address );
+		Debug.Log ( "Connected! ip : " + ( ( IPEndPoint ) sc.tcp.Client.RemoteEndPoint ).Address );
 
-		StartListening ();
+		if ( this.clients.Count == 2 )
+		{
+			Broadcast ( "SSTART", this.clients );
+		} else
+		{
+			StartListening ();
+		}
 	}
+
 }
 
 public class ServerClient
