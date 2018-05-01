@@ -9,6 +9,7 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 	public GameObject responsePanel;
 	private GameObject panel;
 	private Text ButtonChild;
+	private GameObject button;
 
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["exemple"] retourne un string qui est sa description
@@ -55,6 +56,12 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 	public void OnPointerExit(PointerEventData data)
 	{
 		//Debug.Log("--> Exited <--" + this.name +data);
+		Destroy(panel);
+	}
+
+	private void OnDisable()
+	{
+		//Debug.Log("--> Panel disabled <--" + this.name +data);
 		Destroy(panel);
 	}
 }
