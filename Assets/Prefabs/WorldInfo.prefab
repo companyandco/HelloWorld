@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224591810447379124}
   - component: {fileID: 222499895462251748}
   - component: {fileID: 114293441011760152}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224997730022870294}
   - component: {fileID: 222510404789532764}
   - component: {fileID: 114412931649920076}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224137449428931980}
   - component: {fileID: 222552650645910774}
   - component: {fileID: 114876558933470906}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224175538794603974}
   - component: {fileID: 222841649960043086}
   - component: {fileID: 114769862289435308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 224473429400469008}
   - component: {fileID: 222721759312986456}
   - component: {fileID: 114743199862651710}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SA_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 224766217080674538}
   - component: {fileID: 222682696582882214}
   - component: {fileID: 114952333740000638}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 224666877799847740}
   - component: {fileID: 222666297835156140}
   - component: {fileID: 114109586319149980}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 224944947774467556}
   - component: {fileID: 222403983210641404}
   - component: {fileID: 114105445039851416}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 224158015333593714}
   - component: {fileID: 222836141751055228}
   - component: {fileID: 114588491897315446}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,25 +192,8 @@ GameObject:
   - component: {fileID: 224097398457597284}
   - component: {fileID: 222074206165620866}
   - component: {fileID: 114211295556959826}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1184854086382826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4562292433201408}
-  - component: {fileID: 114684603689976698}
-  - component: {fileID: 114994297227648074}
-  m_Layer: 0
-  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +209,7 @@ GameObject:
   - component: {fileID: 224071730649313002}
   - component: {fileID: 222065280225773096}
   - component: {fileID: 114966302409062648}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +226,7 @@ GameObject:
   - component: {fileID: 224334799872216210}
   - component: {fileID: 222306206482232448}
   - component: {fileID: 114078147728113928}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +243,7 @@ GameObject:
   - component: {fileID: 224019822034260488}
   - component: {fileID: 222825903196288818}
   - component: {fileID: 114212372463433822}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +260,7 @@ GameObject:
   - component: {fileID: 224134084708803578}
   - component: {fileID: 222169247079259060}
   - component: {fileID: 114197758640294350}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +277,7 @@ GameObject:
   - component: {fileID: 224557527915633838}
   - component: {fileID: 222596206976815008}
   - component: {fileID: 114077126499146622}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +294,7 @@ GameObject:
   - component: {fileID: 224274605969856416}
   - component: {fileID: 222920440561879344}
   - component: {fileID: 114026819626083472}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +311,7 @@ GameObject:
   - component: {fileID: 224149864364689350}
   - component: {fileID: 222170217990352782}
   - component: {fileID: 114731090986339388}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +328,7 @@ GameObject:
   - component: {fileID: 224518131869575338}
   - component: {fileID: 222719531595139038}
   - component: {fileID: 114577476482104628}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Asia_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +345,7 @@ GameObject:
   - component: {fileID: 224381721718542700}
   - component: {fileID: 222864810537770186}
   - component: {fileID: 114512142115411778}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: powerD_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +362,7 @@ GameObject:
   - component: {fileID: 224910309075235938}
   - component: {fileID: 222079640436512466}
   - component: {fileID: 114972716986123858}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +380,7 @@ GameObject:
   - component: {fileID: 223866505468312756}
   - component: {fileID: 114753966208443456}
   - component: {fileID: 114675136370203362}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: powerD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +397,7 @@ GameObject:
   - component: {fileID: 224420840919992736}
   - component: {fileID: 222313590519093944}
   - component: {fileID: 114162652568476820}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +414,7 @@ GameObject:
   - component: {fileID: 224042769322994552}
   - component: {fileID: 222329738138509516}
   - component: {fileID: 114469442728046118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +432,7 @@ GameObject:
   - component: {fileID: 223020895799086310}
   - component: {fileID: 114987727744503862}
   - component: {fileID: 114390309194762064}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: powerO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +450,7 @@ GameObject:
   - component: {fileID: 223367620196873182}
   - component: {fileID: 114881072942751784}
   - component: {fileID: 114785883576711356}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: America_NA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +468,7 @@ GameObject:
   - component: {fileID: 223815099559044694}
   - component: {fileID: 114076716607305002}
   - component: {fileID: 114447908511673390}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Africa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +485,7 @@ GameObject:
   - component: {fileID: 224986854972300736}
   - component: {fileID: 222716530237450162}
   - component: {fileID: 114581273203069392}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +502,7 @@ GameObject:
   - component: {fileID: 224757030591423182}
   - component: {fileID: 222375263273111912}
   - component: {fileID: 114396493121254306}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +519,7 @@ GameObject:
   - component: {fileID: 224095567719109092}
   - component: {fileID: 222194923117663606}
   - component: {fileID: 114299150454122600}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +536,7 @@ GameObject:
   - component: {fileID: 224463983831307512}
   - component: {fileID: 222070247930686754}
   - component: {fileID: 114895709851300756}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +554,7 @@ GameObject:
   - component: {fileID: 223954403841006254}
   - component: {fileID: 114665509225101202}
   - component: {fileID: 114037480613548874}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Oceania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +571,7 @@ GameObject:
   - component: {fileID: 224143970104422008}
   - component: {fileID: 222086082642103398}
   - component: {fileID: 114817310062108188}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +588,7 @@ GameObject:
   - component: {fileID: 224717312976297510}
   - component: {fileID: 222189031426498706}
   - component: {fileID: 114903480534215394}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +605,7 @@ GameObject:
   - component: {fileID: 224753312773422312}
   - component: {fileID: 222458088617519614}
   - component: {fileID: 114104191745078048}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Europe_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +622,7 @@ GameObject:
   - component: {fileID: 224856610966746494}
   - component: {fileID: 222616786063061874}
   - component: {fileID: 114463372074220084}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +640,7 @@ GameObject:
   - component: {fileID: 223030189367645802}
   - component: {fileID: 114736946940939768}
   - component: {fileID: 114167889419473432}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Europe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +657,7 @@ GameObject:
   - component: {fileID: 224351953907821958}
   - component: {fileID: 222437145516408764}
   - component: {fileID: 114420035510615624}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +674,7 @@ GameObject:
   - component: {fileID: 224917444405974074}
   - component: {fileID: 222239714545082090}
   - component: {fileID: 114623392022976214}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: powerO_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +692,7 @@ GameObject:
   - component: {fileID: 223293146793069046}
   - component: {fileID: 114242223413527130}
   - component: {fileID: 114157366915520676}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: America_SA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +709,7 @@ GameObject:
   - component: {fileID: 224504770926662410}
   - component: {fileID: 222662432174264140}
   - component: {fileID: 114438399464432064}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: World_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +726,7 @@ GameObject:
   - component: {fileID: 224648303133778630}
   - component: {fileID: 222629106455395072}
   - component: {fileID: 114524588331217100}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +743,7 @@ GameObject:
   - component: {fileID: 224152189261136976}
   - component: {fileID: 222164295300554064}
   - component: {fileID: 114355177336750258}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +760,7 @@ GameObject:
   - component: {fileID: 224691138276689136}
   - component: {fileID: 222297046516691110}
   - component: {fileID: 114172888279540762}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NA_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +777,7 @@ GameObject:
   - component: {fileID: 224308056042370978}
   - component: {fileID: 222787120137386772}
   - component: {fileID: 114212099165451420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Africa_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +794,7 @@ GameObject:
   - component: {fileID: 224812015247287728}
   - component: {fileID: 222961364179863082}
   - component: {fileID: 114010400320515064}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinentTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +811,7 @@ GameObject:
   - component: {fileID: 224937075102338984}
   - component: {fileID: 222726633747818154}
   - component: {fileID: 114349583038579822}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +828,7 @@ GameObject:
   - component: {fileID: 224956379258074394}
   - component: {fileID: 222782679121220266}
   - component: {fileID: 114056032562425510}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +845,7 @@ GameObject:
   - component: {fileID: 224715526251625276}
   - component: {fileID: 222236136642774754}
   - component: {fileID: 114370855903144700}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +862,7 @@ GameObject:
   - component: {fileID: 224555912158144158}
   - component: {fileID: 222632871627175124}
   - component: {fileID: 114991794462861604}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -896,7 +879,7 @@ GameObject:
   - component: {fileID: 224042063889832646}
   - component: {fileID: 222964073895093922}
   - component: {fileID: 114754123281351752}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +896,7 @@ GameObject:
   - component: {fileID: 224730684602946316}
   - component: {fileID: 222169799239314014}
   - component: {fileID: 114383687206635172}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +914,7 @@ GameObject:
   - component: {fileID: 223701036807800488}
   - component: {fileID: 114451549431183130}
   - component: {fileID: 114567019343349748}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +931,7 @@ GameObject:
   - component: {fileID: 224516035806885978}
   - component: {fileID: 222921198095475018}
   - component: {fileID: 114329819943146746}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +948,7 @@ GameObject:
   - component: {fileID: 224913843916722722}
   - component: {fileID: 222213897259771732}
   - component: {fileID: 114643159556033388}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +965,7 @@ GameObject:
   - component: {fileID: 224888034432519594}
   - component: {fileID: 222981803067091036}
   - component: {fileID: 114350181053249276}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Oceania_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +982,7 @@ GameObject:
   - component: {fileID: 224024414577613740}
   - component: {fileID: 222649778062251454}
   - component: {fileID: 114764846796275626}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1000,7 @@ GameObject:
   - component: {fileID: 223089008786905354}
   - component: {fileID: 114996251113247430}
   - component: {fileID: 114274366548842208}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Asia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,26 +1017,13 @@ GameObject:
   - component: {fileID: 224145019826807382}
   - component: {fileID: 222978747803865584}
   - component: {fileID: 114804011527479378}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Infected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4562292433201408
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1184854086382826}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -990, y: -540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 224943315219630700}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114010400320515064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2340,20 +2310,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114684603689976698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1184854086382826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
 --- !u!114 &114731090986339388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2896,24 +2852,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114994297227648074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1184854086382826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &114996251113247430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3819,8 +3757,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224042769322994552}
-  - {fileID: 224856610966746494}
   - {fileID: 224518131869575338}
+  - {fileID: 224856610966746494}
   - {fileID: 224175538794603974}
   - {fileID: 224591810447379124}
   - {fileID: 224557527915633838}
@@ -3996,7 +3934,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224310464492617280}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4336,7 +4274,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224310464492617280}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4468,7 +4406,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224516035806885978}
-  - {fileID: 4562292433201408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

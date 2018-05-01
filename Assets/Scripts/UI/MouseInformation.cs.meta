@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c5a91d3164837c342a7b6151ca687fe7
+timeCreated: 1525107540
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - responsePanel: {fileID: 1698249842046154, guid: 62e3c589bae92d64f9d51d36bcd679e5,
+      type: 2}
+  - main_controller: {fileID: 1828626398568282, guid: 4d64e29ad0e52e24998675b1a2d95726,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -51,18 +51,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c267e9941f4e77d4399af0a8f6d18f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelD: {fileID: 1435869604131820, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
-  panelO: {fileID: 1582647355194532, guid: fd158aabea30afb41bce57b67d645a22, type: 2}
+  panelD: {fileID: 0}
+  panelO: {fileID: 0}
+  powerD: {fileID: 0}
+  powerO: {fileID: 0}
+  PowerDText: {fileID: 0}
+  PowerOText: {fileID: 0}
+  WorldDataText: {fileID: 0}
+  NaDataText: {fileID: 0}
+  SaDataText: {fileID: 0}
+  EuDataText: {fileID: 0}
+  AfricaDataText: {fileID: 0}
+  OceaniaDataText: {fileID: 0}
+  AsiaDataText: {fileID: 0}
+  listText: []
   camera: {fileID: 0}
   isDefending: 0
   time: 0
   totalSane: 2185202922000
   totalInfected: 0
   totalDead: 0
-  player: {fileID: 0}
   MainControllerDefPrefab: {fileID: 1579619179244856, guid: 293b9d596813b074aa02f674a490da54,
     type: 2}
   MainControllerOffPrefab: {fileID: 1973305692386050, guid: a20ee4e121bfbaf489283391793e70ef,
     type: 2}
   mcd: {fileID: 0}
   mco: {fileID: 0}
+  maxRand: 50000
+  tempIndex: 0

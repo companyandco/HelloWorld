@@ -103,29 +103,6 @@ public class Main_Controller : MonoBehaviour
 	public static int startTemp;
 	public static float HighDensityRes = 0.15f;
 	
-	//Dictionnaire contenant toutes les info sur chaque competences:
-	//Utilisation: Description["exemple"] retourne un string qui est sa description
-	public readonly Dictionary<string, string> Description = new Dictionary<string, string> ()
-	{
-		//Defense
-		//Gestion
-		{"Fermeture temporaire", "Ferme temporairement une frontiere d'un pays a l'autre"},
-		//Recherche
-		{"Localisation", "Lance la recherche du virus dans le pays selectionne"},
-		{"Recherche de Symptomes", "Lance une recherche visant les symptomes du virus, retourne un des symptomes du virus, s'il l'a"},
-		{"Recherche de Transmitions", "Lance une recherche visant les transmitions du virus, retourne un des transmitions du virus, s'il l'a"},
-		
-		//Attaque
-		//Transmition
-		{"Resistence a l'humidite", "Le virus devient plus resistent au climat sec et humdide."},
-		{"Resistence a la temperature", "Le virus devient plus resistent au chaud et au froid."},
-		{"Resistence au climat", "Le virus est capable de survivre dans les regions les plus extremes."},// debloque apres avoir selectionne les deux precedent
-		//Symptomes
-		{"Eternuements","Provoque des eternuements, augmentant la transmition et la virulence."},
-		{"Toux","Provoque une legere toux, augmentant la transmition et la virulence."},
-		{"Mal de gorge","Provoque une legere toux, augmentant la virulence."},
-		{"Crise cardiaque","Augmente la lethalite de votre virus"},
-	};
 
 	public static Region GetRegionFromName(string name)
 	{
