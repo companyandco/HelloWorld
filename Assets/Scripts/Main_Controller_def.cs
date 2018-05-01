@@ -50,16 +50,15 @@ public class Main_Controller_def : MonoBehaviour {
 		bool isUsed;
 		if ( Main_Controller.netRegion == null )
 		{
-//			isUsed = CloseBorder ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
+			isUsed = CloseBorder ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
 		} else
 		{
 			isUsed = CloseBorder ( Main_Controller.netRegion );
 			Main_Controller.netRegion = null;
 		}
-/*
 		if (isUsed) 
 			this.mc.OnSpellUsed ( "CloseBorder" );
-*/	}
+	}
 	
 	//Recherche
 	public static bool found = false;
@@ -101,16 +100,14 @@ public class Main_Controller_def : MonoBehaviour {
 		bool isUsed;
 		if ( Main_Controller.netRegion == null )
 		{
-//			isUsed = Localisation ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
+			isUsed = Localisation ( Main_Controller.GetRegionFromName ( PlayerGameManager.lastContinentClicked ) );
 		} else
 		{
 			isUsed = Localisation ( Main_Controller.netRegion );
 			Main_Controller.netRegion = null;
 		}
-		/*
 		if(isUsed)
 			this.mc.OnSpellUsed ( "Localisation" );
-		*/
 	}
 
 	

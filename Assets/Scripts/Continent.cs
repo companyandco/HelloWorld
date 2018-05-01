@@ -1,80 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Continent : MonoBehaviour
+public class Continent
 {
 
-	#region variables
+	private string name;
 
-	public bool isSelected;
-
-	public string ContinentName;
-
-	public long ContinentPopulation;
-
-	public float ContinentPopulationDensity;
-
-	public float ContinentLifeExpectancy;
-
-	public float ContinentGDP;
-
-	public float ContinentAverageHumidity;
-
-	public float ContinentAverageTemperature;
-
-	#endregion
-
-	#region constructor
-
-	public void SetValues ( List <string> cparams )
+	public string Name
 	{
-		this.ContinentPopulation = long.Parse ( cparams [0] );
-		this.ContinentPopulationDensity = float.Parse ( cparams [1] );
-		this.ContinentLifeExpectancy = float.Parse ( cparams [2] );
-		this.ContinentGDP = float.Parse ( cparams [3] );
-		this.ContinentAverageHumidity = int.Parse ( cparams [4] );
-		this.ContinentAverageTemperature = int.Parse ( cparams [5] );
+		get { return this.name; }
+		set { this.name = value; }
 	}
 	
-	#endregion
-
-	#region methods
-
-	private void Update ()
+	public Continent ( string name )
 	{
-		if ( Input.GetMouseButtonDown ( 0 ) )
-		{
-			Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
-
-			RaycastHit hit;
-
-			if ( Physics.Raycast ( ray, out hit ) )
-			{
-				string continentHitName = hit.transform.gameObject.transform.parent.name;
-
-				this.isSelected = continentHitName == this.ContinentName;
-
-				if ( this.isSelected )
-					Debug.Log ( this.ContinentName + " selected." );
-			}
-		}
-	}
-
-	private void OnGUI ()
-	{
-		if ( this.isSelected )
-		{
-			string infos = this.ContinentName +
-			               "\nPopulation: " + this.ContinentPopulation +
-			               "\nDensity: " + this.ContinentPopulationDensity +
-			               "\nLifeExpectancy: " + this.ContinentLifeExpectancy +
-			               "\nGDP: " + this.ContinentGDP +
-			               "\nHumidity: " + this.ContinentAverageHumidity +
-			               "\nTemperature: " + this.ContinentAverageTemperature;
-			GUI.Label ( new Rect ( 10, 10, 10000000, 10000000 ), infos );
-		}
+		this.name = name;
 	}
 	
-	#endregion
-
 }
