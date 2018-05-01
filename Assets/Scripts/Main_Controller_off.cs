@@ -13,13 +13,12 @@ public class Main_Controller_off : MonoBehaviour {
 		get { return powerO; }
 	}
 
-	public  Main_Controller mc;
-	public GameObject resClimat;
+	public Main_Controller mc;
 	
 	//Attaque
 	//Transmition
-	private bool ResHumUsed = false;
-	public bool ResHum()
+	private static bool ResHumUsed = false;
+	public static bool ResHum()
 	{
 		if (!ResHumUsed && powerO - 5 >= 0)
 		{
@@ -28,30 +27,27 @@ public class Main_Controller_off : MonoBehaviour {
             Debug.Log("b1.1 button pressed");
             Main_Controller.transmitions.Add("Resistence a l'humidite");
 			Main_Controller.HumidityRes += 10;
-			if (ResTempUsed)
-				resClimat.SetActive(true);
 			return true;
 		}
-		return false; 
+		return false;
 	}
 	public void ResHumButton()
 	{
 		if (ResHum() && !AI.isSP)
-			this.mc.OnSpellUsed("ResHum");
+			this.mc.OnSpellUsed ( "ResHum" );
 	}
 	
 	
 	private static bool ResTempUsed = false;
-	public bool ResTemp()
+	public static bool ResTemp()
 	{
 		if (!ResTempUsed && powerO - 5 >= 0)
 		{
 			powerO -= 5;
 			ResTempUsed = true;
+            Debug.Log("b1.2 button pressed");
 			Main_Controller.transmitions.Add("Resistence a la temperature");
 			Main_Controller.tempRes += 10;
-			if (ResHumUsed)
-				resClimat.SetActive(true);
 			return true;
 		}
 		return false;
@@ -59,8 +55,7 @@ public class Main_Controller_off : MonoBehaviour {
 	public void ResTempButton()
 	{
 		if (ResTemp() && !AI.isSP)
-			this.mc.OnSpellUsed("ResTemp");
-		
+			this.mc.OnSpellUsed ( "ResTemp" );
 	}
 	
 	
@@ -114,6 +109,7 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			sneezingUsed = true;
 			powerO -= 5;
+            Debug.Log("b2.1 button pressed");
 			Main_Controller.symptoms.Add("Eternuements");
 			Main_Controller.transmitionHuman += 0.1f;
 			Main_Controller.virulence += 1;

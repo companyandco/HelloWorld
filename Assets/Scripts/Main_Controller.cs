@@ -11,6 +11,24 @@ public class Main_Controller : MonoBehaviour
 	/// Variable
 	/////////////////////////////////////////////////////////
 
+	
+	
+	
+
+	/////////////////////////////////////////////////////////
+	/// NETWORKING SHIT RIGHT HERE
+	/////////////////////////////////////////////////////////
+	
+	private Client c;
+	
+	/////////////////////////////////////////////////////////
+	/// NETWORKING SHIT RIGHT HERE
+	/////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
 	public class Region
 	{
 		public string Name;
@@ -33,9 +51,9 @@ public class Main_Controller : MonoBehaviour
 		public List<Region> regionlist;
 	}
 
-	//info sur l'UI
-	public GameObject panelD;
-	public GameObject panelO;
+    //info sur l'UI
+    public GameObject panelD;
+    public GameObject panelO;
 	public GameObject powerD;
 	public GameObject powerO;
 	public Text PowerDText;
@@ -48,12 +66,12 @@ public class Main_Controller : MonoBehaviour
 	public Text OceaniaDataText;
 	public Text AsiaDataText;
 	public List<Text> listText;
-	public GameObject camera;
-	public bool isDefending;
+    public GameObject camera;
+    public bool isDefending;
 
-	//info sur la partie
+    //info sur la partie
 	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
-	public int time = 0;
+    public int time = 0;
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
@@ -87,15 +105,6 @@ public class Main_Controller : MonoBehaviour
 	public static float HighDensityRes = 0.15f;
 	
 
-	/////////////////////////////////////////////////////////
-	/// NETWORKING 
-	/////////////////////////////////////////////////////////
-	
-	private Client c;
-	
-	
-	
-
 	public static Region GetRegionFromName(string name)
 	{
 		for (int j = 0; j < Earth.regionlist.Count; j++)
@@ -124,10 +133,13 @@ public class Main_Controller : MonoBehaviour
 
 		c = FindObjectOfType <Client> ();
 		if (c != null) 
+		{
 			isDefending = this.c.IsHost;
-		else 
-			isDefending = false;
-		
+		} else 
+		{
+			if(isDefending == null)
+				isDefending = false;
+		}
 
 		mcd = Instantiate ( this.MainControllerDefPrefab ).GetComponent<Main_Controller_def> ();
 		mco = Instantiate ( this.MainControllerOffPrefab ).GetComponent<Main_Controller_off> ();
@@ -212,12 +224,10 @@ public class Main_Controller : MonoBehaviour
 			if (Scd > 0)
 				Scd--;
 			
-			
 			totalSane = 0;
 			totalInfected = 0;
 			totalDead = 0;
 			int j = 0;
-			
 			foreach (var region in Earth.regionlist)
 			{
 				//get info about the world
@@ -264,7 +274,7 @@ public class Main_Controller : MonoBehaviour
 				//update dead
 				if (lethality != 0 && region.infected != 0)
 				{
-					long extraDead = (long) (region.infected * lethality) + 3;
+					long extraDead = (long) (region.infected * lethality) + 7;
 					region.dead += extraDead;
 					region.infected -= extraDead;
 					if (region.infected < 0)
@@ -287,13 +297,12 @@ public class Main_Controller : MonoBehaviour
 				}
 				
 				//update randomEvents
-				if(!isDefending && eventsList.Count>0)
+				if(eventsList.Count>0)
 				{
 					if (Random.Range (1, maxRand)==1) 
 					{
 						tempIndex = Random.Range (0, eventsList.Count);
 						eventsList [tempIndex].ApplyChanges();
-						//TODO envoyer sur le reseau l'index de l'evenement
 						eventsList.Remove (eventsList [tempIndex]);
 						maxRand -= 1;
 					}
@@ -315,7 +324,6 @@ public class Main_Controller : MonoBehaviour
 					else if (region.infected < 1000000 && region.infected % 200000 < 50)
 						Main_Controller_off.powerO += 4;
 				}
-				
 
 				//PowerD generation
 				if (i == 50)
