@@ -71,9 +71,9 @@ public class Server : MonoBehaviour
 		}
 	}
 
-	// this overload MIGHT not work the way it should.
 	private void Broadcast ( string data, ServerClient sc )
 	{
+		Debug.Log ( "Server::Broadcasting: " + data );
 		try
 		{
 			StreamWriter writer = new StreamWriter ( sc.tcp.GetStream () );
@@ -95,7 +95,7 @@ public class Server : MonoBehaviour
 
 	private void OnIncomingData ( ServerClient c, string data )
 	{
-		//Debug.Log ( "Server: " + data );
+		Debug.Log ( "Server::OnIncomingData: " + data );
 
 		string[] aData = data.Split ( '|' );
 		switch ( aData[0] )

@@ -52,8 +52,7 @@ public class Client : MonoBehaviour
 
 	private void OnIncomingData ( string data )
 	{
-		// TODO: link this to actual game.
-		//Debug.Log ( "Client: " + data );
+		Debug.Log ( "Client::OnIncomingData: " + data );
 
 		string[] aData = data.Split ( '|' );
 
@@ -92,6 +91,8 @@ public class Client : MonoBehaviour
 		if ( !this.isSocketReady )
 			return;
 
+		Debug.Log ( "Client::Send: " + data );
+		
 		this.writer.WriteLine ( data );
 		this.writer.Flush ();
 	}

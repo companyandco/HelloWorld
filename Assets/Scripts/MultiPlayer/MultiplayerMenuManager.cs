@@ -20,6 +20,9 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 		MainMenu.SetActive ( true );
 
+//		for ( int i = 0; i < this.MainMenu.transform.childCount; i++ )
+//			this.MainMenu.transform.GetChild ( i ).gameObject.SetActive ( true );
+
 		HostMenu.SetActive ( false );
 
 		ConnectMenu.SetActive ( false );

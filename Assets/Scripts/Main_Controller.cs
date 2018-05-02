@@ -19,7 +19,7 @@ public class Main_Controller : MonoBehaviour
 	/// NETWORKING SHIT RIGHT HERE
 	/////////////////////////////////////////////////////////
 	
-	private Client c;
+	private static Client c;
 	
 	/////////////////////////////////////////////////////////
 	/// NETWORKING SHIT RIGHT HERE
@@ -132,7 +132,7 @@ public class Main_Controller : MonoBehaviour
 		c = FindObjectOfType <Client> ();
 		if (c != null) 
 		{
-			isDefending = this.c.IsHost;
+			isDefending = c.IsHost;
 		} else 
 		{
 			if(isDefending == null)
@@ -360,18 +360,14 @@ public class Main_Controller : MonoBehaviour
 		i++;
 	}
 
-	public void OnSpellUsed (string spellName)
+	public static void OnSpellUsed (string spellName)
 	{
-
-		////// NETWORKING //////
-		this.c.Send ( "CMOV|" + spellName );
-
-		//this.player.OnSpellUsed ( spellName );
+		c.Send ( "CSPELL|" + spellName );
 	}
 
-	public void OnSpellUsed ( string spellName, Region country )
+	public static void OnSpellUsed ( string spellName, Region country )
 	{
-		//this.player.OnSpellUsed ( spellName, country );
+		c.Send ( "CSPELLR|" + spellName + "|" + country.Name );
 	}
 
 	public static Region netRegion = null;
