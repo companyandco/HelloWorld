@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!223 &194604295 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223661941078547780, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
 --- !u!1 &236239466 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1415813302204578, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
@@ -165,13 +170,10 @@ MonoBehaviour:
   totalSane: 0
   totalInfected: 0
   totalDead: 0
-  player: {fileID: 0}
-  MainControllerDefPrefab: {fileID: 879322019}
-  MainControllerOffPrefab: {fileID: 1709586205}
-  mcd: {fileID: 0}
-  mco: {fileID: 0}
-  maxRand: 50000
-  tempIndex: 0
+  maxRandEvent: 5000
+  notif: {fileID: 194604295}
+  Message: {fileID: 1813902284}
+  Title: {fileID: 1574562190}
 --- !u!4 &240224867
 Transform:
   m_ObjectHideFlags: 0
@@ -1219,6 +1221,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2043354193}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1574562190 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114045958095902932, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1629829982 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1719955886160252, guid: fd158aabea30afb41bce57b67d645a22,
@@ -1339,6 +1347,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813902284 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114915333817426696, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1827277665 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114438399464432064, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
@@ -1384,7 +1398,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114787392258960324, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 240224866}
+    - target: {fileID: 114787392258960324, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 223661941078547780, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345015230320546, guid: 45e426bf08c829240bd43ad7984b1955, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114713908021582606, guid: 45e426bf08c829240bd43ad7984b1955, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 45e426bf08c829240bd43ad7984b1955, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1873441061 stripped
