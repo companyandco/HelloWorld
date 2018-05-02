@@ -73,7 +73,7 @@ public class Client : MonoBehaviour
 				Main_Controller.OnRpcOnSpellUsedCallback ( aData[1] );
 				break;
 			case "SSPELLR":
-				Main_Controller.OnRpcOnSpellUsedCallbackRegion ( aData [1], Main_Controller.GetRegionFromName ( aData [2] ) );
+				Main_Controller.OnRpcOnSpellUsedCallbackRegion ( aData [1], aData [2] );
 				break;
 			case "SSTART":
 				StartTheGame ();
