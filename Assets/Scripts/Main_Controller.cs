@@ -81,9 +81,9 @@ public class Main_Controller : MonoBehaviour
 	public long totalInfected;
 	public long totalDead;
 	
-	public List <RandomEvent> eventsList;
+	public static List <RandomEvent> eventsList;
 	public int maxRand=50000;
-	public int tempIndex;
+	public static int tempIndex;
 
 	public static int Tcd = 50;
 	public static int Scd = 50;
@@ -236,16 +236,18 @@ public class Main_Controller : MonoBehaviour
 					region.transmitionHuman = transmitionHuman;
 
 					//if that region has 0 infected
-					if (region.infected == 0)
+					if (!isDefending && region.infected == 0)
 					{
 						if (Random.Range(0.1f, 10f) < transmitionOther)
 						{
 							region.infected = 1;
+							OnSpellUsed("NewRegionInfected", region.Name);
 							region.Population -= 1;
 						}
 						else if (!region.isClosed && Random.Range(0.04f, 15f) < transmitionHuman)
 						{
 							region.infected = 1;
+							OnSpellUsed("NewRegionInfected", region.Name);
 							region.Population -= 1;
 						}
 
@@ -362,24 +364,35 @@ public class Main_Controller : MonoBehaviour
 
 	public static void OnSpellUsed (string spellName)
 	{
+
+		////// NETWORKING //////
 		c.Send ( "CSPELL|" + spellName );
 	}
 
-	public static void OnSpellUsed ( string spellName, Region country )
+	public static void OnSpellUsed ( string spellName, string value )
 	{
-		c.Send ( "CSPELLR|" + spellName + "|" + country.Name );
+		c.Send ( "CSPELLR|" + spellName + "|" + value);
 	}
 
 	public static Region netRegion = null;
-	public static void OnRpcOnSpellUsedCallbackRegion(string msg, Region region)
+	public static void OnRpcOnSpellUsedCallbackRegion(string msg, string value)
 	{
 		switch ( msg )
 		{
+			case "RandomEvent":
+				eventsList [int.Parse(value)].ApplyChanges();
+				eventsList.Remove (eventsList [int.Parse(value)]);
+				break;
+			case "NewRegionInfected":
+				Region region = GetRegionFromName(value);
+				region.infected = 1;
+				region.Population -= 1;
+				break;
 			case "CloseBorder":
-				Main_Controller_def.CloseBorder(region);
+				Main_Controller_def.CloseBorder(GetRegionFromName(value));
 				break;
 			case "Localisation":
-				Main_Controller_def.Localisation(region);
+				Main_Controller_def.Localisation(GetRegionFromName(value));
 				break;
 			default:
 				Debug.Log ( "WTF?" );
