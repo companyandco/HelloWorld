@@ -289,7 +289,7 @@ public class Main_Controller : MonoBehaviour
 				}
 				
 				//update randomEvents
-				if(eventsList.Count>0)
+				if(!isDefending && eventsList.Count>0)
 				{
 					if (Random.Range (1, maxRand)==1) 
 					{
