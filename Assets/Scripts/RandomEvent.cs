@@ -22,22 +22,21 @@ public class RandomEvent{
 		region = Region;
 	}
 	public void ApplyChanges (){ //( 0f, 0, 0f, 0, null) for no changes
-		int toSub;
-		if (region != null) {
-			region.infected -= this.deceased / 2;
-			if (region.infected < 0) {
-				toSub = 0 - (int)region.infected;
-				region.infected = 0;
-				region.Population -= toSub+this.deceased-this.deceased/2;
-				if(region.Population<0)
-				{
-					toSub = 0 - (int)region.Population;
-					region.Population = 0;
-					region.dead -= toSub;
-				}
-				region.dead += this.deceased;
+		long toSub;
+		long deads=0;
+		if (region != null)
+		{
+			toSub = region.infected / region.Population * this.deceased;
+			region.infected -= toSub;
+			region.Population -= this.deceased - toSub;
+			if (region.Population < 0) {
+				deads += this.deceased + region.Population;
 			}
-
+			else 
+			{
+				deads = this.deceased;
+			}
+			region.dead += deads;
 		}
 		Main_Controller.transmitionHuman += this.transmitionHuman;
 		Main_Controller.virulence += this.virulence;
