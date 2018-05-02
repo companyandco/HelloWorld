@@ -160,8 +160,8 @@ public class Main_Controller_def : MonoBehaviour {
 			powerD -= 2;
 			Main_Controller.Tcd = (int)(15-Main_Controller.virulence);
 			//string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
-			if (!foundSymptoms.Contains(transmition)){
-				foundSymptoms.Add(transmition);
+			if (!foundTransmitions.Contains(transmition)){
+				foundTransmitions.Add(transmition);
 				return true;
 			}
 		}
@@ -184,7 +184,8 @@ public class Main_Controller_def : MonoBehaviour {
 	{
 		if (powerD - 5 >= 0 &&
 		    foundTransmitions.Count == Main_Controller.transmitions.Count &&
-		    foundSymptoms.Count == Main_Controller.symptoms.Count)
+		    foundSymptoms.Count == Main_Controller.symptoms.Count &&
+		    Main_Controller.symptoms.Count != 0)
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 5;
