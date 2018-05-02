@@ -83,7 +83,7 @@ public class Main_Controller : MonoBehaviour
 	
 	public static List <RandomEvent> eventsList;
 	public int maxRand=50000;
-	public static int tempIndex;
+	public RandomEvent tempEvent;
 
 	public static int Tcd = 50;
 	public static int Scd = 50;
@@ -168,7 +168,7 @@ public class Main_Controller : MonoBehaviour
 	{
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("test event", 0f, 0, 0f, 0, GetRegionFromName("Asia"));
+		eventsList[0].Init("test title","test message", 0f, 0, 0f, 0, GetRegionFromName("Asia"));
 	}
 	
 	/////////////////////////////////////////////////////////
@@ -295,15 +295,17 @@ public class Main_Controller : MonoBehaviour
 				{
 					if (Random.Range (1, maxRand)==1) 
 					{
-						tempIndex = Random.Range (0, eventsList.Count);
-						eventsList [tempIndex].ApplyChanges();
-						eventsList.Remove (eventsList [tempIndex]);
+						tempEvent=eventsList [Random.Range (0, eventsList.Count)];
+						tempEvent.ApplyChanges ();
+						Notif_Handle.openNotification (tempEvent.title, tempEvent.message);
+						eventsList.Remove (tempEvent);
 						maxRand -= 1;
 					}
-					if (maxRand <= 1) 
+					if (maxRand <= 1)
 					{
 						maxRand = 50000;
 					}
+					
 				}
 
 				//PowerO generation
