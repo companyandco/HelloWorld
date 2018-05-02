@@ -80,10 +80,16 @@ public class Main_Controller : MonoBehaviour
 	public long totalSane;
 	public long totalInfected;
 	public long totalDead;
-	
+
+	//Info sur les events
 	public static List <RandomEvent> eventsList;
-	public int maxRand=50000;
-	public static int tempIndex;
+	public int maxRandEvent;
+	private int maxRand;
+	public RandomEvent tempEvent;
+	public Canvas notif;
+	public Text Message;
+	public Text Title;
+
 
 	public static int Tcd = 50;
 	public static int Scd = 50;
@@ -140,7 +146,7 @@ public class Main_Controller : MonoBehaviour
 		}
 		
 		RandomEvents();
-		
+
 		StartTheGame ();
     }
 
@@ -166,11 +172,23 @@ public class Main_Controller : MonoBehaviour
 	
 	void RandomEvents()
 	{
+		maxRand = maxRandEvent;
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("test event", 0f, 0, 0f, 0, GetRegionFromName("Asia"));
+		eventsList[0].Init("test title","test message", 0f, 0, 0f, 0, GetRegionFromName("Asia"));
 	}
-	
+
+	void OpenNotification(string title, string message)
+	{
+		Title.text = title;
+		Message.text = message;
+		notif.enabled = true;
+	}
+	public void CloseNotification()
+	{
+		notif.enabled = false;
+	}
+		
 	/////////////////////////////////////////////////////////
 	/// Interface
 	/////////////////////////////////////////////////////////
@@ -293,19 +311,21 @@ public class Main_Controller : MonoBehaviour
 				//update randomEvents
 				if(!isDefending && eventsList.Count>0)
 				{
-					if (Random.Range (1, maxRand)==1) 
+					
+					if (Random.Range (1, maxRand) == 1)
 					{
-						tempIndex = Random.Range (0, eventsList.Count);
-						eventsList [tempIndex].ApplyChanges();
-						eventsList.Remove (eventsList [tempIndex]);
-						maxRand -= 1;
+
+						tempEvent = eventsList [Random.Range (0, eventsList.Count)];
+						tempEvent.ApplyChanges ();
+						OpenNotification (tempEvent.title, tempEvent.message);
+						eventsList.Remove (tempEvent);
 					}
 					if (maxRand <= 1) 
 					{
-						maxRand = 50000;
+						maxRand = maxRandEvent;
 					}
+					maxRand -= 1;
 				}
-
 				//PowerO generation
 				if (region.infected > 100)
 				{
@@ -362,16 +382,16 @@ public class Main_Controller : MonoBehaviour
 		i++;
 	}
 
-	public static void OnSpellUsed (string spellName)
+ 	public static void OnSpellUsed (string spellName)
 	{
-
-		////// NETWORKING //////
-		c.Send ( "CSPELL|" + spellName );
+		if (!AI.isSP)
+			c.Send ( "CSPELL|" + spellName );
 	}
 
 	public static void OnSpellUsed ( string spellName, string value )
 	{
-		c.Send ( "CSPELLR|" + spellName + "|" + value);
+		if (!AI.isSP)
+			c.Send ( "CSPELLR|" + spellName + "|" + value);
 	}
 
 	public static Region netRegion = null;

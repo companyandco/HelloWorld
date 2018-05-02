@@ -9,9 +9,15 @@ public class Main_Controller_off : MonoBehaviour {
 	public static int powerO = 30;
 
 	public Main_Controller mc;
-	
+
 	//Attaque
+	#region attack
+
 	//Transmition
+	#region transmission
+
+	#region reshum
+
 	private static bool ResHumUsed = false;
 	public static bool ResHum()
 	{
@@ -19,7 +25,7 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			ResHumUsed = true;
 			powerO -= 5;
-            Main_Controller.transmitions.Add("Resistence a l'humidite");
+			Main_Controller.transmitions.Add("Resistence a l'humidite");
 			Main_Controller.HumidityRes += 10;
 			return true;
 		}
@@ -30,8 +36,11 @@ public class Main_Controller_off : MonoBehaviour {
 		if (ResHum() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "ResHum" );
 	}
-	
-	
+
+	#endregion
+
+	#region restemp
+
 	private static bool ResTempUsed = false;
 	public static bool ResTemp()
 	{
@@ -50,7 +59,10 @@ public class Main_Controller_off : MonoBehaviour {
 		if (ResTemp() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "ResTemp" );
 	}
-	
+
+	#endregion
+
+	#region res
 	
 	private static bool ResUsed = false;
 	public static bool Res()
@@ -67,12 +79,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void ResButton()
 	{
 		if (Res() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Res" );
 	}
-	
+
+	#endregion
+
+	#region highdensityres
+
 	private static bool HighDensityResUsed = false;
 	public static bool HighDensityRes()
 	{
@@ -87,14 +104,22 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void HighDensityResButton()
 	{
 		if (Res() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "HighDensityRes" );
 	}
+
+	#endregion
 	
+	#endregion
 	
 	//Symptomes
+	#region symptomes
+
+	#region sneezing
+
 	private static bool sneezingUsed = false;
 	public static bool Sneezing()
 	{
@@ -102,7 +127,7 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			sneezingUsed = true;
 			powerO -= 5;
-            Debug.Log("b2.1 button pressed");
+			Debug.Log("b2.1 button pressed");
 			Main_Controller.symptoms.Add("Eternuements");
 			Main_Controller.transmitionHuman += 0.1f;
 			Main_Controller.virulence += 1;
@@ -112,12 +137,15 @@ public class Main_Controller_off : MonoBehaviour {
 		return false;
 	}
 
-	
 	public void SneezingButton()
 	{
 		if (Sneezing() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Sneezing" );
 	}
+
+	#endregion
+
+	#region cough
 
 	private static bool CoughUsed = false;
 	public static bool Cough()
@@ -126,7 +154,7 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			CoughUsed = true;
 			powerO -= 5;
-            Debug.Log("b2.2 button pressed");
+			Debug.Log("b2.2 button pressed");
 			Main_Controller.symptoms.Add("Toux");
 			Main_Controller.transmitionHuman += 0.05f;
 			Main_Controller.virulence += 2;
@@ -135,13 +163,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void CoughButton()
 	{
 		if (Cough() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Cough" );
 	}
 
-	
+	#endregion
+
+	#region sorethroat
+
 	private static bool SoreThroatUsed = true;
 	public static bool SoreThroat()
 	{
@@ -149,7 +181,7 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			SoreThroatUsed = true;
 			powerO -= 5;
-            Debug.Log("b2.3 button pressed");
+			Debug.Log("b2.3 button pressed");
 			Main_Controller.symptoms.Add("Mal de Gorge");
 			Main_Controller.virulence += 4;
 			Main_Controller.transmitionHuman += 0.001f;
@@ -158,13 +190,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void SoreThroatButton()
 	{
 		if (SoreThroat() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "SoreThroat" );
 	}
 
-	
+	#endregion
+
+	#region heartfailure
+
 	private static bool HeartFailureUsed = false;
 	public static bool HeartFailure()
 	{
@@ -181,12 +217,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void HeartFailureButton()
 	{
 		if (HeartFailure() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "HeartFailure" );
 	}
-	
+
+	#endregion
+
+	#region diarrhea
+
 	private static bool diarrheaUsed = false;
 	public static bool Diarrhea()
 	{
@@ -204,11 +245,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void DiarrheaButton()
 	{
 		if (Diarrhea() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Diarrhea" );
 	}
+
+	#endregion
+
+	#region fever
+
 	private static bool feverUsed = false;
 	public static bool Fever()
 	{
@@ -225,11 +272,16 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void FeverButton()
 	{
 		if (Fever() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Fever" );
 	}
+
+	#endregion
+
+	#region nausea
 
 	private static bool nauseaUsed = false;
 	public static bool Nausea()
@@ -248,12 +300,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void NauseaButton()
 	{
 		if (Nausea() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Nausea" );
 	}
-	
+
+	#endregion
+
+	#region depression
+
 	private static bool DepressionUsed = false;
 	public static bool Depression()
 	{
@@ -270,12 +327,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void DepressionButton()
 	{
 		if (Nausea() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Depression" );
 	}
-	
+
+	#endregion
+
+	#region flu
+
 	private static bool FluUsed = false;
 	public static bool Flu()
 	{
@@ -292,12 +354,17 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void FluButton()
 	{
 		if (Flu() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Flu" );
 	}
-	
+
+	#endregion
+
+	#region insomnia
+
 	private static bool InsomniaUsed = false;
 	public static bool Insomnia()
 	{
@@ -313,11 +380,16 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void InsomniaButton()
 	{
 		if (Insomnia() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Insomnia" );
 	}
+
+	#endregion
+	
+	#region stroke
 	
 	private static bool StrokeUsed = false;
 	public static bool Stroke()
@@ -335,10 +407,75 @@ public class Main_Controller_off : MonoBehaviour {
 
 		return false;
 	}
+	
 	public void StrokeButton()
 	{
 		if (Stroke() && !AI.isSP)
 			Main_Controller.OnSpellUsed ( "Stroke" );
 	}
+	
+	#endregion
+	
+	#region paralisys 
+
+	public static bool ParalisysUsed = false;
+	public static bool Paralisys ()
+	{
+		if ( !ParalisysUsed && powerO - 10 >= 0 )
+		{
+			ParalisysUsed = true;
+			powerO -= 10;
+			Main_Controller.symptoms.Add ( "Paralisys" );
+
+			Main_Controller.virulence += 2;
+			
+			Main_Controller.lethality += 0.2f;
+
+			return true;
+		}
+		return false;
+	}
+	
+	public void ParalisysButton ()
+	{
+		if (Paralisys () && !AI.isSP)
+			Main_Controller.OnSpellUsed ( "Paralisys" );
+	}
+	
+	#endregion
+
+	#region attackanimals
+
+	public static bool isAttackAnimalsUsed = false;
+
+	public static bool AttackAnimals ()
+	{
+		if ( !isAttackAnimalsUsed && powerO - 5 >= 0 )
+		{
+			isAttackAnimalsUsed = true;
+
+			powerO -= 5;
+			
+			Main_Controller.symptoms.Add ( "Animals" );
+
+			Main_Controller.transmitionOther += 5f;
+			
+			return true;
+		}
+
+		return false;
+	}
+
+	public void AttackAnimalsButton ()
+	{
+		if (AttackAnimals ())
+			Main_Controller.OnSpellUsed ( "AttackAnimals" );
+	}
+
+	#endregion
+
+	#endregion
+
+	#endregion
 
 }

@@ -13,7 +13,7 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 
 	public Main_Controller mc;
-	
+
 	//variables
 	public static int powerD = 10;
 
@@ -22,9 +22,15 @@ public class Main_Controller_def : MonoBehaviour {
 	private static List<string> research = new List<string>();
 	public static List<string> foundSymptoms = new List<string>();
 	public static List<string> foundTransmitions  = new List<string>();
-	
+
 	//Defense
+	#region defense
+
 	//Gestion
+	#region gestion
+
+	#region closeborder
+
 	public GameObject notif;
 	private static bool closeBorderUsed = false;
 	public static bool CloseBorder(Main_Controller.Region country)
@@ -41,6 +47,7 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 
 	}
+
 	public void CloseBorderButton()
 	{
 		bool isUsed;
@@ -52,11 +59,19 @@ public class Main_Controller_def : MonoBehaviour {
 			isUsed = CloseBorder ( Main_Controller.netRegion );
 			Main_Controller.netRegion = null;
 		}
-		if (isUsed) 
+		if (isUsed)
 			Main_Controller.OnSpellUsed ( "CloseBorder" );
 	}
-	
+
+	#endregion
+
+	#endregion
+
 	//Recherche
+	#region recherche
+
+	#region localisation
+
 	public static bool found = false;
 	public static bool Localisation(Main_Controller.Region country)
 	{
@@ -90,7 +105,7 @@ public class Main_Controller_def : MonoBehaviour {
 
 		return false;
 	}
-	
+
 	public void LocalisationButton()
 	{
 		bool isUsed;
@@ -106,7 +121,10 @@ public class Main_Controller_def : MonoBehaviour {
 			Main_Controller.OnSpellUsed ( "Localisation" );
 	}
 
-	
+	#endregion
+
+	#region researchsymp
+
 	public static bool ResearchSymp(string symptom)
 	{
 		if (Main_Controller.Scd == 0 && found && powerD - 2 >= 0 && Main_Controller.symptoms.Count != 0)
@@ -116,18 +134,23 @@ public class Main_Controller_def : MonoBehaviour {
 			Main_Controller.Scd = (int)(15-Main_Controller.virulence);;
 			//string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
 			if (!foundSymptoms.Contains(symptom))
-			foundSymptoms.Add(symptom);
+				foundSymptoms.Add(symptom);
 			return true;
 		}
 
 		return false;
 	}
+
 	public void ResearchSympButton()
 	{
 		if(ResearchSymp("a mettre"))//TODO output la valeur la liste ici
 			Main_Controller.OnSpellUsed ( "ResearchSymp" );
 	}
-	
+
+	#endregion
+
+	#region researchtrans
+
 	public static bool foundTrans = false;
 	public static bool ResearchTrans(string transmition)
 	{
@@ -140,22 +163,27 @@ public class Main_Controller_def : MonoBehaviour {
 			if (!foundSymptoms.Contains(transmition)){
 				foundSymptoms.Add(transmition);
 				return true;
-				}
+			}
 		}
 		return false;
 	}
+
 	public void ResearchTransButton()
 	{
 		if (ResearchTrans("a mettre"))//TODO output la valeur la liste ici
 			Main_Controller.OnSpellUsed ( "ResearchTrans" );
 
 	}
-	
+
+	#endregion
+
+	#region researchantidote
+
 	public static bool vaccineFound = false;
 	public static bool ResearchAntidote()
 	{
-		if (powerD - 5 >= 0 && 
-		    foundTransmitions.Count == Main_Controller.transmitions.Count && 
+		if (powerD - 5 >= 0 &&
+		    foundTransmitions.Count == Main_Controller.transmitions.Count &&
 		    foundSymptoms.Count == Main_Controller.symptoms.Count)
 		{
 			research.Add("Recherche de Transmitions");
@@ -166,13 +194,18 @@ public class Main_Controller_def : MonoBehaviour {
 		}
 		return false;
 	}
+
 	public void ResearchAntidoteButton()
 	{
 		if (ResearchAntidote())
 			Main_Controller.OnSpellUsed ( "ResearchAntidote" );
 
 	}
-	
+
+	#endregion
+
+	#region sanitarycampaign
+
 	public static bool SanitaryCampaign(Main_Controller.Region region)
 	{
 		if (powerD - 5 >= 0 && vaccineFound)
@@ -184,10 +217,106 @@ public class Main_Controller_def : MonoBehaviour {
 		}
 		return false;
 	}
+
 	public void sanitaryCampaignButton()
 	{
 		if (ResearchAntidote())
 			Main_Controller.OnSpellUsed ( "SanitaryCampaign" );
-
 	}
+
+	#endregion
+
+	#region betterhygiene
+
+	public static bool BetterHygiene ()
+	{
+		if (Main_Controller.Tcd == 0 && powerD - 5 >= 0)
+		{
+			powerD -= 5;
+			
+			Main_Controller.Tcd = 5;
+
+			Main_Controller.transmitionHuman -= 0.1f;
+
+			Main_Controller.transmitionOther -= 0.1f;
+
+			Main_Controller.virulence -= 2;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void BetterHygieneButton ()
+	{
+		if (BetterHygiene ())
+			Main_Controller.OnSpellUsed ( "BetterHygiene" );
+	}
+
+	#endregion
+
+	#region vaccinateanimals
+
+	public static bool isVaccinateAnimalsUsed = false;
+
+	public static bool VaccinateAnimals ()
+	{
+		if ( Main_Controller.Tcd == 0 && powerD - 3 >= 0 )
+		{
+			powerD -= 3;
+			
+			Main_Controller.transmitionOther = 0.1f;
+
+			Main_Controller.Tcd = 5;
+
+			isVaccinateAnimalsUsed = true;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void VaccinateAnimalButton ()
+	{
+		if (!isVaccinateAnimalsUsed && VaccinateAnimals ())
+			Main_Controller.OnSpellUsed ( "VaccinateAnimals" );
+	}
+
+	#endregion
+
+	#region boost
+
+	public static bool isBoostUsed = false;
+
+	//TODO: another boost
+	public static bool Boost ()
+	{
+		if ( powerD - 2 >= 0 )
+		{
+			powerD -= 2;
+			
+			Main_Controller.Tcd /= 2;
+
+			isBoostUsed = true;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void BoostButton ()
+	{
+		if (Boost ())
+			Main_Controller.OnSpellUsed ( "Boost" );
+	}
+
+	#endregion
+
+	#endregion
+
+	#endregion
+
 }
