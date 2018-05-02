@@ -19,6 +19,11 @@ public class SceneSelection : MonoBehaviour
 		Application.OpenURL("https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won="+c);
 	}
 
+	public void OpenSite(string page)
+	{
+		Application.OpenURL("https://gotobreak.000webhostapp.com/"+page+".php");
+	}
+
 	public void GO_ONLINE ()
 	{
 		Debug.Log ( "GO_ONLINE" );
