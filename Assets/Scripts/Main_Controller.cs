@@ -323,7 +323,7 @@ public class Main_Controller : MonoBehaviour
 					Main_Controller_def.powerD++;
 					time++;
 					i = 1;
-				}
+				}			
 				Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 				
 				
