@@ -14,8 +14,8 @@ public static class PlayerGameManager
 		}
 		
 		Debug.Log ( "OnLastContinentClickedChange: " + lastContinentClicked );
-		
-		//TODO: Actually do something with that call back...
+
+		ShowLastContinentClicked.continent = lastContinentClicked;
 	}
 
 }
