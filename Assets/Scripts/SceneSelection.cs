@@ -13,11 +13,16 @@ public class SceneSelection : MonoBehaviour
 	public Scene AboutScene;
 	*/
 
-	
+	public void SendData(bool hasWin)
+	{
+		char c = (hasWin) ? '1' : '2';
+		Application.OpenURL("https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won="+c);
+	}
+
 	public void GO_ONLINE ()
 	{
 		Debug.Log ( "GO_ONLINE" );
-		SceneManager.LoadScene ( 1 );
+		SceneManager.LoadScene ( "test3" );
 		//StartCoroutine ( LoadAsynchronously ( 1 ) );
 	}
 
