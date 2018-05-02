@@ -5,18 +5,16 @@ using UnityEngine;
 public class RandomEvent{
 
 	// Random events occuring during the game, feel free to add attributes and Changes in ApplyChanges
-	public string title;
-	public string message;
+	public string text;
 	public float transmitionHuman;
 	public int virulence;
 	public float lethality;
 	public int deceased;
 	public Main_Controller.Region region;
 
-	public void Init(string Title, string Message, float TransmitionHuman, int Virulence, float Lethality, int Deceased, Main_Controller.Region Region) 
+	public void Init(string Text, float TransmitionHuman, int Virulence, float Lethality, int Deceased, Main_Controller.Region Region) 
 	{
-		title = Title;
-		message = Message;
+		text = Text;
 		transmitionHuman = TransmitionHuman;
 		virulence = Virulence;
 		lethality = Lethality;
