@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SceneSelection : MonoBehaviour
 {
+
 	//TODO: Don't hardcode these values.
 	/*
 	public Scene OnlineScene;
@@ -13,15 +14,15 @@ public class SceneSelection : MonoBehaviour
 	public Scene AboutScene;
 	*/
 
-	public void SendData(bool hasWin)
+	public void SendData ( bool hasWin )
 	{
-		char c = (hasWin) ? '1' : '2';
-		Application.OpenURL("https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won="+c);
+		char c = ( hasWin ) ? '1' : '2';
+		Application.OpenURL ( "https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won=" + c );
 	}
 
-	public void OpenSite(string page)
+	public void OpenSite ( string page )
 	{
-		Application.OpenURL("https://gotobreak.000webhostapp.com/"+page+".php");
+		Application.OpenURL ( "https://gotobreak.000webhostapp.com/" + page + ".php" );
 	}
 
 	public void GO_ONLINE ()
@@ -32,14 +33,16 @@ public class SceneSelection : MonoBehaviour
 	}
 
 	public void GO_OFFLINE_NEW_GAME ()
-	{		
-		SceneManager.LoadScene ("SinglePlayer");
+	{
+		SceneManager.LoadScene ( "SinglePlayer" );
 	}
-	
-	public void GO_MAIN_MENU (){
-		SceneManager.LoadScene ("main_menu");
+
+	public void GO_MAIN_MENU ()
+	{
+		Main_Controller.ResetVariables ();
+		SceneManager.LoadScene ( "main_menu" );
 	}
-	
+
 	/*
 	public void GO_OFFLINE_LOAD_GAME ()
 	{
@@ -61,7 +64,7 @@ public class SceneSelection : MonoBehaviour
 		Debug.Log ( "GO_ABOUT" );
 		//StartCoroutine ( LoadAsynchronously ( 4 ) );
 	}
-	
+
 	/*
 	public GameObject loadingScreen;
 
@@ -99,4 +102,5 @@ public class SceneSelection : MonoBehaviour
 		}
 	}
 	*/
+
 }

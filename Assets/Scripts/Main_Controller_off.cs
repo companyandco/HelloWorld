@@ -18,7 +18,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region reshum
 
-	private static bool ResHumUsed = false;
+	public static bool ResHumUsed = false;
 	public static bool ResHum()
 	{
 		if (!ResHumUsed && powerO - 5 >= 0)
@@ -31,6 +31,7 @@ public class Main_Controller_off : MonoBehaviour {
 		}
 		return false;
 	}
+	
 	public void ResHumButton()
 	{
 		if (ResHum() && !AI.isSP)
@@ -41,7 +42,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region restemp
 
-	private static bool ResTempUsed = false;
+	public static bool ResTempUsed = false;
 	public static bool ResTemp()
 	{
 		if (!ResTempUsed && powerO - 5 >= 0)
@@ -54,6 +55,7 @@ public class Main_Controller_off : MonoBehaviour {
 		}
 		return false;
 	}
+	
 	public void ResTempButton()
 	{
 		if (ResTemp() && !AI.isSP)
@@ -64,7 +66,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region res
 	
-	private static bool ResUsed = false;
+	public static bool ResUsed = false;
 	public static bool Res()
 	{
 		if (!ResUsed && powerO - 5 >= 0)
@@ -90,7 +92,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region highdensityres
 
-	private static bool HighDensityResUsed = false;
+	public static bool HighDensityResUsed = false;
 	public static bool HighDensityRes()
 	{
 		if (!ResUsed && powerO - 5 >= 0)
@@ -120,7 +122,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region sneezing
 
-	private static bool sneezingUsed = false;
+	public static bool sneezingUsed = false;
 	public static bool Sneezing()
 	{
 		if (!sneezingUsed && powerO - 5 >= 0)
@@ -147,7 +149,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region cough
 
-	private static bool CoughUsed = false;
+	public static bool CoughUsed = false;
 	public static bool Cough()
 	{
 		if (!CoughUsed &&powerO - 5 >= 0)
@@ -174,7 +176,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region sorethroat
 
-	private static bool SoreThroatUsed = true;
+	public static bool SoreThroatUsed = true;
 	public static bool SoreThroat()
 	{
 		if (!SoreThroatUsed && powerO - 5 >= 0)
@@ -201,7 +203,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region heartfailure
 
-	private static bool HeartFailureUsed = false;
+	public static bool HeartFailureUsed = false;
 	public static bool HeartFailure()
 	{
 		if (!HeartFailureUsed && powerO - 20 >= 0)
@@ -228,7 +230,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region diarrhea
 
-	private static bool diarrheaUsed = false;
+	public static bool diarrheaUsed = false;
 	public static bool Diarrhea()
 	{
 		if (!diarrheaUsed && powerO - 10 >= 0)
@@ -256,7 +258,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region fever
 
-	private static bool feverUsed = false;
+	public static bool feverUsed = false;
 	public static bool Fever()
 	{
 		if (!feverUsed && powerO - 5 >= 0)
@@ -283,7 +285,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region nausea
 
-	private static bool nauseaUsed = false;
+	public static bool nauseaUsed = false;
 	public static bool Nausea()
 	{
 		if (!nauseaUsed && powerO - 5 >= 0)
@@ -311,7 +313,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region depression
 
-	private static bool DepressionUsed = false;
+	public static bool DepressionUsed = false;
 	public static bool Depression()
 	{
 		if (!DepressionUsed && powerO - 5 >= 0)
@@ -338,7 +340,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region flu
 
-	private static bool FluUsed = false;
+	public static bool FluUsed = false;
 	public static bool Flu()
 	{
 		if (!FluUsed && powerO - 5 >= 0)
@@ -365,7 +367,7 @@ public class Main_Controller_off : MonoBehaviour {
 
 	#region insomnia
 
-	private static bool InsomniaUsed = false;
+	public static bool InsomniaUsed = false;
 	public static bool Insomnia()
 	{
 		if (!InsomniaUsed && powerO - 5 >= 0)
@@ -391,7 +393,7 @@ public class Main_Controller_off : MonoBehaviour {
 	
 	#region stroke
 	
-	private static bool StrokeUsed = false;
+	public static bool StrokeUsed = false;
 	public static bool Stroke()
 	{
 		if (!StrokeUsed && powerO - 5 >= 0)

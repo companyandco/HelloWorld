@@ -213,10 +213,69 @@ public class Main_Controller : MonoBehaviour
                     panelO.SetActive(true);
             }
         }
-		else if (Input.GetKeyDown(KeyCode.Escape))
-	        SceneManager.LoadScene("main_menu");
-    }
+		else if ( Input.GetKeyDown ( KeyCode.Escape ) )
+        {
+	        ResetVariables ();
+			SceneManager.LoadScene ( "main_menu" );
+		}
+	}
 
+	public static void ResetVariables ()
+	{
+		Earth = null;
+		Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
+		/*
+		time = 0;
+		totalSane = 0;
+		totalInfected = 0;
+		totalDead = 0;
+		*/
+		
+		//RandomEvents ();
+
+		Tcd = 50;
+		Scd = 50;
+		sanitaryBonus = "";
+
+		transmitionHuman = 0;
+		transmitionOther = 0;
+		virulence = 0;
+		lethality = 0;
+		tempRes = 10;
+		HumidityRes = 10;
+		symptoms = new List <string> ();
+		transmitions = new List <string> ();
+		startHum = Earth.regionlist [0].humidity;
+		startTemp = Earth.regionlist [0].temp;
+		HighDensityRes = 0.15f;
+
+		Main_Controller_def.found = false;
+		Main_Controller_def.foundSymptoms = new List <string> ();
+		Main_Controller_def.foundTrans = false;
+		Main_Controller_def.isBoostUsed = false;
+		Main_Controller_def.isVaccinateAnimalsUsed = false;
+		Main_Controller_def.powerD = 10;
+		Main_Controller_def.vaccineFound = false;
+
+		Main_Controller_off.CoughUsed = false;
+		Main_Controller_off.DepressionUsed = false;
+		Main_Controller_off.diarrheaUsed = false;
+		Main_Controller_off.feverUsed = false;
+		Main_Controller_off.FluUsed = false;
+		Main_Controller_off.HeartFailureUsed = false;
+		Main_Controller_off.HighDensityResUsed = false;
+		Main_Controller_off.InsomniaUsed = false;
+		Main_Controller_off.isAttackAnimalsUsed = false;
+		Main_Controller_off.nauseaUsed = false;
+		Main_Controller_off.ParalisysUsed = false;
+		Main_Controller_off.powerO = 30;
+		Main_Controller_off.ResHumUsed = false;
+		Main_Controller_off.ResTempUsed = false;
+		Main_Controller_off.ResUsed = false;
+		Main_Controller_off.sneezingUsed = false;
+		Main_Controller_off.SoreThroatUsed = false;
+		Main_Controller_off.StrokeUsed = false;
+	}
 	
 	/////////////////////////////////////////////////////////
 	/// Gameplay
