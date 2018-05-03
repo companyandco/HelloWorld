@@ -175,7 +175,7 @@ public class Main_Controller : MonoBehaviour
 		maxRand = maxRandEvent;
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("test title","test message", 0f, 0, 0f, 0, GetRegionFromName("Asia"));
+		eventsList[0].Init("Tsunami","Un immense tsunami frappe l'Alaska !", 0f, 0, 0f, 1000, GetRegionFromName("NorthAmerica"));
 	}
 
 	void OpenNotification(string title, string message)
@@ -220,7 +220,6 @@ public class Main_Controller : MonoBehaviour
 		}
 		else if(Input.GetKeyDown(KeyCode.E))
 		{
-			ResetVariables();
 			SceneManager.LoadScene("SinglePlayerEvents");
 		}
 	}
