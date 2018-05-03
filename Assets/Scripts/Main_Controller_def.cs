@@ -64,7 +64,118 @@ public class Main_Controller_def : MonoBehaviour {
 	}
 
 	#endregion
+	
+	#region boost
 
+	public static bool isBoostUsed = false;
+
+	//TODO: another boost
+	public static bool Boost ()
+	{
+		if ( powerD - 2 >= 0 )
+		{
+			powerD -= 2;
+			
+			Main_Controller.Tcd /= 2;
+
+			isBoostUsed = true;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void BoostButton ()
+	{
+		if (Boost ())
+			Main_Controller.OnSpellUsed ( "Boost" );
+	}
+
+	#endregion
+
+	#region vaccinateanimals
+
+	public static bool isVaccinateAnimalsUsed = false;
+
+	public static bool VaccinateAnimals ()
+	{
+		if ( Main_Controller.Tcd == 0 && powerD - 3 >= 0 )
+		{
+			powerD -= 3;
+			
+			Main_Controller.transmitionOther = 0.1f;
+
+			Main_Controller.Tcd = 5;
+
+			isVaccinateAnimalsUsed = true;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void VaccinateAnimalButton ()
+	{
+		if (!isVaccinateAnimalsUsed && VaccinateAnimals ())
+			Main_Controller.OnSpellUsed ( "VaccinateAnimals" );
+	}
+
+	#endregion
+
+	#region sanitarycampaign
+
+	public static bool SanitaryCampaign(Main_Controller.Region region)
+	{
+		if (powerD - 5 >= 0 && vaccineFound)
+		{
+			research.Add("Sanitary campaign");
+			powerD -= 5;
+			Main_Controller.sanitaryBonus = region.Name;
+			return true;
+		}
+		return false;
+	}
+
+	public void sanitaryCampaignButton()
+	{
+		if (ResearchAntidote())
+			Main_Controller.OnSpellUsed ( "SanitaryCampaign" );
+	}
+
+	#endregion
+	
+	#region betterhygiene
+
+	public static bool BetterHygiene ()
+	{
+		if (Main_Controller.Tcd == 0 && powerD - 5 >= 0)
+		{
+			powerD -= 5;
+			
+			Main_Controller.Tcd = 5;
+
+			Main_Controller.transmitionHuman -= 0.1f;
+
+			Main_Controller.transmitionOther -= 0.1f;
+
+			Main_Controller.virulence -= 2;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public void BetterHygieneButton ()
+	{
+		if (BetterHygiene ())
+			Main_Controller.OnSpellUsed ( "BetterHygiene" );
+	}
+
+	#endregion
+	
 	#endregion
 
 	//Recherche
@@ -118,7 +229,7 @@ public class Main_Controller_def : MonoBehaviour {
 			Main_Controller.netRegion = null;
 		}
 		if(isUsed)
-			Main_Controller.OnSpellUsed ( "Localisation" );
+			Main_Controller.OnSpellUsed ( "Localisation", PlayerGameManager.lastContinentClicked );
 	}
 
 	#endregion
@@ -144,7 +255,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchSympButton()
 	{
 		if(ResearchSymp("a mettre"))//TODO output la valeur la liste ici
-			Main_Controller.OnSpellUsed ( "ResearchSymp" );
+			Main_Controller.OnSpellUsed ( "ResearchSymp", "a mettre" );
 	}
 
 	#endregion
@@ -171,7 +282,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public void ResearchTransButton()
 	{
 		if (ResearchTrans("a mettre"))//TODO output la valeur la liste ici
-			Main_Controller.OnSpellUsed ( "ResearchTrans" );
+			Main_Controller.OnSpellUsed ( "ResearchTrans", "a mettre" );
 
 	}
 
@@ -201,117 +312,6 @@ public class Main_Controller_def : MonoBehaviour {
 		if (ResearchAntidote())
 			Main_Controller.OnSpellUsed ( "ResearchAntidote" );
 
-	}
-
-	#endregion
-
-	#region sanitarycampaign
-
-	public static bool SanitaryCampaign(Main_Controller.Region region)
-	{
-		if (powerD - 5 >= 0 && vaccineFound)
-		{
-			research.Add("Sanitary campaign");
-			powerD -= 5;
-			Main_Controller.sanitaryBonus = region.Name;
-			return true;
-		}
-		return false;
-	}
-
-	public void sanitaryCampaignButton()
-	{
-		if (ResearchAntidote())
-			Main_Controller.OnSpellUsed ( "SanitaryCampaign" );
-	}
-
-	#endregion
-
-	#region betterhygiene
-
-	public static bool BetterHygiene ()
-	{
-		if (Main_Controller.Tcd == 0 && powerD - 5 >= 0)
-		{
-			powerD -= 5;
-			
-			Main_Controller.Tcd = 5;
-
-			Main_Controller.transmitionHuman -= 0.1f;
-
-			Main_Controller.transmitionOther -= 0.1f;
-
-			Main_Controller.virulence -= 2;
-
-			return true;
-		}
-
-		return false;
-	}
-
-	public void BetterHygieneButton ()
-	{
-		if (BetterHygiene ())
-			Main_Controller.OnSpellUsed ( "BetterHygiene" );
-	}
-
-	#endregion
-
-	#region vaccinateanimals
-
-	public static bool isVaccinateAnimalsUsed = false;
-
-	public static bool VaccinateAnimals ()
-	{
-		if ( Main_Controller.Tcd == 0 && powerD - 3 >= 0 )
-		{
-			powerD -= 3;
-			
-			Main_Controller.transmitionOther = 0.1f;
-
-			Main_Controller.Tcd = 5;
-
-			isVaccinateAnimalsUsed = true;
-
-			return true;
-		}
-
-		return false;
-	}
-
-	public void VaccinateAnimalButton ()
-	{
-		if (!isVaccinateAnimalsUsed && VaccinateAnimals ())
-			Main_Controller.OnSpellUsed ( "VaccinateAnimals" );
-	}
-
-	#endregion
-
-	#region boost
-
-	public static bool isBoostUsed = false;
-
-	//TODO: another boost
-	public static bool Boost ()
-	{
-		if ( powerD - 2 >= 0 )
-		{
-			powerD -= 2;
-			
-			Main_Controller.Tcd /= 2;
-
-			isBoostUsed = true;
-
-			return true;
-		}
-
-		return false;
-	}
-
-	public void BoostButton ()
-	{
-		if (Boost ())
-			Main_Controller.OnSpellUsed ( "Boost" );
 	}
 
 	#endregion

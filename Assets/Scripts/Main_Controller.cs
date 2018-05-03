@@ -473,6 +473,17 @@ public class Main_Controller : MonoBehaviour
 			case "Localisation":
 				Main_Controller_def.Localisation(GetRegionFromName(value));
 				break;
+			case "ResearchSymp":
+				//FIXME
+				Main_Controller_def.ResearchSymp(value);
+				break;
+			case "ResearchTrans":
+				//FIXME
+				Main_Controller_def.ResearchTrans(value);
+				break;
+			case "SanitaryCampaign":
+				Main_Controller_def.SanitaryCampaign ( GetRegionFromName ( value ) );
+				break;
 			default:
 				Debug.Log ( "WTF?" );
 				break;
@@ -484,13 +495,6 @@ public class Main_Controller : MonoBehaviour
 		switch ( msg )
 		{
 			//def
-			case "ResearchSymp":
-				Main_Controller_def.ResearchSymp("res");//TODO
-				break;
-			case "ResearchTrans":
-				Main_Controller_def.ResearchTrans("sneezing");//TODO
-				break;
-				//off
 			case "ResHum":
 				Main_Controller_off.ResHum();
 				break;
@@ -520,6 +524,39 @@ public class Main_Controller : MonoBehaviour
 				break;
 			case "Nausea":
 				Main_Controller_off.Nausea();
+				break;
+			case "ResearchAntidote":
+				Main_Controller_def.ResearchAntidote ();
+				break;
+			case "Boost":
+				Main_Controller_def.Boost ();
+				break;
+			case "VaccinateAnimals":
+				Main_Controller_def.VaccinateAnimals ();
+				break;
+			case "BetterHygiene":
+				Main_Controller_def.BetterHygiene ();
+				break;
+			case "HighDensityRes":
+				Main_Controller_off.HighDensityRes ();
+				break;
+			case "Depression":
+				Main_Controller_off.Depression ();
+				break;
+			case "Flu":
+				Main_Controller_off.Flu ();
+				break;
+			case "Insomnia":
+				Main_Controller_off.Insomnia ();
+				break;
+			case "Stroke":
+				Main_Controller_off.Stroke ();
+				break;
+			case "Paralisys":
+				Main_Controller_off.Paralisys ();
+				break;
+			case "AttackAnimals":
+				Main_Controller_off.AttackAnimals ();
 				break;
 			default:
 				Debug.Log ( "WTF?" );
