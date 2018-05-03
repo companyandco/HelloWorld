@@ -21,11 +21,15 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 			"Fermeture_temp", 
 			"Ferme temporairement une frontiere d'un pays a l'autre"
 		},
-		//Recherche
 		{
-			"Localisation", 
-			"Lance la recherche du virus dans le pays selectionne"
+			"Sanitary_campaign",
+			"Envoyer des équipes médicales pour donner le traitement contre le virus à la population"
 		},
+		{
+			"Vaccinate_animals",
+			"Vacciner les animaux afin de réduire la transmission autre"
+		},
+		//Recherche
 		{
 			"Recherche_sympt", 
 			"Lance une recherche visant les symptomes du virus, retourne un des symptomes du virus, s'il l'a"
@@ -39,12 +43,8 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 			"Lance une recherche de l'antidote"
 		},
 		{
-			"Sanitary_campaign",
-			"Envoyer des équipes médicales pour donner le traitement contre le virus à la population"
-		},
-		{
-			"Vaccinate_animals",
-			"Vacciner les animaux afin de réduire la transmission autre"
+			"Localisation",
+			"Lance la recherche du virus dans le pays selectionne"
 		},
 
 		//Attaque
@@ -64,6 +64,10 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		{
 			"High_density_res",
 			"Le virus est capable de survivre plus longtemps et de se propager plus rapidement dans les regions à grande population."
+		},
+		{
+			"Infection_animale",
+			"Les porteurs du virus risquent d'infecter les animaux (augmente la transmission autre)"
 		},
 		
 		// debloque apres avoir selectionne les deux precedent
@@ -102,7 +106,7 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		},
 		{
 			"Grippe",
-			"Les porteurs du virons ont la grippe"
+			"Les porteurs du virus ont la grippe"
 		},
 		{
 			"Insomnie",
@@ -114,12 +118,8 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		},
 		{
 			"Paralysie",
-			"Les porteurs du virons sont paralysés"
+			"Les porteurs du virus sont paralysés"
 		},
-		{
-			"Infection_animale",
-			"Les porteurs du virus risquent d'infecter les animaux (augmente la transmission autre)"
-		}
 	};
 
 	void Start () {

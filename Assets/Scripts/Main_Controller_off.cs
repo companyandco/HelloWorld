@@ -460,7 +460,7 @@ public class Main_Controller_off : MonoBehaviour {
 			
 			Main_Controller.symptoms.Add ( "Animals" );
 
-			Main_Controller.transmitionOther += 5f;
+			Main_Controller.transmitionOther += 0.5f;
 			
 			return true;
 		}
