@@ -113,6 +113,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!223 &27520739 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223661941078547780, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
+--- !u!114 &232482306 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114045958095902932, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &236239466 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1415813302204578, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
@@ -165,7 +176,10 @@ MonoBehaviour:
   totalSane: 0
   totalInfected: 0
   totalDead: 0
-  maxRand: 50000
+  maxRandEvent: 0
+  notif: {fileID: 27520739}
+  Message: {fileID: 1444225484}
+  Title: {fileID: 232482306}
 --- !u!4 &240224867
 Transform:
   m_ObjectHideFlags: 0
@@ -831,6 +845,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1264145794}
+--- !u!114 &1444225484 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114915333817426696, guid: 45e426bf08c829240bd43ad7984b1955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1868795493}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1473229525
 GameObject:
   m_ObjectHideFlags: 0
