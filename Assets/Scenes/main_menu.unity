@@ -1587,7 +1587,7 @@ VideoPlayer:
   m_RenderMode: 0
   m_AspectRatio: 4
   m_DataSource: 0
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 10
   m_AudioOutputMode: 1
   m_TargetAudioSources:
   - {fileID: 0}
@@ -1599,7 +1599,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
-  m_Looping: 0
+  m_Looping: 1
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
 --- !u!114 &721463913
