@@ -176,7 +176,7 @@ MonoBehaviour:
   totalSane: 0
   totalInfected: 0
   totalDead: 0
-  maxRandEvent: 5000
+  maxRandEvent: 10
   notif: {fileID: 27520739}
   Message: {fileID: 1444225484}
   Title: {fileID: 232482306}
@@ -1442,7 +1442,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1345015230320546, guid: 45e426bf08c829240bd43ad7984b1955, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223661941078547780, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787392258960324, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 240224866}
+    - target: {fileID: 114787392258960324, guid: 45e426bf08c829240bd43ad7984b1955,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseNotification
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45e426bf08c829240bd43ad7984b1955, type: 2}

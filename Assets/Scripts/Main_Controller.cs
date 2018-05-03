@@ -218,6 +218,11 @@ public class Main_Controller : MonoBehaviour
 	        ResetVariables ();
 			SceneManager.LoadScene ( "main_menu" );
 		}
+		else if(Input.GetKeyDown(KeyCode.E))
+		{
+			ResetVariables();
+			SceneManager.LoadScene("SinglePlayerEvents");
+		}
 	}
 
 	public static void ResetVariables ()
