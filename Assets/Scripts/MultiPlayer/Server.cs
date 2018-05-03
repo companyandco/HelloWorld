@@ -12,7 +12,7 @@ public class Server : MonoBehaviour
 	private List <ServerClient> clients;
 	private List <ServerClient> disconnectList;
 
-	private TcpListener server;
+	public TcpListener server;
 	private bool isServerStarted;
 
 	public void Init ()

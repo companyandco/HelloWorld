@@ -15,7 +15,7 @@ public class Client : MonoBehaviour
 	private List <GameClient> players;
 	
 	private bool isSocketReady;
-	private TcpClient socket;
+	public TcpClient socket;
 	private NetworkStream stream;
 	private StreamWriter writer;
 	private StreamReader reader;

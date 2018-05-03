@@ -136,7 +136,6 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 	public void BACK_BUTTON ()
 	{
-
 		MainMenu.SetActive ( true );
 
 		HostMenu.SetActive ( false );
@@ -145,12 +144,17 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 		Server s = FindObjectOfType <Server> ();
 		if ( s != null )
+		{
+			s.server.Stop ();
 			Destroy ( s.gameObject );
+		}
 
 		Client c = FindObjectOfType <Client> ();
 		if ( c != null )
+		{
+			c.socket.Close ();
 			Destroy ( c.gameObject );
-
+		}
 	}
 	
 	public void StartGame ()
