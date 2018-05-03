@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'South America :'
+  m_Text: 'Amerique du Nord :'
 --- !u!114 &114026819626083472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1327,7 +1327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'World :'
+  m_Text: 'Monde :'
 --- !u!114 &114109586319149980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1605,7 +1605,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Last Continent \nClicked :"
+  m_Text: "Dernier continent\ns\xE9l\xE9ction\xE9 :"
 --- !u!114 &114242223413527130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2027,7 +2027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'North America :'
+  m_Text: 'Amerique du Sud :'
 --- !u!114 &114438399464432064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2163,7 +2163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Asia :'
+  m_Text: 'Asie :'
 --- !u!114 &114512142115411778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2586,9 +2586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Power
-
-    Attack'
+  m_Text: "Point \nd'attaque"
 --- !u!114 &114764846796275626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2750,7 +2748,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2794,7 +2792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Africa :'
+  m_Text: 'Afrique :'
 --- !u!114 &114881072942751784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2869,9 +2867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Power
-
-    Defense'
+  m_Text: "Point de\nd\xE9fense"
 --- !u!114 &114903480534215394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2904,7 +2900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Oceania :
+  m_Text: 'Oceanie :
 
 '
 --- !u!114 &114952333740000638
@@ -3640,8 +3636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 0}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: -145, y: 0}
+  m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224042769322994552
 RectTransform:
@@ -3869,7 +3865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: 0}
   m_SizeDelta: {x: 130, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224158015333593714
@@ -4079,8 +4075,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 0}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: -145, y: 0}
+  m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224473429400469008
 RectTransform:
@@ -4727,7 +4723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: 0}
   m_SizeDelta: {x: 130, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224986854972300736

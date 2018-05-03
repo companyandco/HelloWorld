@@ -1592,6 +1592,64 @@ Prefab:
       propertyPath: m_Text
       value: 'Monde :'
       objectReference: {fileID: 0}
+    - target: {fileID: 1415813302204578, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895709851300756, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: "Point de\nd\xE9fense"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114754123281351752, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: "Point \nd'attaque"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452933507738756, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224956379258074394, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152189261136976, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224042063889832646, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 224042063889832646, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 224463983831307512, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 224463983831307512, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 114231447195062322, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: "Dernier continent\ns\xE9l\xE9ction\xE9 :"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114870059078658264, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
   m_IsPrefabParent: 0
