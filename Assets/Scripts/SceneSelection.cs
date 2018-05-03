@@ -44,4 +44,9 @@ public class SceneSelection : MonoBehaviour
 	{
 		Debug.Log ( "GO_ABOUT" );
 	}
+
+	public void QUIT ()
+	{
+		Application.Quit ();
+	}
 }
