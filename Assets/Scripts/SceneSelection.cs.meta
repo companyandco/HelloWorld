@@ -5,7 +5,11 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - LoadingScreen: {fileID: 223479852583138308, guid: 4f727cfdd105d5441918c4b03cebb701,
+      type: 2}
+  - MainMenuCanvas: {instanceID: 0}
+  - SettingsCanvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
