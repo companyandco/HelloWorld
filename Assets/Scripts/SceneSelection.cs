@@ -63,20 +63,22 @@ public class SceneSelection : MonoBehaviour
 	public void GO_ONLINE ()
 	{
 		Debug.Log ( "GO_ONLINE" );
-		SceneManager.LoadScene ( "test3" );
+		LoadNewScreen( "test3" );
+		//SceneManager.LoadScene ( "test3" );
 	}
 
 	public void GO_OFFLINE_NEW_GAME ()
 	{
-		SceneManager.LoadScene ( "SinglePlayer" );
+		LoadNewScreen( "SinglePlayer" );
+		//SceneManager.LoadScene ( "SinglePlayer" );
 	}
 
 	public void GO_MAIN_MENU ()
 	{
 		Main_Controller.ResetVariables ();
-		SceneManager.LoadScene ( "main_menu" );
+		LoadNewScreen( "main_menu" );
+		//SceneManager.LoadScene ( "main_menu" );
 	}
-
 	
 	public GameObject MainMenuCanvas;
 	public GameObject SettingsCanvas;
