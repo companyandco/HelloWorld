@@ -136,9 +136,6 @@ public class Main_Controller : MonoBehaviour
 		listText.Add(OceaniaDataText);
 		listText.Add(AfricaDataText);
 
-
-		StartCoroutine(FadeIn(panelO.GetComponent<CanvasGroup>()));
-
 		c = FindObjectOfType <Client> ();
 		if (c != null) 
 		{
