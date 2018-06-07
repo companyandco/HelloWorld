@@ -8,12 +8,80 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
 	public GameObject responsePanel;
 	private GameObject panel;
-	private Text ButtonChild;
 	private GameObject button;
 
 	//Dictionnaire contenant toutes les info sur chaque competences:
 	//Utilisation: Description["exemple"] retourne un string qui est sa description
-	public readonly Dictionary<string, string> Description = new Dictionary<string, string>()
+	
+	public static readonly List<string> Transmition = new List<string>()
+	{
+		"Res_hum", "Res_temp", "Res_climat", "High_density_res", "Infection_animale"
+	};
+	
+	public static readonly List<string> Symptomes = new List<string>()
+	{
+		"Eternuement", "Toux", "Mal_gorge", "Diarrhee", "Fievre", "Crise_car", "Nausee", "Depression", "Grippe", "Insomnie", "AVC", "Paralysie"
+	};
+
+	public static string ToReadableString(string str)
+	{
+		switch (str)
+		{
+			case "Fermeture_temp":
+				return "Fermeture temporaire";
+			case "Sanitary_campaign":
+				return "Campagne sanitaire";
+			case "Vaccinate_animals":
+				return "Vacciner les animaux";
+			case "Recherche_sympt":
+				return "Recherche de Symptômes";
+			case "Recherche_trans":
+				return "Recherche de transmissions";
+			case "Recherche_anti":
+				return "Recherche de l'antidote";
+			case "Localisation":
+				return "Localisation";
+			case "Res_hum":
+				return "Resistance Humidité";
+			case "Res_temp":
+				return "Resistance Temperature";
+			case "Res_climat":
+				return "Resistance Climat";
+			case "High_density_res":
+				return "Resistance population dense";
+			case "Infection_animale":
+				return "Infection Animale";
+			case "Eternuement":
+				return "Eternuements";
+			case "Toux":
+				return "Eternuements";
+			case "Mal_gorge":
+				return "Mal de Gorge";
+			case "Diarrhee":
+				return "Diarrhée";
+			case "Fievre":
+				return "Fiévre";
+			case "Crise_car":
+				return "Crise cardiaque";
+			case "Nausee":
+				return "Nausée";
+			case "Depression":
+				return "Dépression";
+			case "Grippe":
+				return "Grippe";
+			case "Insomnie":
+				return "Insomnie";
+			case "AVC":
+				return "A V C";
+			case "Paralysie":
+				return "Paralysie";
+			default:
+				return "";
+		}
+	}
+	
+	
+	public static readonly Dictionary<string, string> Description = new Dictionary<string, string>()
 	{
 		//Defense
 		//Gestion
@@ -122,29 +190,22 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		},
 	};
 
-	void Start () {
-		//Debug.Log("Started program");
-		ButtonChild = this.GetComponentInChildren<Text>();
-	}
-
 	public void OnPointerEnter(PointerEventData data)
 	{
 		panel = Instantiate(responsePanel);
 		Text[] texts = panel.GetComponentsInChildren<Text>();
-		texts[0].text = ButtonChild.text;
+		texts[0].text = ToReadableString(this.name);
 		texts[1].text = Description[this.name];
 		responsePanel.SetActive(true);
 	}
 
 	public void OnPointerExit(PointerEventData data)
 	{
-		//Debug.Log("--> Exited <--" + this.name +data);
 		Destroy(panel);
 	}
 
 	private void OnDisable()
 	{
-		//Debug.Log("--> Panel disabled <--" + this.name +data);
 		Destroy(panel);
 	}
 }
