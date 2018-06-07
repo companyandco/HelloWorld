@@ -156,8 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c267e9941f4e77d4399af0a8f6d18f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSelector: {fileID: 1550870757104222, guid: 6dfb7a98181bc42438412d26f649916d,
-    type: 2}
   panelD: {fileID: 894896137}
   panelO: {fileID: 1629829982}
   powerD: {fileID: 236239466}
@@ -174,6 +172,7 @@ MonoBehaviour:
   listText: []
   camera: {fileID: 1473229525}
   isDefending: 0
+  FadeSpeed: 2
   time: 0
   totalSane: 0
   totalInfected: 0
@@ -277,10 +276,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341052523346956, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1251897850008710, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -73,6 +74,7 @@ public class Main_Controller : MonoBehaviour
 	public List<Text> listText;
     public GameObject camera;
     public bool isDefending;
+	public float FadeSpeed = 2f;
 
     //info sur la partie
 	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
@@ -135,6 +137,8 @@ public class Main_Controller : MonoBehaviour
 		listText.Add(AfricaDataText);
 
 
+		StartCoroutine(FadeIn(panelO.GetComponent<CanvasGroup>()));
+
 		c = FindObjectOfType <Client> ();
 		if (c != null) 
 		{
@@ -165,8 +169,9 @@ public class Main_Controller : MonoBehaviour
 		panelD.SetActive(this.isDefending);	
 		panelO.SetActive(!this.isDefending);
 
+		
 		if (camera == null)
-			camera = Camera.main.transform.gameObject;
+		camera = Camera.main.transform.gameObject;
 		camera.SetActive(true);
 	}
 	
@@ -197,25 +202,27 @@ public class Main_Controller : MonoBehaviour
 	{
         if (Input.GetKeyDown(KeyCode.F))
         {
+	        //panelO.GetComponent<CanvasGroup>().alpha = 0.5f;
             Debug.Log("F Key pressed");
-            if (isDefending)
-            {
-                if (panelD.activeInHierarchy)
-                    panelD.SetActive(false);
-                else
-                    panelD.SetActive(true);
-            }
-            else
-            {
-                if (panelO.activeInHierarchy)
-                    panelO.SetActive(false);
-                else
-                    panelO.SetActive(true);
-            }
+	        if (isDefending)
+	        {
+		        if (panelD.activeInHierarchy)
+			        StartCoroutine(FadeOut(panelD.GetComponent<CanvasGroup>(), panelD));
+		        else
+			        StartCoroutine(FadeIn(panelD.GetComponent<CanvasGroup>(), panelD));
+	        }
+	        else
+	        {
+		        if (panelO.activeInHierarchy)
+			        StartCoroutine(FadeOut(panelO.GetComponent<CanvasGroup>(), panelO));
+		        else
+			        StartCoroutine(FadeIn(panelO.GetComponent<CanvasGroup>(), panelO));
+	        }
         }
 		else if ( Input.GetKeyDown ( KeyCode.Escape ) )
         {
 	        ResetVariables ();
+	        //SceneSelection.LoadNewScreen("main_menu"); cannot be done due to nonstatic in static context
 			SceneManager.LoadScene ( "main_menu" );
 		}
 		else if(Input.GetKeyDown(KeyCode.E))
@@ -223,6 +230,38 @@ public class Main_Controller : MonoBehaviour
 			SceneManager.LoadScene("SinglePlayerEvents");
 		}
 	}
+	
+	
+	IEnumerator FadeIn(CanvasGroup obj, GameObject toactive = null)
+	{
+		float curTime = obj.alpha;
+		if (toactive != null && !toactive.activeInHierarchy)
+			toactive.SetActive(true);
+		while (curTime <= 1)
+		{
+			obj.alpha = curTime;
+			curTime += Time.deltaTime * FadeSpeed;
+			yield return null;
+		}
+
+		
+	}
+	
+	IEnumerator FadeOut(CanvasGroup obj, GameObject todisable = null)
+	{
+		float curTime = obj.alpha;
+		while (curTime >= 0)
+		{
+			obj.alpha = curTime;
+			curTime -= Time.deltaTime * FadeSpeed;
+			yield return null;
+		}
+		if (todisable != null && todisable.activeInHierarchy)
+			todisable.SetActive(false);
+
+
+	}
+	
 
 	public static void ResetVariables ()
 	{
@@ -428,7 +467,7 @@ public class Main_Controller : MonoBehaviour
 			else
 				PowerOText.text = Main_Controller_off.powerO.ToString();
 			//end ui update
-			Debug.Log(Main_Controller_off.powerO);
+			//Debug.Log(Main_Controller_off.powerO);
 
 			//check if game is over 
 			if (totalInfected == 0 && totalSane == 0)
