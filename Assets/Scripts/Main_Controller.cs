@@ -445,7 +445,7 @@ public class Main_Controller : MonoBehaviour
 					time++;
 					i = 1;
 				}			
-				Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
+				//Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 				
 				
 				//ui update -BEGIN

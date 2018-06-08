@@ -252,11 +252,13 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 	}
 
-	public void ResearchSympButton()
+	public static void ResearchSympButton(string str)
 	{
-		if(ResearchSymp("a mettre"))//TODO output la valeur la liste ici
-			Main_Controller.OnSpellUsed ( "ResearchSymp", "a mettre" );
+		Debug.Log("Research symptome " + str);
+		if(ResearchSymp(str)) //TODO output la valeur la liste ici
+			Main_Controller.OnSpellUsed ( "ResearchSymp", str );
 	}
+
 
 	#endregion
 
@@ -279,11 +281,11 @@ public class Main_Controller_def : MonoBehaviour {
 		return false;
 	}
 
-	public void ResearchTransButton()
+	public static void ResearchTransButton(string str)
 	{
-		if (ResearchTrans("a mettre"))//TODO output la valeur la liste ici
-			Main_Controller.OnSpellUsed ( "ResearchTrans", "a mettre" );
-
+		Debug.Log("Research transmission " + str);
+		if (ResearchTrans(str)) //TODO output la valeur la liste ici
+			Main_Controller.OnSpellUsed ( "ResearchTrans", str );
 	}
 
 	#endregion

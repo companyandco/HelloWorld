@@ -8,6 +8,7 @@ public class dropdownmanager : MonoBehaviour
 
 	public bool ShowSymptome;
 	public Dropdown dropdown;
+	public Button button;
 	public Text TitleDescription;
 	public Text TextDescription;
 	
@@ -20,17 +21,19 @@ public class dropdownmanager : MonoBehaviour
 		dropdown.onValueChanged.AddListener(delegate {
 			DropdownValueChanged(dropdown);
 		});
+		button.onClick.AddListener(TaskOnClick);
+
 		
 		if(ShowSymptome)
-			data = MouseInformation.Transmition;
-		else
 			data = MouseInformation.Symptomes;
+		else
+			data = MouseInformation.Transmition;
 
 		foreach (string s in data)
 			dataReadable.Add(MouseInformation.ToReadableString(s));
 	    
 		dropdown.ClearOptions();
-		dropdown.AddOptions(data);
+		dropdown.AddOptions(dataReadable);
 	}
 	
 	void DropdownValueChanged(Dropdown change)
@@ -40,5 +43,14 @@ public class dropdownmanager : MonoBehaviour
 
 		TitleDescription.text = dataReadable[choice];
 		TextDescription.text = description[choicestr];
+	}
+	
+	void TaskOnClick()
+	{
+		this.gameObject.SetActive(false);
+		if(ShowSymptome)
+			Main_Controller_def.ResearchSympButton(data[dropdown.value]);
+		else 
+			Main_Controller_def.ResearchTransButton(data[dropdown.value]);
 	}
 }

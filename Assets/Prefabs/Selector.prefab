@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 114408945612380588}
   - component: {fileID: 114258150414742484}
   - component: {fileID: 114545905065140640}
+  - component: {fileID: 225832485070086676}
   m_Layer: 5
   m_Name: Selector
   m_TagString: Untagged
@@ -974,6 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowSymptome: 0
   dropdown: {fileID: 114187818619327800}
+  button: {fileID: 114399291692758692}
   TitleDescription: {fileID: 114196415800958176}
   TextDescription: {fileID: 114183705977129974}
 --- !u!114 &114569138019689624
@@ -1941,3 +1943,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225832485070086676
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1411498256255674}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
