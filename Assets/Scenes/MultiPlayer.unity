@@ -1109,69 +1109,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1251897850008710, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
-      propertyPath: m_Name
-      value: Panel_Defensive
-      objectReference: {fileID: 0}
-    - target: {fileID: 114787546855462830, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114457261112738808, guid: 6cd903af31c428149bdef557641f7b39,
-        type: 2}
-    - target: {fileID: 114787546855462830, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseBorderButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114150680373436702, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114457261112738808, guid: 6cd903af31c428149bdef557641f7b39,
-        type: 2}
-    - target: {fileID: 114150680373436702, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResearchAntidoteButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343657692509338, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114457261112738808, guid: 6cd903af31c428149bdef557641f7b39,
-        type: 2}
-    - target: {fileID: 114343657692509338, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResearchSympButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114992940290357970, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114457261112738808, guid: 6cd903af31c428149bdef557641f7b39,
-        type: 2}
-    - target: {fileID: 114992940290357970, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResearchTransButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114977406684727274, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114457261112738808, guid: 6cd903af31c428149bdef557641f7b39,
-        type: 2}
-    - target: {fileID: 114977406684727274, guid: f1e9a7e4328b37c4085fd550f387e359,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LocalisationButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1251897850008710, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1e9a7e4328b37c4085fd550f387e359, type: 2}
   m_IsPrefabParent: 0

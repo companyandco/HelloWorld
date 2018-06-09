@@ -3000,7 +3000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Crise \nCardiaque"
+  m_Text: "Crise \ncardiaque"
 --- !u!114 &114850919089997552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3443,7 +3443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "diarrh\xE9e"
+  m_Text: "Diarrh\xE9e"
 --- !u!114 &114953879322618650
 MonoBehaviour:
   m_ObjectHideFlags: 1
