@@ -242,8 +242,6 @@ public class Main_Controller : MonoBehaviour
 			curTime += Time.deltaTime * FadeSpeed;
 			yield return null;
 		}
-
-		
 	}
 	
 	IEnumerator FadeOut(CanvasGroup obj, GameObject todisable = null)
@@ -257,8 +255,6 @@ public class Main_Controller : MonoBehaviour
 		}
 		if (todisable != null && todisable.activeInHierarchy)
 			todisable.SetActive(false);
-
-
 	}
 	
 
