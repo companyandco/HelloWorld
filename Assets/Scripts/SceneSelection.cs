@@ -49,10 +49,11 @@ public class SceneSelection : MonoBehaviour
 		}
 	}
 
-	public void SendData ( bool hasWin )
+	public void SendData ()
 	{
-		char c = ( hasWin ) ? '1' : '2';
-		Application.OpenURL ( "https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won=" + c );
+		string opponent = Main_Controller.OpponentName;
+		char c = ( Main_Controller.HasWon ) ? '0' : '1';
+		Application.OpenURL ( "https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=" + opponent + "&p1won=" + c );
 	}
 
 	public void OpenSite ( string page )

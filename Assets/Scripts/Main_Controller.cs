@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,8 @@ public class Main_Controller : MonoBehaviour
 	/// Variable
 	/////////////////////////////////////////////////////////
 
-	
+	public static bool HasWon = false;
+	public static string OpponentName = "Computer";
 	
 	
 
@@ -469,11 +471,13 @@ public class Main_Controller : MonoBehaviour
 			//check if game is over 
 			if (totalInfected == 0 && totalSane == 0)
 			{
+				HasWon = !isDefending;
 				SceneManager.LoadScene("victoire");
 				return;
 			}
 			if (totalInfected == 0)
 			{
+				HasWon = isDefending;
 				SceneManager.LoadScene("defaite");
 				return;
 			}

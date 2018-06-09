@@ -279,7 +279,7 @@ MonoBehaviour:
   AsiaDataText: {fileID: 1529005489}
   listText: []
   camera: {fileID: 1473229525}
-  isDefending: 1
+  isDefending: 0
   FadeSpeed: 2
   time: 0
   totalSane: 0

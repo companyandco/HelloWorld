@@ -104,6 +104,7 @@ public class Client : MonoBehaviour
 			GameClient c = new GameClient ();
 
 			c.name = userName;
+			Main_Controller.OpponentName = userName;
 
 			this.players.Add ( c );
 			
