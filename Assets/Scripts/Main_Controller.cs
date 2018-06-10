@@ -388,11 +388,16 @@ public class Main_Controller : MonoBehaviour
                 //update dead
                 if (lethality != 0 && region.infected != 0)
                 {
-                    long extraDead = (long)(region.infected * lethality) + 7;
+                    long extraDead = (long)(region.infected * lethality);
                     region.dead += extraDead;
                     region.infected -= extraDead;
                     if (region.infected < 0)
                         region.infected = 0;
+                    else
+                    {
+                        region.infected--;
+                        region.dead++;
+                    }
                 }
 
                 //update vaccined
@@ -416,7 +421,6 @@ public class Main_Controller : MonoBehaviour
 
                     if (Random.Range(1, maxRand) == 1)
                     {
-
                         tempEvent = eventsList[Random.Range(0, eventsList.Count)];
                         tempEvent.ApplyChanges();
                         OpenNotification(tempEvent.title, tempEvent.message);
