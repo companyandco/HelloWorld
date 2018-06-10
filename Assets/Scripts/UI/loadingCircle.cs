@@ -17,7 +17,6 @@ public class loadingCircle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(rotateSpeedFactor * rotateSpeed * Time.deltaTime);
 		rectComponent.Rotate(0f, 0f, -1 * rotateSpeedFactor * rotateSpeed * Time.deltaTime);
 	}
 }

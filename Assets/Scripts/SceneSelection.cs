@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelection : MonoBehaviour
 {
+	public GameObject BackgroundMusic;
 	public GameObject LoadingScreen;
 	public float FadeSpeed = 1f;
 	
@@ -99,6 +100,11 @@ public class SceneSelection : MonoBehaviour
 
 	public void GO_ONLINE ()
 	{
+		if (BackgroundMusic != null)
+		{
+			Debug.Log("DontDestroyExecute");
+			DontDestroyOnLoad(BackgroundMusic);
+		}
 		Debug.Log ( "GO_ONLINE" );
 		LoadNewScreen( "test3" );
 		//SceneManager.LoadScene ( "test3" );
