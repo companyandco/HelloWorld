@@ -324,6 +324,7 @@ public class Main_Controller : MonoBehaviour
 	{
         if (isStarted && i % 25 == 0)
         {
+            Debug.Log(i);
             //update cooldowns
             if (Tcd > 0)
                 Tcd--;
@@ -499,10 +500,8 @@ public class Main_Controller : MonoBehaviour
                 OnSpellUsed("RegionSelected", PlayerGameManager.lastContinentClicked);
             }
         }
-        else
-        {
-            i++;
-        }
+
+        i++;
 	}
 
  	public static void OnSpellUsed (string spellName)
