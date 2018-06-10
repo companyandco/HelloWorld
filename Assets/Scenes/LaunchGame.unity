@@ -876,6 +876,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114886675294385170, guid: 6dfb7a98181bc42438412d26f649916d,
+        type: 2}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 1985534974060012, guid: 4f727cfdd105d5441918c4b03cebb701,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfb7a98181bc42438412d26f649916d, type: 2}
   m_IsPrefabParent: 0

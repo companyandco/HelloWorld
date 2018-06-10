@@ -36,6 +36,7 @@ public class SceneSelection : MonoBehaviour
 	{
 		//temps d'attente minimum pour pas faire des transitions epileptiques
 		yield return new WaitForSeconds(1);
+		Debug.Log(str);
 		
 		//charge la scene de maniere asynchrone
 		AsyncOperation async = SceneManager.LoadSceneAsync(str);
@@ -116,12 +117,10 @@ public class SceneSelection : MonoBehaviour
 		//SceneManager.LoadScene ( "main_menu" );
 	}
 	
-	public GameObject MainMenuCanvas;
 	public GameObject SettingsCanvas;
 
 	public void GO_SETTINGS ()
 	{
-		this.MainMenuCanvas.SetActive ( false );
 		this.SettingsCanvas.SetActive ( true );
 	}
 
