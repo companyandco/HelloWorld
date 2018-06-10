@@ -73,6 +73,7 @@ public class Main_Controller : MonoBehaviour
 	public Text OceaniaDataText;
 	public Text AsiaDataText;
 	public List<Text> listText;
+	public GameObject StartingHelper;
     public GameObject camera;
     public static bool isDefending;
 	public float FadeSpeed = 2f;
@@ -149,6 +150,10 @@ public class Main_Controller : MonoBehaviour
 			if(isDefending == null)
 				isDefending = false;
 		}
+		if(!isDefending)
+			StartingHelper.SetActive(true);
+		else
+			Destroy(StartingHelper);
 		
 		RandomEvents();
 
