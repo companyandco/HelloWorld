@@ -1768,9 +1768,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Pour commencer une partie, clic sur un pays de ton choix !\nD\xE8s que
-    ceci est fait, une personne sera infect\xE9 d'un virus que tu pourras ammeliorer
-    au cours de la partie, \xE0 l'aide d'actions possibles qui apparaitrons !\n\nAppuie
+  m_Text: "Pour commencer une partie, clique sur un pays de ton choix !\r\nD\xE8s
+    que ceci est fait, une personne sera infect\xE9e d'un virus que tu pourras am\xE9liorer
+    au cours de la partie, \xE0 l'aide d'actions possibles qui apparaitront !\r\n\r\nAppuie
     sur F pour afficher ou cacher les panneaux d'actions !"
 --- !u!222 &2031596906
 CanvasRenderer:
@@ -1874,6 +1874,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114231447195062322, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: "Dernier continent\ns\xE9lectionn\xE9 :"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
