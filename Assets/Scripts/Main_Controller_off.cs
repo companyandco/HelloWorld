@@ -129,7 +129,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			sneezingUsed = true;
 			powerO -= 5;
-			Debug.Log("b2.1 button pressed");
 			Main_Controller.symptoms.Add("Eternuements");
 			Main_Controller.transmitionHuman += 0.1f;
 			Main_Controller.virulence += 1;
@@ -156,7 +155,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			CoughUsed = true;
 			powerO -= 5;
-			Debug.Log("b2.2 button pressed");
 			Main_Controller.symptoms.Add("Toux");
 			Main_Controller.transmitionHuman += 0.05f;
 			Main_Controller.virulence += 2;
@@ -183,7 +181,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			SoreThroatUsed = true;
 			powerO -= 5;
-			Debug.Log("b2.3 button pressed");
 			Main_Controller.symptoms.Add("Mal de Gorge");
 			Main_Controller.virulence += 4;
 			Main_Controller.transmitionHuman += 0.001f;
@@ -210,7 +207,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			HeartFailureUsed = true;
 			powerO -= 20;
-			Debug.Log("b2.4 button pressed");
 			Main_Controller.symptoms.Add("Mal de Gorge");
 			Main_Controller.virulence += 4;
 			Main_Controller.lethality += 0.02f;
@@ -237,7 +233,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			diarrheaUsed = true;
 			powerO -= 10;
-			Debug.Log("b2.5 button pressed");
 			Main_Controller.symptoms.Add("Diarrhee");
 			Main_Controller.transmitionHuman += 0.05f;
 			Main_Controller.virulence += 2;
@@ -265,7 +260,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			feverUsed = true;
 			powerO -= 5;
-			Debug.Log("b2.6 button pressed");
 			Main_Controller.symptoms.Add("Fievre");
 			Main_Controller.virulence += 3;
 			Main_Controller.lethality += 0.01f;
@@ -292,7 +286,6 @@ public class Main_Controller_off : MonoBehaviour {
 		{
 			nauseaUsed = true;
 			powerO -= 5;
-			Debug.Log("b2.7 button pressed");
 			Main_Controller.symptoms.Add("Nausee");
 			Main_Controller.transmitionHuman += 0.2f;
 			Main_Controller.virulence += 1;

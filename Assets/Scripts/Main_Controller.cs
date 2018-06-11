@@ -329,7 +329,6 @@ public class Main_Controller : MonoBehaviour
 	{
         if (isStarted && i % 25 == 0)
         {
-            Debug.Log(i);
             //update cooldowns
             if (Tcd > 0)
                 Tcd--;
@@ -392,11 +391,16 @@ public class Main_Controller : MonoBehaviour
                     region.dead += extraDead;
                     region.infected -= extraDead;
                     if (region.infected < 0)
-                        region.infected = 0;
-                    else
                     {
-                        region.infected--;
-                        region.dead++;
+                        region.dead -= region.infected;
+                        region.infected = 0;
+                    }
+
+                    if (region.infected <= 7)
+                    {
+                        region.dead += region.infected;
+                        region.infected = 0;
+                        
                     }
                 }
 
@@ -405,14 +409,25 @@ public class Main_Controller : MonoBehaviour
                 {
                     long extraSane;
                     if (region.Name == sanitaryBonus)
-                        extraSane = (long)(region.infected * 0.2) + 7;
+                        extraSane = (long)(region.infected * 0.2)+3;
                     else
-                        extraSane = (long)(region.infected * 0.1) + 7;
+                        extraSane = (long)(region.infected * 0.1)+3;
 
                     region.Population += extraSane;
                     region.infected -= extraSane;
                     if (region.infected < 0)
+                    {
+                        region.Population -= region.infected;
                         region.infected = 0;
+                    }
+
+                    if (region.infected <= 7)
+                    {
+                        region.Population += region.infected;
+                        region.infected = 0;
+                        
+                    }
+                    
                 }
 
                 //update randomEvents
@@ -452,7 +467,6 @@ public class Main_Controller : MonoBehaviour
                     time++;
                     i = 1;
                 }
-                //Debug.Log("Infected: " + region.infected + " Dead:" + region.dead);
 
 
                 //ui update -BEGIN
@@ -471,7 +485,6 @@ public class Main_Controller : MonoBehaviour
             else
                 PowerOText.text = Main_Controller_off.powerO.ToString();
             //end ui update
-            //Debug.Log(Main_Controller_off.powerO);
 
             //check if game is over 
             if (totalInfected == 0 && totalSane == 0)
