@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class SettingsController : MonoBehaviour
 {
 	public AudioMixer AudioMixer;
-
 	public Dropdown ResolutionDropdown;
+	public Toggle FullscreenToggle;
 	
 	public void SET_VOLUME (float volume)
 	{
@@ -17,7 +17,7 @@ public class SettingsController : MonoBehaviour
 
 	public void SET_QUALITY ( int qualityIndex )
 	{
-		QualitySettings.SetQualityLevel ( qualityIndex );
+		QualitySettings.SetQualityLevel ( qualityIndex, true);
 	}
 
 	public void SET_FULLSCREEN ( bool isFullscreen )
@@ -43,6 +43,17 @@ public class SettingsController : MonoBehaviour
 	
 	void Start ()
 	{
+		if (FullscreenToggle != null)
+		{
+			if (Screen.fullScreen)
+				FullscreenToggle.isOn = true;
+			else
+				FullscreenToggle.isOn = false;
+		}
+		else
+			Debug.LogWarning("The toggle GameObject has not Been linked to the settingsController !");
+
+
 		this.resolutions = Screen.resolutions;
 		
 		this.ResolutionDropdown.ClearOptions ();
@@ -50,15 +61,13 @@ public class SettingsController : MonoBehaviour
 		List <string> options = new List <string> ();
 
 		int currentResolutionIndex = 0;
-		
 		for ( int i = 0; i < this.resolutions.Length; i++ )
 		{
 			string option = resolutions [i].width + " x " + resolutions [i].height;
 			options.Add ( option );
-
-			if ( resolutions [i].width == Screen.currentResolution.width && resolutions [i].height == Screen.currentResolution.width )
+			
+			if ( resolutions [i].width == Screen.currentResolution.width && resolutions [i].height == Screen.currentResolution.height )
 				currentResolutionIndex = i;
-
 		}
 
 		this.ResolutionDropdown.AddOptions ( options );
