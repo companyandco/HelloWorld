@@ -59,6 +59,8 @@ public class Main_Controller : MonoBehaviour
 	}
 
     //info sur l'UI
+	public GameObject EscapeMenu;
+	public SceneSelection SceneSelection;
     public GameObject panelD;
     public GameObject panelO;
 	public GameObject powerD;
@@ -132,8 +134,6 @@ public class Main_Controller : MonoBehaviour
 	void Start ()
 	{
         ResetVariables();
-		//panelD = Instantiate ( this.panelD );
-		//panelO = Instantiate ( this.panelO );
 		listText.Add(AsiaDataText);
 		listText.Add(EuDataText);
 		listText.Add(SaDataText);
@@ -222,9 +222,9 @@ public class Main_Controller : MonoBehaviour
         }
 		else if ( Input.GetKeyDown ( KeyCode.Escape ) )
         {
-	        ResetVariables ();
-	        //SceneSelection.LoadNewScreen("main_menu"); cannot be done due to nonstatic in static context
-			SceneManager.LoadScene ( "main_menu" );
+	        EscapeMenu.SetActive(true);
+	        //ResetVariables ();
+	        //SceneSelection.LoadNewScreen("main_menu");
 		}
 		else if(Input.GetKeyDown(KeyCode.E))
 		{

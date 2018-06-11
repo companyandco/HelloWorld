@@ -30,12 +30,10 @@ public class SettingsController : MonoBehaviour
 		Screen.SetResolution ( this.resolutions[resolutionIndex].width, this.resolutions[resolutionIndex].height, Screen.fullScreen );
 	}
 	
-	public GameObject MainMenuCanvas;
 	public GameObject SettingsCanvas;
 
 	public void CLOSE_SETTINGS_MENU ()
 	{
-		this.MainMenuCanvas.SetActive ( true );
 		this.SettingsCanvas.SetActive ( false );
 	}
 	
@@ -54,25 +52,28 @@ public class SettingsController : MonoBehaviour
 			Debug.LogWarning("The toggle GameObject has not Been linked to the settingsController !");
 
 
-		this.resolutions = Screen.resolutions;
-		
-		this.ResolutionDropdown.ClearOptions ();
-		
-		List <string> options = new List <string> ();
-
-		int currentResolutionIndex = 0;
-		for ( int i = 0; i < this.resolutions.Length; i++ )
+		if (ResolutionDropdown != null)
 		{
-			string option = resolutions [i].width + " x " + resolutions [i].height;
-			options.Add ( option );
-			
-			if ( resolutions [i].width == Screen.currentResolution.width && resolutions [i].height == Screen.currentResolution.height )
-				currentResolutionIndex = i;
-		}
+			this.resolutions = Screen.resolutions;
+			this.ResolutionDropdown.ClearOptions();
 
-		this.ResolutionDropdown.AddOptions ( options );
-		this.ResolutionDropdown.value = currentResolutionIndex;
-		this.ResolutionDropdown.RefreshShownValue ();
+			List<string> options = new List<string>();
+
+			int currentResolutionIndex = 0;
+			for (int i = 0; i < this.resolutions.Length; i++)
+			{
+				string option = resolutions[i].width + " x " + resolutions[i].height;
+				options.Add(option);
+
+				if (resolutions[i].width == Screen.currentResolution.width &&
+				    resolutions[i].height == Screen.currentResolution.height)
+					currentResolutionIndex = i;
+			}
+
+			this.ResolutionDropdown.AddOptions(options);
+			this.ResolutionDropdown.value = currentResolutionIndex;
+			this.ResolutionDropdown.RefreshShownValue();
+		}
 
 	}
 
