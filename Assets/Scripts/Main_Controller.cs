@@ -39,6 +39,9 @@ public class Main_Controller : MonoBehaviour
 		public double GDP;
 		public int humidity;
 		public int temp;
+		public int r;
+		public int g;
+		public int b;
 
 		public long infected = 0; 
 		public long dead = 0;
