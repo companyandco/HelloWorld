@@ -46,7 +46,7 @@ public class ClickableEarth : MonoBehaviour
 
 			//Instantiate ( this.Cube, hit.point, Quaternion.identity );
 
-			Vector3 p = new Vector3 ( hit.point.x, hit.point.y, hit.point.z );
+			Vector3 p = new Vector3 ( hit.point.x, hit.point.y-(float)0.2*hit.point.y, hit.point.z );
 
 			SphericalCoord cs = CoordHelper.TransformToSphericalCoord ( p, this.transform.position );
 
