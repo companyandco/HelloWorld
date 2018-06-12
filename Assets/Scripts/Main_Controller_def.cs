@@ -33,7 +33,7 @@ public class Main_Controller_def : MonoBehaviour {
 
 	public GameObject notif;
 	private static bool closeBorderUsed = false;
-	public static bool CloseBorder(Main_Controller.Region country)
+	public static bool CloseBorder(Main_Controller.Country country)
 	{
 		if (!closeBorderUsed && powerD - 10 >= 0)
 		{
@@ -126,7 +126,7 @@ public class Main_Controller_def : MonoBehaviour {
 
 	#region sanitarycampaign
 
-	public static bool SanitaryCampaign(Main_Controller.Region region)
+	public static bool SanitaryCampaign(Main_Controller.Country region)
 	{
 		if (powerD - 5 >= 0 && vaccineFound)
 		{
@@ -184,7 +184,7 @@ public class Main_Controller_def : MonoBehaviour {
 	#region localisation
 
 	public static bool found = false;
-	public static bool Localisation(Main_Controller.Region country)
+	public static bool Localisation(Main_Controller.Country country)
 	{
 		if ( powerD - 2 >= 0 )
 		{

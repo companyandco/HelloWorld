@@ -90,7 +90,7 @@ public class Main_Controller : MonoBehaviour
 	public long totalInfected;
 	public long totalDead;
     public static bool isStarted;
-    public static Region StartRegion;
+    public static Country StartRegion;
 
 	//Info sur les events
 	public static List <RandomEvent> eventsList;
@@ -129,12 +129,32 @@ public class Main_Controller : MonoBehaviour
 		}
 		return null;
 	}
-	
-	/////////////////////////////////////////////////////////
-	/// Initialisation du gameplay
-	/////////////////////////////////////////////////////////
-	
-	void Start ()
+
+    public static Country GetCountryFromName(string name)
+    {
+        string[] namelist = name.Split(new char[] { ',', ' ' });
+        //if (namelist.Length == 3)
+        //{
+
+        Debug.Log(namelist.Length);
+        Region continent = GetRegionFromName(namelist[2]);
+            foreach (Country country in continent.countrylist)
+            {
+                if (country.Name == namelist[0])
+                {
+                    return country;
+                }
+            }
+        //}
+        return null;
+
+    }
+
+    /////////////////////////////////////////////////////////
+    /// Initialisation du gameplay
+    /////////////////////////////////////////////////////////
+
+    void Start ()
 	{
         ResetVariables();
 		listText.Add(AsiaDataText);
@@ -293,8 +313,9 @@ public class Main_Controller : MonoBehaviour
 		HighDensityRes = 0.15f;
         isStarted = false;
         StartRegion = null;
+        PlayerGameManager.lastContinentClicked = null;
 
-		Main_Controller_def.found = false;
+        Main_Controller_def.found = false;
 		Main_Controller_def.foundSymptoms = new List <string> ();
 		Main_Controller_def.foundTrans = false;
 		Main_Controller_def.isBoostUsed = false;
@@ -330,7 +351,23 @@ public class Main_Controller : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        if (isStarted && i % 25 == 0)
+        if (isStarted)
+            Debug.Log(StartRegion);
+        if (isStarted && StartRegion != null)
+        {
+            StartRegion.infected = 1;
+            StartRegion.Population -= 1;
+            startHum = StartRegion.humidity;
+            startTemp = StartRegion.temp;
+
+            powerD.SetActive(isDefending);
+            powerO.SetActive(!isDefending);
+            panelD.SetActive(isDefending);
+            panelO.SetActive(!isDefending);
+            StartRegion = null;
+        }
+        //Gameplay
+        else if (isStarted && i % 25 == 0)
         {
             //update cooldowns
             if (Tcd > 0)
@@ -338,145 +375,151 @@ public class Main_Controller : MonoBehaviour
             if (Scd > 0)
                 Scd--;
 
+            //WorldWide stat
             totalSane = 0;
             totalInfected = 0;
             totalDead = 0;
+
             int j = 0;
-            foreach (var region in Earth.regionlist)
+            foreach (var continents in Earth.regionlist)
             {
-                //get info about the world
-                totalSane += region.Population;
-                totalInfected += region.infected;
-                totalDead += region.dead;
-
-                //check if climate is ok
-                if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
-                    region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
+                continents.Population = 0;
+                continents.infected = 0;
+                continents.dead = 0;
+                foreach (var region in continents.countrylist)
                 {
-                    //apply transmitions to region
-                    region.transmitionOther = transmitionOther;
-                    region.transmitionHuman = transmitionHuman;
-
-                    //if that region has 0 infected
-                    if (!isDefending && region.infected == 0)
+                    //check if climate is ok
+                    if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
+                        region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
                     {
-                        if (Random.Range(0.1f, 10f) < transmitionOther)
+                        //if that region has 0 infected
+                        if (!isDefending && region.infected == 0)
                         {
-                            region.infected = 1;
-                            OnSpellUsed("NewRegionInfected", region.Name);
-                            region.Population -= 1;
+                            if (Random.Range(0.1f, 10f) < transmitionOther)
+                            {
+                                region.infected = 1;
+                                OnSpellUsed("NewRegionInfected", region.Name);
+                                region.Population -= 1;
+                            }
+                            else if (!region.isClosed && Random.Range(0.04f, 15f) < transmitionHuman)
+                            {
+                                region.infected = 1;
+                                OnSpellUsed("NewRegionInfected", region.Name);
+                                region.Population -= 1;
+                            }
                         }
-                        else if (!region.isClosed && Random.Range(0.04f, 15f) < transmitionHuman)
+                    }
+
+                    //update infected
+                    if (region.Population != 0 && region.infected != 0)
+                    {
+                        long extraInfected = (long)((transmitionHuman * 0.2f + transmitionOther * 0.1f) * (region.infected + 100));
+                        region.infected += extraInfected;
+                        region.Population -= extraInfected;
+
+                        if (region.Population < 0)
+                            region.Population = 0;
+                    }
+
+                    //update dead
+                    if (lethality != 0 && region.infected != 0)
+                    {
+                        long extraDead = (long)(region.infected * lethality)+3;
+                        region.dead += extraDead;
+                        region.infected -= extraDead;
+                        if (region.infected < 0)
                         {
-                            region.infected = 1;
-                            OnSpellUsed("NewRegionInfected", region.Name);
-                            region.Population -= 1;
+                            region.dead -= region.infected;
+                            region.infected = 0;
+                        }
+
+                        if (region.infected <= 7)
+                        {
+                            region.dead += region.infected;
+                            region.infected = 0;
+
+                        }
+                    }
+
+                    //update vaccined
+                    if (Main_Controller_def.vaccineFound && region.infected != 0)
+                    {
+                        long extraSane;
+                        if (region.Name == sanitaryBonus)
+                            extraSane = (long)(region.infected * 0.2) + 3;
+                        else
+                            extraSane = (long)(region.infected * 0.1) + 3;
+
+                        region.Population += extraSane;
+                        region.infected -= extraSane;
+                        if (region.infected < 0)
+                        {
+                            region.Population -= region.infected;
+                            region.infected = 0;
+                        }
+
+                        if (region.infected <= 7)
+                        {
+                            region.Population += region.infected;
+                            region.infected = 0;
+
                         }
 
                     }
-                }
 
-                //update infected
-                if (region.Population != 0 && region.infected != 0)
-                {
-                    long extraInfected = (long)((transmitionHuman * 0.2f + transmitionOther * 0.1f) * (region.infected + 100));
-                    region.infected += extraInfected;
-                    region.Population -= extraInfected;
-
-                    if (region.Population < 0)
-                        region.Population = 0;
-                }
-
-                //update dead
-                if (lethality != 0 && region.infected != 0)
-                {
-                    long extraDead = (long)(region.infected * lethality);
-                    region.dead += extraDead;
-                    region.infected -= extraDead;
-                    if (region.infected < 0)
+                    //update randomEvents
+                    if (!isDefending && eventsList.Count > 0)
                     {
-                        region.dead -= region.infected;
-                        region.infected = 0;
+
+                        if (Random.Range(1, maxRand) == 1)
+                        {
+                            tempEvent = eventsList[Random.Range(0, eventsList.Count)];
+                            tempEvent.ApplyChanges();
+                            OpenNotification(tempEvent.title, tempEvent.message);
+                            eventsList.Remove(tempEvent);
+                        }
+                        if (maxRand <= 1)
+                        {
+                            maxRand = maxRandEvent;
+                        }
+                        maxRand -= 1;
                     }
 
-                    if (region.infected <= 7)
+                    //PowerO generation
+                    if (region.infected > 100)
                     {
-                        region.dead += region.infected;
-                        region.infected = 0;
-                        
-                    }
-                }
-
-                //update vaccined
-                if (Main_Controller_def.vaccineFound && region.infected != 0)
-                {
-                    long extraSane;
-                    if (region.Name == sanitaryBonus)
-                        extraSane = (long)(region.infected * 0.2)+3;
-                    else
-                        extraSane = (long)(region.infected * 0.1)+3;
-
-                    region.Population += extraSane;
-                    region.infected -= extraSane;
-                    if (region.infected < 0)
-                    {
-                        region.Population -= region.infected;
-                        region.infected = 0;
+                        if (region.infected < 1000 && region.infected % 100 < 4)
+                            Main_Controller_off.powerO++;
+                        else if (region.infected < 10000 && region.infected % 2000 < 25)
+                            Main_Controller_off.powerO += 2;
+                        else if (region.infected < 100000 && region.infected % 20000 < 50)
+                            Main_Controller_off.powerO += 3;
+                        else if (region.infected < 1000000 && region.infected % 200000 < 50)
+                            Main_Controller_off.powerO += 4;
                     }
 
-                    if (region.infected <= 7)
+                    //PowerD generation
+                    if (i == 50)
                     {
-                        region.Population += region.infected;
-                        region.infected = 0;
-                        
+                        Main_Controller_def.powerD++;
+                        time++;
+                        i = 1;
                     }
-                    
+                    continents.Population += region.Population;
+                    continents.infected += region.infected;
+                    continents.dead += region.dead;
                 }
-
-                //update randomEvents
-                if (!isDefending && eventsList.Count > 0)
-                {
-
-                    if (Random.Range(1, maxRand) == 1)
-                    {
-                        tempEvent = eventsList[Random.Range(0, eventsList.Count)];
-                        tempEvent.ApplyChanges();
-                        OpenNotification(tempEvent.title, tempEvent.message);
-                        eventsList.Remove(tempEvent);
-                    }
-                    if (maxRand <= 1)
-                    {
-                        maxRand = maxRandEvent;
-                    }
-                    maxRand -= 1;
-                }
-                //PowerO generation
-                if (region.infected > 100)
-                {
-                    if (region.infected < 1000 && region.infected % 100 < 4)
-                        Main_Controller_off.powerO++;
-                    else if (region.infected < 10000 && region.infected % 2000 < 25)
-                        Main_Controller_off.powerO += 2;
-                    else if (region.infected < 100000 && region.infected % 20000 < 50)
-                        Main_Controller_off.powerO += 3;
-                    else if (region.infected < 1000000 && region.infected % 200000 < 50)
-                        Main_Controller_off.powerO += 4;
-                }
-
-                //PowerD generation
-                if (i == 50)
-                {
-                    Main_Controller_def.powerD++;
-                    time++;
-                    i = 1;
-                }
+                //update info about the world
+                totalSane += continents.Population;
+                totalInfected += continents.infected;
+                totalDead += continents.dead;
 
 
                 //ui update -BEGIN
-                listText[j++].text = region.infected + "\n" +
-                                   region.Population + "\n" +
-                                   (region.Population + region.infected) + "\n" +
-                                   region.dead;
+                listText[j++].text = continents.infected + "\n" +
+                                   continents.Population + "\n" +
+                                   (continents.Population + continents.infected) + "\n" +
+                                   continents.dead;
             }
             WorldDataText.text = totalInfected + "\n" +
                                  totalSane + "\n" +
@@ -503,29 +546,15 @@ public class Main_Controller : MonoBehaviour
                 return;
             }
         }
-        else if (isStarted && StartRegion != null)
-        {
-            StartRegion.infected = 1;
-            StartRegion.Population -= 1;
-            startHum = StartRegion.humidity;
-            startTemp = StartRegion.temp;
-
-            powerD.SetActive(isDefending);
-            powerO.SetActive(!isDefending);
-            panelD.SetActive(isDefending);
-            panelO.SetActive(!isDefending);
-            StartRegion = null;
-        }
         else if (!isStarted)
         {
             if (PlayerGameManager.lastContinentClicked != "Oceans" && PlayerGameManager.lastContinentClicked != null)
             {
                 isStarted = true;
-                StartRegion = GetRegionFromName(PlayerGameManager.lastContinentClicked);
+                StartRegion = GetCountryFromName(PlayerGameManager.lastContinentClicked);
                 OnSpellUsed("RegionSelected", PlayerGameManager.lastContinentClicked);
             }
         }
-
         i++;
 	}
 
@@ -541,7 +570,7 @@ public class Main_Controller : MonoBehaviour
 			c.Send ( "CSPELLR|" + spellName + "|" + value);
 	}
 
-	public static Region netRegion = null;
+	public static Country netRegion = null;
 	public static void OnRpcOnSpellUsedCallbackRegion(string msg, string value)
 	{
 		switch ( msg )
@@ -551,15 +580,15 @@ public class Main_Controller : MonoBehaviour
 				eventsList.Remove (eventsList [int.Parse(value)]);
 				break;
 			case "NewRegionInfected":
-				Region region = GetRegionFromName(value);
+				Country region = GetCountryFromName(value);
 				region.infected = 1;
 				region.Population -= 1;
 				break;
 			case "CloseBorder":
-				Main_Controller_def.CloseBorder(GetRegionFromName(value));
+				Main_Controller_def.CloseBorder(GetCountryFromName(value));
 				break;
 			case "Localisation":
-				Main_Controller_def.Localisation(GetRegionFromName(value));
+				Main_Controller_def.Localisation(GetCountryFromName(value));
 				break;
 			case "ResearchSymp":
 				//FIXME
@@ -570,11 +599,11 @@ public class Main_Controller : MonoBehaviour
 				Main_Controller_def.ResearchTrans(value);
 				break;
 			case "SanitaryCampaign":
-				Main_Controller_def.SanitaryCampaign ( GetRegionFromName ( value ) );
+				Main_Controller_def.SanitaryCampaign ( GetCountryFromName ( value ) );
 				break;
             case "RegionSelected":
                 isStarted = true;
-                StartRegion = GetRegionFromName(value);
+                StartRegion = GetCountryFromName(value);
                 break;
             default:
 				Debug.Log ( "WTF?" );
