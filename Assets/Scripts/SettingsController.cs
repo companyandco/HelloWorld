@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class SettingsController : MonoBehaviour
 {
 	public AudioMixer AudioMixer;
-
 	public Dropdown ResolutionDropdown;
+	public Toggle FullscreenToggle;
 	
 	public void SET_VOLUME (float volume)
 	{
@@ -17,7 +17,7 @@ public class SettingsController : MonoBehaviour
 
 	public void SET_QUALITY ( int qualityIndex )
 	{
-		QualitySettings.SetQualityLevel ( qualityIndex );
+		QualitySettings.SetQualityLevel ( qualityIndex, true);
 	}
 
 	public void SET_FULLSCREEN ( bool isFullscreen )
@@ -30,12 +30,10 @@ public class SettingsController : MonoBehaviour
 		Screen.SetResolution ( this.resolutions[resolutionIndex].width, this.resolutions[resolutionIndex].height, Screen.fullScreen );
 	}
 	
-	public GameObject MainMenuCanvas;
 	public GameObject SettingsCanvas;
 
 	public void CLOSE_SETTINGS_MENU ()
 	{
-		this.MainMenuCanvas.SetActive ( true );
 		this.SettingsCanvas.SetActive ( false );
 	}
 	
@@ -43,27 +41,39 @@ public class SettingsController : MonoBehaviour
 	
 	void Start ()
 	{
-		this.resolutions = Screen.resolutions;
-		
-		this.ResolutionDropdown.ClearOptions ();
-		
-		List <string> options = new List <string> ();
-
-		int currentResolutionIndex = 0;
-		
-		for ( int i = 0; i < this.resolutions.Length; i++ )
+		if (FullscreenToggle != null)
 		{
-			string option = resolutions [i].width + " x " + resolutions [i].height;
-			options.Add ( option );
-
-			if ( resolutions [i].width == Screen.currentResolution.width && resolutions [i].height == Screen.currentResolution.width )
-				currentResolutionIndex = i;
-
+			if (Screen.fullScreen)
+				FullscreenToggle.isOn = true;
+			else
+				FullscreenToggle.isOn = false;
 		}
+		else
+			Debug.LogWarning("The toggle GameObject has not Been linked to the settingsController !");
 
-		this.ResolutionDropdown.AddOptions ( options );
-		this.ResolutionDropdown.value = currentResolutionIndex;
-		this.ResolutionDropdown.RefreshShownValue ();
+
+		if (ResolutionDropdown != null)
+		{
+			this.resolutions = Screen.resolutions;
+			this.ResolutionDropdown.ClearOptions();
+
+			List<string> options = new List<string>();
+
+			int currentResolutionIndex = 0;
+			for (int i = 0; i < this.resolutions.Length; i++)
+			{
+				string option = resolutions[i].width + " x " + resolutions[i].height;
+				options.Add(option);
+
+				if (resolutions[i].width == Screen.currentResolution.width &&
+				    resolutions[i].height == Screen.currentResolution.height)
+					currentResolutionIndex = i;
+			}
+
+			this.ResolutionDropdown.AddOptions(options);
+			this.ResolutionDropdown.value = currentResolutionIndex;
+			this.ResolutionDropdown.RefreshShownValue();
+		}
 
 	}
 

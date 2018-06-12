@@ -5,7 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelection : MonoBehaviour
 {
+	public GameObject BackgroundMusic;
 	public GameObject LoadingScreen;
+	public float FadeSpeed = 1f;
+	
+	private bool finishedFading = false;
+
+	public void LaunchCustomScreen(GameObject screen)
+	{
+		StartCoroutine(FadeIn(screen.GetComponent<CanvasGroup>(), screen));
+		StartCoroutine(LoadNewSceneCorutine("main_menu"));
+	}
 
 
 	public void LoadNewScreen(string scene)
@@ -27,6 +37,7 @@ public class SceneSelection : MonoBehaviour
 	{
 		//temps d'attente minimum pour pas faire des transitions epileptiques
 		yield return new WaitForSeconds(1);
+		Debug.Log(str);
 		
 		//charge la scene de maniere asynchrone
 		AsyncOperation async = SceneManager.LoadSceneAsync(str);
@@ -48,11 +59,38 @@ public class SceneSelection : MonoBehaviour
 			yield return null;
 		}
 	}
-
-	public void SendData ( bool hasWin )
+	
+	IEnumerator FadeIn(CanvasGroup obj, GameObject toactive = null)
 	{
-		char c = ( hasWin ) ? '1' : '2';
-		Application.OpenURL ( "https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=Computer&p1won=" + c );
+		float curTime = 0f;
+		if (toactive != null && !toactive.activeInHierarchy)
+			toactive.SetActive(true);
+		while (curTime <= 1)
+		{
+			obj.alpha = curTime;
+			curTime += Time.deltaTime * FadeSpeed;
+			yield return null;
+		}
+	}
+	
+	IEnumerator FadeOut(CanvasGroup obj, GameObject todisable = null)
+	{
+		float curTime = 1f;
+		while (curTime >= 0)
+		{
+			obj.alpha = curTime;
+			curTime -= Time.deltaTime * FadeSpeed;
+			yield return null;
+		}
+		if (todisable != null && todisable.activeInHierarchy)
+			todisable.SetActive(false);
+	}
+
+	public void SendData ()
+	{
+		string opponent = Main_Controller.OpponentName;
+		char c = ( Main_Controller.HasWon ) ? '0' : '1';
+		Application.OpenURL ( "https://gotobreak.000webhostapp.com/game/insertmatch.php?p2=" + opponent + "&p1won=" + c );
 	}
 
 	public void OpenSite ( string page )
@@ -62,6 +100,11 @@ public class SceneSelection : MonoBehaviour
 
 	public void GO_ONLINE ()
 	{
+		if (BackgroundMusic != null)
+		{
+			Debug.Log("DontDestroyExecute");
+			DontDestroyOnLoad(BackgroundMusic);
+		}
 		Debug.Log ( "GO_ONLINE" );
 		LoadNewScreen( "test3" );
 		//SceneManager.LoadScene ( "test3" );
@@ -80,12 +123,10 @@ public class SceneSelection : MonoBehaviour
 		//SceneManager.LoadScene ( "main_menu" );
 	}
 	
-	public GameObject MainMenuCanvas;
 	public GameObject SettingsCanvas;
 
 	public void GO_SETTINGS ()
 	{
-		this.MainMenuCanvas.SetActive ( false );
 		this.SettingsCanvas.SetActive ( true );
 	}
 

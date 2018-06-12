@@ -138,8 +138,10 @@
         <e p="ShowLastContinentClicked.cs" t="Include" />
         <e p="SphericalCoord.cs" t="Include" />
         <e p="UI" t="Include">
-          <e p="GraphicsExtenstion.cs" t="Include" />
+          <e p="dropdownmanager.cs" t="Include" />
+          <e p="LaunchController.cs" t="Include" />
           <e p="loadingCircle.cs" t="Include" />
+          <e p="MainMenuController.cs" t="Include" />
           <e p="MouseInformation.cs" t="Include" />
         </e>
         <e p="WorldData.cs" t="Include" />

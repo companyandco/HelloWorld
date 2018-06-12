@@ -192,7 +192,6 @@ public class Main_Controller_def : MonoBehaviour {
 			powerD += 10;
 			if ( country.infected != 0 )
 			{
-				Debug.Log ( true );
 				found = true;
 				//NOTIFICATION
 				if (!AI.isSP)
@@ -254,7 +253,6 @@ public class Main_Controller_def : MonoBehaviour {
 
 	public static void ResearchSympButton(string str)
 	{
-		Debug.Log("Research symptome " + str);
 		if(ResearchSymp(str)) //TODO output la valeur la liste ici
 			Main_Controller.OnSpellUsed ( "ResearchSymp", str );
 	}
@@ -283,7 +281,6 @@ public class Main_Controller_def : MonoBehaviour {
 
 	public static void ResearchTransButton(string str)
 	{
-		Debug.Log("Research transmission " + str);
 		if (ResearchTrans(str)) //TODO output la valeur la liste ici
 			Main_Controller.OnSpellUsed ( "ResearchTrans", str );
 	}
@@ -302,7 +299,6 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 5;
-			Debug.Log(new System.Random().Next(0,Main_Controller.transmitions.Count));
 			vaccineFound = true;
 			return true;
 		}
