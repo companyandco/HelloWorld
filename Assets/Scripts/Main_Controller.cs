@@ -132,12 +132,11 @@ public class Main_Controller : MonoBehaviour
 
     public static Country GetCountryFromName(string name)
     {
-        string[] namelist = name.Split(new char[] { ',', ' ' });
-        //if (namelist.Length == 3)
-        //{
-
-        Debug.Log(namelist.Length);
-        Region continent = GetRegionFromName(namelist[2]);
+        string[] namelist = name.Split(new char[] { ',' });
+        if (namelist.Length == 2)
+        {
+            
+        Region continent = GetRegionFromName(namelist[1].Substring(1));
             foreach (Country country in continent.countrylist)
             {
                 if (country.Name == namelist[0])
@@ -145,7 +144,7 @@ public class Main_Controller : MonoBehaviour
                     return country;
                 }
             }
-        //}
+        }
         return null;
 
     }
@@ -539,7 +538,7 @@ public class Main_Controller : MonoBehaviour
                 SceneManager.LoadScene("victoire");
                 return;
             }
-            if (totalInfected == 0)
+            if (totalInfected < 0)
             {
                 HasWon = isDefending;
                 SceneManager.LoadScene("defaite");
