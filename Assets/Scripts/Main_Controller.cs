@@ -149,6 +149,17 @@ public class Main_Controller : MonoBehaviour
 
     }
 
+    //bon je vais faire une simon
+    public static Region GetContinent(Country country)
+    {
+        foreach (Region continent in Earth.regionlist)
+        {
+            if (continent.countrylist.Contains(country))
+                return continent;
+        }
+        return null;
+    }
+
     /////////////////////////////////////////////////////////
     /// Initialisation du gameplay
     /////////////////////////////////////////////////////////
@@ -350,8 +361,6 @@ public class Main_Controller : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        if (isStarted)
-            Debug.Log(StartRegion);
         if (isStarted && StartRegion != null)
         {
             StartRegion.infected = 1;
@@ -397,13 +406,13 @@ public class Main_Controller : MonoBehaviour
                             if (Random.Range(0.1f, 10f) < transmitionOther)
                             {
                                 region.infected = 1;
-                                OnSpellUsed("NewRegionInfected", region.Name);
+                                OnSpellUsed("NewRegionInfected", region.Name + ", " + GetContinent(region).Name);
                                 region.Population -= 1;
                             }
                             else if (!region.isClosed && Random.Range(0.04f, 15f) < transmitionHuman)
                             {
                                 region.infected = 1;
-                                OnSpellUsed("NewRegionInfected", region.Name);
+                                OnSpellUsed("NewRegionInfected", region.Name + ", " + GetContinent(region).Name);
                                 region.Population -= 1;
                             }
                         }
@@ -572,7 +581,8 @@ public class Main_Controller : MonoBehaviour
 	public static Country netRegion = null;
 	public static void OnRpcOnSpellUsedCallbackRegion(string msg, string value)
 	{
-		switch ( msg )
+        Debug.Log(value);
+        switch ( msg )
 		{
 			case "RandomEvent":
 				eventsList [int.Parse(value)].ApplyChanges();
@@ -580,7 +590,7 @@ public class Main_Controller : MonoBehaviour
 				break;
 			case "NewRegionInfected":
 				Country region = GetCountryFromName(value);
-				region.infected = 1;
+ 
 				region.Population -= 1;
 				break;
 			case "CloseBorder":
