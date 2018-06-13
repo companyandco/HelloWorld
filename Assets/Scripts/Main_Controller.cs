@@ -40,9 +40,7 @@ public class Main_Controller : MonoBehaviour
 		public double GDP;
 		public int humidity;
 		public int temp;
-		public int r;
-		public int g;
-		public int b;
+		public int r, g, b;
 
 		public long infected = 0; 
 		public long dead = 0;
@@ -63,7 +61,6 @@ public class Main_Controller : MonoBehaviour
 
     //info sur l'UI
 	public GameObject EscapeMenu;
-	public SceneSelection SceneSelection;
     public GameObject panelD;
     public GameObject panelO;
 	public GameObject powerD;
@@ -135,15 +132,14 @@ public class Main_Controller : MonoBehaviour
         string[] namelist = name.Split(new char[] { ',' });
         if (namelist.Length == 2)
         {
-            
-        Region continent = GetRegionFromName(namelist[1].Substring(1));
-            foreach (Country country in continent.countrylist)
-            {
-                if (country.Name == namelist[0])
-                {
-                    return country;
-                }
-            }
+			Region continent = GetRegionFromName(namelist[1].Substring(1));
+			foreach (Country country in continent.countrylist)
+			{
+				if (country.Name == namelist[0])
+				{
+					return country;
+				}
+			}
         }
         return null;
 

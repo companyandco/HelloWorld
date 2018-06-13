@@ -5,7 +5,10 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - go: {instanceID: 0}
+  - CountryClicked: {fileID: 1018824178016970, guid: 302c1808f3a06bf4ca4ce4a3ef9470cc,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

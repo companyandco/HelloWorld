@@ -14,8 +14,9 @@ public static class PlayerGameManager
 		}
 		
 		Debug.Log ( "OnLastContinentClickedChange: " + lastContinentClicked );
-
 		ShowLastContinentClicked.continent = lastContinentClicked;
+		ShowLastContinentClicked.UpdateText();
+		ShowLastContinentClicked.ActivateInformationWindow();
 	}
 
 }

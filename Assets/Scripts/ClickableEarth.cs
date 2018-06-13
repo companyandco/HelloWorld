@@ -5,13 +5,9 @@ using System.Runtime.Remoting.Messaging;
 
 public class ClickableEarth : MonoBehaviour
 {
-	public GameObject Cube;
-
 	public Texture2D texture;
 
 	private Dictionary <Color32, Continent> MapColorToContinent;
-
-	public GameObject GameManagerObject;
 
 	void Start ()
 	{
@@ -46,7 +42,7 @@ public class ClickableEarth : MonoBehaviour
 
 			//Instantiate ( this.Cube, hit.point, Quaternion.identity );
 
-			Vector3 p = new Vector3 ( hit.point.x, hit.point.y-(float)0.2*hit.point.y, hit.point.z );
+			Vector3 p = new Vector3 ( hit.point.x, hit.point.y-0.2f*hit.point.y, hit.point.z );
 
 			SphericalCoord cs = CoordHelper.TransformToSphericalCoord ( p, this.transform.position );
 
@@ -69,7 +65,8 @@ public class ClickableEarth : MonoBehaviour
 		try
 		{
 			continentClicked = MapColorToContinent [c];
-		} catch ( Exception e )
+		} 
+		catch ( Exception e )
 		{
 			//Debug.Log ( "ReadFromMap::Couldn't read map at these coordinates. Returning Oceans." );
 			
@@ -83,9 +80,8 @@ public class ClickableEarth : MonoBehaviour
 		//Debug.Log ( "Continent clicked: " + continentClicked.Name );
 		
 		PlayerGameManager.lastContinentClicked = continentClicked.Name;
-
 		PlayerGameManager.OnLastContinentClickedChange ();
-
+		
 	}
 
 }
