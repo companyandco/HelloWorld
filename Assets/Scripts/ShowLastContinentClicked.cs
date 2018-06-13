@@ -58,14 +58,14 @@ public class ShowLastContinentClicked : MonoBehaviour
 				CountryInforamtion.SetActive(true);
 				TitleInformation.text = continent;
 				BasicInformation.text = country.Population + "\n" + 
-				                        country.Density + "\n" + 
+				                        country.Density + "\n" +
 				                        country.Life_expectancy + "\n" + 
 				                        country.GDP + "\n" + 
 				                        country.humidity + "\n" + 
 				                        country.temp;
 				PopulationInformation.text = country.infected + "\n" +
 				                             country.Population + "\n" +
-				                             country.infected+country.Population + "\n" +
+				                             (country.infected + country.Population) + "\n" +
 				                             country.dead;
 			}
 		}
