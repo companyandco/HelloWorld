@@ -78,6 +78,9 @@ public class Client : MonoBehaviour
 			case "SSTART":
 				StartTheGame ();
 				break;
+			case "SDISCONNECT":
+				CloseSocket ();
+				break;
 		}
 	}
 
@@ -144,10 +147,16 @@ public class Client : MonoBehaviour
 		if ( !this.isSocketReady )
 			return;
 
+		Send ( "CDISCONNECT" );
+		
 		this.writer.Close ();
 		this.reader.Close ();
 		this.socket.Close ();
 		this.isSocketReady = false;
+
+		MultiplayerMenuManager.Instance.Quit ();
+		
+		Destroy ( this.gameObject );
 	}
 
 }

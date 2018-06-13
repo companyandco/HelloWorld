@@ -160,6 +160,13 @@ public class MultiplayerMenuManager : MonoBehaviour
 	public void StartGame ()
 	{
 		SceneManager.LoadScene ( "MultiPlayer" );
+		
+		Destroy ( this.gameObject );
+	}
+
+	public void Quit ()
+	{
+		SceneManager.LoadScene ( "test3" );
 	}
 	
 }
