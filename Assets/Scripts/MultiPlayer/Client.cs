@@ -64,6 +64,8 @@ public class Client : MonoBehaviour
 					UserConnected ( aData[i], false );
 				}
 				
+				IsHost = aData [2] == "1";
+				
 				Send ( "CWHO|" + this.ClientName + "|" + ( this.IsHost ? 1 : 0 ) );
 				break;
 			case "SCON":
