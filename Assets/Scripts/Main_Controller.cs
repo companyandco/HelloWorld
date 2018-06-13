@@ -97,6 +97,7 @@ public class Main_Controller : MonoBehaviour
 	public Canvas notif;
 	public Text Message;
 	public Text Title;
+	private static bool gotAnEvent=false;
 
 
 	public static int Tcd = 50;
@@ -209,10 +210,27 @@ public class Main_Controller : MonoBehaviour
 	
 	void RandomEvents()
 	{
+		int rdn;
+		Country[] eventcountrylist = new Country[100];
+		for (int o=0; o<100; o++) 
+		{
+			rdn = Random.Range (0, Earth.regionlist.Count);
+			eventcountrylist[o] = Earth.regionlist [rdn].countrylist [Random.Range (0,Earth.regionlist[rdn].countrylist.Count)];
+		}
+		rdn = Random.Range (0, 100);
 		maxRand = maxRandEvent;
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("Tsunami","Un immense tsunami frappe l'Alaska !", 0f, 0, 0f, 1000, GetRegionFromName("NorthAmerica"));
+		eventsList[0].Init("Tsunami","Un immense tsunami frappe le Japon !", 0f, 0, 0f,10155, GetCountryFromName("Japan"));
+		eventsList.Add (new RandomEvent());
+		rdn = Random.Range (0, 100);
+		eventsList[1].Init("Séisme","Un violent séisme frappe "+ eventcountrylist[rdn].Name+" !", 0f, 0, 0f, (int)(eventcountrylist[rdn].Population*0.00003f), eventcountrylist[rdn]);
+		eventsList.Add (new RandomEvent());
+		rdn = Random.Range (0, 100);
+		eventsList[2].Init("Eruption volcanique","Un volcan éteint depuis des années en Indonesie s'est brusquement réveillé !", 0f, 0, 0f, 162, GetCountryFromName("South East Asia"));
+		eventsList.Add (new RandomEvent());
+		eventsList[3].Init("Nuage toxique","Un nuage de polution atteint "+eventcountrylist[rdn].Name+". Activités physiques deconseillées.", 0.1f, 0, 0f, 0,  eventcountrylist[rdn]);
+
 	}
 
 	void OpenNotification(string title, string message)
@@ -305,6 +323,8 @@ public class Main_Controller : MonoBehaviour
 		Tcd = 50;
 		Scd = 50;
 		sanitaryBonus = "";
+
+		gotAnEvent = false;
 
 		transmitionHuman = 0;
 		transmitionOther = 0;
@@ -472,15 +492,18 @@ public class Main_Controller : MonoBehaviour
                     }
 
                     //update randomEvents
-                    if (!isDefending && eventsList.Count > 0)
+					if (!isDefending && eventsList.Count > 0 && !gotAnEvent)
                     {
 
                         if (Random.Range(1, maxRand) == 1)
                         {
                             tempEvent = eventsList[Random.Range(0, eventsList.Count)];
+							//Debug.Log("before");
+							OpenNotification(tempEvent.title, tempEvent.message);
+							//Debug.Log("after");
                             tempEvent.ApplyChanges();
-                            OpenNotification(tempEvent.title, tempEvent.message);
                             eventsList.Remove(tempEvent);
+							gotAnEvent = true;
                         }
                         if (maxRand <= 1)
                         {

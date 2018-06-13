@@ -31,7 +31,7 @@
 {"Name":"Finland","Population":5000000,"Density":16.38,"Life_expectancy":81.57,"GDP":236.79,"average_humidity":1,"average_temp":-1,"r":0,"g":233,"b":0},
 {"Name":"Poland","Population":37000000,"Density":121.87,"Life_expectancy":77.82,"GDP":469.51,"average_humidity":1,"average_temp":-1,"r":0,"g":162,"b":0},
 {"Name":"Iceland","Population":337000,"Density":3.28,"Life_expectancy":82.99,"GDP":20.05,"average_humidity":0,"average_temp":-2,"r":0,"g":36,"b":0},
-{"Name":"Ukraine","Population":44000000,"Density":72.92,"Life_expectancy":72.08,"GDP":93.27,"average_humidity":1,"average_temp":-1,"r":0,"g":145,"b":0},
+{"Name":"Ukraine","Population":44000000,"Density":72.92,"Life_expectancy":72.08,"GDP":93.27,"average_humidity":1,"average_temp":-1,"r":0,"g":144,"b":0},
 {"Name":"North West Europe","Population":28000000,"Density":392.44,"Life_expectancy":81.55,"GDP":1237.22,"average_humidity":0,"average_temp":0,"r":0,"g":90,"b":0},
 {"Name":"Central Europe","Population":102000000,"Density":98.95,"Life_expectancy":77.77,"GDP":93.27,"average_humidity":0,"average_temp":0,"r":0,"g":125,"b":0},
 {"Name":"North East Europe","Population":13000000,"Density":37.09,"Life_expectancy":75.05,"GDP":2068.61,"average_humidity":1,"average_temp":-1,"r":0,"g":180,"b":0}
