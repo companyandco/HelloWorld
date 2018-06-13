@@ -60,6 +60,7 @@ public class Main_Controller : MonoBehaviour
 	}
 
     //info sur l'UI
+	public GameObject Planet;
 	public GameObject EscapeMenu;
     public GameObject panelD;
     public GameObject panelO;
@@ -251,7 +252,16 @@ public class Main_Controller : MonoBehaviour
         }
 		else if ( Input.GetKeyDown ( KeyCode.Escape ) )
         {
-	        EscapeMenu.SetActive(true);
+	        if (EscapeMenu.activeInHierarchy)
+	        {
+		        EscapeMenu.SetActive(false);
+		        Planet.SetActive(true);
+	        }
+	        else
+	        {
+		        EscapeMenu.SetActive(true);
+		        Planet.SetActive(false);
+	        }
 	        //ResetVariables ();
 	        //SceneSelection.LoadNewScreen("main_menu");
 		}
