@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class Main_Controller : MonoBehaviour
 
 	public static bool HasWon = false;
 	public static string OpponentName = "Computer";
+	public static bool HasSeenStartHelp = false;
 	
 	
 
@@ -180,8 +182,12 @@ public class Main_Controller : MonoBehaviour
 			if(isDefending == null)
 				isDefending = false;
 		}
-		if(!isDefending)
+
+		if (!isDefending && !HasSeenStartHelp)
+		{
 			StartingHelper.SetActive(true);
+			HasSeenStartHelp = true;
+		}
 		else
 			Destroy(StartingHelper);
 		
