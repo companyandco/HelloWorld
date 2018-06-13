@@ -64,6 +64,8 @@ public class Client : MonoBehaviour
 					UserConnected ( aData[i], false );
 				}
 				
+				IsHost = aData [2] == "1";
+				
 				Send ( "CWHO|" + this.ClientName + "|" + ( this.IsHost ? 1 : 0 ) );
 				break;
 			case "SCON":
@@ -77,6 +79,9 @@ public class Client : MonoBehaviour
 				break;
 			case "SSTART":
 				StartTheGame ();
+				break;
+			case "SDISCONNECT":
+				CloseSocket ();
 				break;
 		}
 	}
@@ -144,10 +149,16 @@ public class Client : MonoBehaviour
 		if ( !this.isSocketReady )
 			return;
 
+		Send ( "CDISCONNECT" );
+		
 		this.writer.Close ();
 		this.reader.Close ();
 		this.socket.Close ();
 		this.isSocketReady = false;
+
+		MultiplayerMenuManager.Instance.Quit ();
+		
+		Destroy ( this.gameObject );
 	}
 
 }

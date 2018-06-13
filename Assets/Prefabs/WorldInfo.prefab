@@ -1605,7 +1605,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dernier continent\ns\xE9l\xE9ction\xE9 :"
+  m_Text: "Dernier continent\ns\xE9lectionn\xE9 :"
 --- !u!114 &114242223413527130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1703,6 +1703,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 1776662413103850}
+  Title: {fileID: 0}
+  BaseInfo: {fileID: 0}
+  PopInfo: {fileID: 0}
+  CountryInfo: {fileID: 0}
 --- !u!114 &114299150454122600
 MonoBehaviour:
   m_ObjectHideFlags: 1

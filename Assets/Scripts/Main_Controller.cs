@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class Main_Controller : MonoBehaviour
 
 	public static bool HasWon = false;
 	public static string OpponentName = "Computer";
+	public static bool HasSeenStartHelp = false;
 	
 	
 
@@ -60,6 +62,7 @@ public class Main_Controller : MonoBehaviour
 	}
 
     //info sur l'UI
+	public GameObject Planet;
 	public GameObject EscapeMenu;
     public GameObject panelD;
     public GameObject panelO;
@@ -180,8 +183,12 @@ public class Main_Controller : MonoBehaviour
 			if(isDefending == null)
 				isDefending = false;
 		}
-		if(!isDefending)
+
+		if (!isDefending && !HasSeenStartHelp)
+		{
 			StartingHelper.SetActive(true);
+			HasSeenStartHelp = true;
+		}
 		else
 			Destroy(StartingHelper);
 		
@@ -269,7 +276,16 @@ public class Main_Controller : MonoBehaviour
         }
 		else if ( Input.GetKeyDown ( KeyCode.Escape ) )
         {
-	        EscapeMenu.SetActive(true);
+	        if (EscapeMenu.activeInHierarchy)
+	        {
+		        EscapeMenu.SetActive(false);
+		        Planet.SetActive(true);
+	        }
+	        else
+	        {
+		        EscapeMenu.SetActive(true);
+		        Planet.SetActive(false);
+	        }
 	        //ResetVariables ();
 	        //SceneSelection.LoadNewScreen("main_menu");
 		}
@@ -330,8 +346,8 @@ public class Main_Controller : MonoBehaviour
 		transmitionOther = 0;
 		virulence = 0;
 		lethality = 0;
-		tempRes = 10;
-		HumidityRes = 10;
+		tempRes = 0;
+		HumidityRes = 0;
 		symptoms = new List <string> ();
 		transmitions = new List <string> ();
 		startHum = Earth.regionlist [0].humidity;
@@ -419,7 +435,7 @@ public class Main_Controller : MonoBehaviour
                         //if that region has 0 infected
                         if (!isDefending && region.infected == 0)
                         {
-                            if (Random.Range(0.1f, 10f) < transmitionOther)
+                            if (Random.Range(0.2f, 10f) < transmitionOther || (region.Name == "Australia" && Random.Range(0.1f, 5f) < transmitionOther))
                             {
                                 region.infected = 1;
                                 OnSpellUsed("NewRegionInfected", region.Name + ", " + GetContinent(region).Name);
@@ -566,7 +582,7 @@ public class Main_Controller : MonoBehaviour
                 SceneManager.LoadScene("victoire");
                 return;
             }
-            if (totalInfected < 0)
+            if (totalInfected == 0)
             {
                 HasWon = isDefending;
                 SceneManager.LoadScene("defaite");
