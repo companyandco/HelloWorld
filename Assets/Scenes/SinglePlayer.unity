@@ -118,11 +118,6 @@ Canvas:
   m_PrefabParentObject: {fileID: 223661941078547780, guid: 45e426bf08c829240bd43ad7984b1955,
     type: 2}
   m_PrefabInternal: {fileID: 1868795493}
---- !u!1 &48557552 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1612309055840708, guid: 302c1808f3a06bf4ca4ce4a3ef9470cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 1536423264}
 --- !u!114 &232482306 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114045958095902932, guid: 45e426bf08c829240bd43ad7984b1955,
@@ -1989,16 +1984,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114231447195062322, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
-        type: 2}
-      propertyPath: m_Text
-      value: "Dernier continent\ns\xE9lectionn\xE9 :"
-      objectReference: {fileID: 0}
     - target: {fileID: 114294843477548536, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
         type: 2}
-      propertyPath: CountryInformation
+      propertyPath: Title
       value: 
-      objectReference: {fileID: 48557552}
+      objectReference: {fileID: 1431683466}
     - target: {fileID: 114294843477548536, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
         type: 2}
       propertyPath: BaseInfo
@@ -2014,11 +2004,6 @@ Prefab:
       propertyPath: CountryInfo
       value: 
       objectReference: {fileID: 2034644389}
-    - target: {fileID: 114294843477548536, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
-        type: 2}
-      propertyPath: Title
-      value: 
-      objectReference: {fileID: 1431683466}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
   m_IsPrefabParent: 0
