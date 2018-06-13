@@ -228,13 +228,13 @@ public class Main_Controller : MonoBehaviour
 		maxRand = maxRandEvent;
 		eventsList=new List<RandomEvent>();
 		eventsList.Add (new RandomEvent());
-		eventsList[0].Init("Tsunami","Un immense tsunami frappe le Japon !", 0f, 0, 0f,10155, GetCountryFromName("Japan"));
+		eventsList[0].Init("Tsunami","Un immense tsunami frappe le Japon !", 0f, 0, 0f,10155, GetCountryFromName("Japan, Asia"));
 		eventsList.Add (new RandomEvent());
 		rdn = Random.Range (0, 100);
 		eventsList[1].Init("Séisme","Un violent séisme frappe "+ eventcountrylist[rdn].Name+" !", 0f, 0, 0f, (int)(eventcountrylist[rdn].Population*0.00003f), eventcountrylist[rdn]);
 		eventsList.Add (new RandomEvent());
 		rdn = Random.Range (0, 100);
-		eventsList[2].Init("Eruption volcanique","Un volcan éteint depuis des années en Indonesie s'est brusquement réveillé !", 0f, 0, 0f, 162, GetCountryFromName("South East Asia"));
+		eventsList[2].Init("Eruption volcanique","Un volcan éteint depuis des années en Indonesie s'est brusquement réveillé !", 0f, 0, 0f, 162, GetCountryFromName("South East Asia, Asia"));
 		eventsList.Add (new RandomEvent());
 		eventsList[3].Init("Nuage toxique","Un nuage de polution atteint "+eventcountrylist[rdn].Name+". Activités physiques deconseillées.", 0.1f, 0, 0f, 0,  eventcountrylist[rdn]);
 

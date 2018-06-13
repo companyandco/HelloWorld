@@ -48,6 +48,6 @@ public class RandomEvent{
 		Main_Controller.transmitionHuman += this.transmitionHuman;
 		Main_Controller.virulence += this.virulence;
 		Main_Controller.lethality += this.lethality;
-		Debug.Log ("Applied changes of an event : transmission+=" + this.transmitionHuman + " ,virulence+=" + this.virulence + "and lethality+=" + this.lethality + ". This event also killed " + this.deceased + " people in the country " + this.country.Name+", "+Main_Controller.GetContinent (country).Name);
+		//Debug.Log ("Applied changes of an event : transmission+=" + this.transmitionHuman + " ,virulence+=" + this.virulence + "and lethality+=" + this.lethality + ". This event also killed " + this.deceased + " people in the country " + this.country.Name+", "+Main_Controller.GetContinent (country).Name);
 	}
 }
