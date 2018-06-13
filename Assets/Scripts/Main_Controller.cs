@@ -310,8 +310,8 @@ public class Main_Controller : MonoBehaviour
 		transmitionOther = 0;
 		virulence = 0;
 		lethality = 0;
-		tempRes = 10;
-		HumidityRes = 10;
+		tempRes = 0;
+		HumidityRes = 0;
 		symptoms = new List <string> ();
 		transmitions = new List <string> ();
 		startHum = Earth.regionlist [0].humidity;
@@ -399,7 +399,7 @@ public class Main_Controller : MonoBehaviour
                         //if that region has 0 infected
                         if (!isDefending && region.infected == 0)
                         {
-                            if (Random.Range(0.1f, 10f) < transmitionOther)
+                            if (Random.Range(0.2f, 10f) < transmitionOther || (region.Name == "Australia" && Random.Range(0.1f, 5f) < transmitionOther))
                             {
                                 region.infected = 1;
                                 OnSpellUsed("NewRegionInfected", region.Name + ", " + GetContinent(region).Name);
@@ -543,7 +543,7 @@ public class Main_Controller : MonoBehaviour
                 SceneManager.LoadScene("victoire");
                 return;
             }
-            if (totalInfected < 0)
+            if (totalInfected == 0)
             {
                 HasWon = isDefending;
                 SceneManager.LoadScene("defaite");

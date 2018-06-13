@@ -26,7 +26,7 @@ public class Main_Controller_off : MonoBehaviour {
 			ResHumUsed = true;
 			powerO -= 5;
 			Main_Controller.transmitions.Add("Resistence a l'humidite");
-			Main_Controller.HumidityRes += 10;
+			Main_Controller.HumidityRes += 1;
 			return true;
 		}
 		return false;
@@ -50,7 +50,7 @@ public class Main_Controller_off : MonoBehaviour {
 			powerO -= 5;
 			ResTempUsed = true;
 			Main_Controller.transmitions.Add("Resistence a la temperature");
-			Main_Controller.tempRes += 10;
+			Main_Controller.tempRes += 1;
 			return true;
 		}
 		return false;
@@ -74,8 +74,8 @@ public class Main_Controller_off : MonoBehaviour {
 			ResUsed = true;
 			powerO -= 5;
 			Main_Controller.transmitions.Add("Resistence au climat");
-			Main_Controller.HumidityRes += 5;
-			Main_Controller.tempRes += 5;
+			Main_Controller.HumidityRes += 3;
+			Main_Controller.tempRes += 3;
 			return true;
 		}
 
