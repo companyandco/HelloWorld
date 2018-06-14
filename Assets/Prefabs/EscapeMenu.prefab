@@ -764,6 +764,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: StarCraft II
       m_Image: {fileID: 0}
+    - m_Text: Hellow World Menu
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
