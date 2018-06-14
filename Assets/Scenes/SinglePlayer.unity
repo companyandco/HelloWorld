@@ -182,7 +182,7 @@ MonoBehaviour:
   totalSane: 0
   totalInfected: 0
   totalDead: 0
-  maxRandEvent: 5000
+  maxRandEvent: 10000
   notif: {fileID: 961717881}
   Message: {fileID: 1444225484}
   Title: {fileID: 232482306}
