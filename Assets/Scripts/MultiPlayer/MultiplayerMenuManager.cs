@@ -16,6 +16,8 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 	void Start ()
 	{
+		System.Random rand = new System.Random();
+		NameInputField.GetComponent<InputField>().text = "Player_" + rand.Next(9999);
 		Instance = this;
 
 		MainMenu.SetActive ( true );
@@ -32,7 +34,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 	void Update ()
 	{
-		
+
 	}
 
 	public void ACCESS_CONNECT_MENU_BUTTON ()
