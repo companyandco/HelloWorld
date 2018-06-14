@@ -756,11 +756,13 @@ MonoBehaviour:
     m_Options:
     - m_Text: Aucune
       m_Image: {fileID: 0}
+    - m_Text: "Th\xE8me hello world"
+      m_Image: {fileID: 0}
     - m_Text: Epic Copyleft Music
       m_Image: {fileID: 0}
-    - m_Text: Alan Walker Force
+    - m_Text: Age of Empire
       m_Image: {fileID: 0}
-    - m_Text: Trance 009 Sound System Dreamscape
+    - m_Text: StarCraft II
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1260,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundMusic: {fileID: 0}
+  VideoBackground: {fileID: 0}
   LoadingScreen: {fileID: 1985534974060012, guid: 4f727cfdd105d5441918c4b03cebb701,
     type: 2}
   FadeSpeed: 1
