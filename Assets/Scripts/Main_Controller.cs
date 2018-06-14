@@ -81,6 +81,8 @@ public class Main_Controller : MonoBehaviour
     public GameObject camera;
     public static bool isDefending;
 	public float FadeSpeed = 2f;
+	public Button TPanel;
+	public Button SPanel;
 
     //info sur la partie
 	public static World Earth = WorldData.ReadFromJsonFile("Assets/WorldInfos.json");
@@ -165,7 +167,7 @@ public class Main_Controller : MonoBehaviour
     /////////////////////////////////////////////////////////
 
     void Start ()
-	{
+    {
         ResetVariables();
 		listText.Add(AsiaDataText);
 		listText.Add(EuDataText);
@@ -408,10 +410,18 @@ public class Main_Controller : MonoBehaviour
         else if (isStarted && i % 25 == 0)
         {
             //update cooldowns
-            if (Tcd > 0)
-                Tcd--;
-            if (Scd > 0)
-                Scd--;
+	        if (Tcd > 0)
+	        {
+		        Tcd--;
+		        if (Tcd == 0)
+			        TPanel.interactable = true;
+	        }
+	        if (Scd > 0)
+	        {
+		        Scd--;
+		        if (Scd == 0)
+			        SPanel.interactable = true;
+	        }
 
             //WorldWide stat
             totalSane = 0;

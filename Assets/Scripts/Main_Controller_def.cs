@@ -186,7 +186,7 @@ public class Main_Controller_def : MonoBehaviour {
 	public static bool found = false;
 	public static bool Localisation(Main_Controller.Country country)
 	{
-		if ( powerD - 2 >= 0 )
+		if (country != null && powerD - 2 >= 0 )
 		{
 			research.Add ( "Localisation" );
 			powerD += 10;
@@ -241,7 +241,8 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Symptomes");
 			powerD -= 2;
-			Main_Controller.Scd = (int)(15-Main_Controller.virulence);;
+			GameObject.Find("Recherche_sympt").GetComponent<Button>().interactable = false;
+			Main_Controller.Scd = (int)(15-Main_Controller.virulence);
 			//string foundSymp = Main_Controller.symptoms[Random.Range(0,Main_Controller.symptoms.Count)];
 			if (!foundSymptoms.Contains(symptom))
 				foundSymptoms.Add(symptom);
@@ -253,7 +254,7 @@ public class Main_Controller_def : MonoBehaviour {
 
 	public static void ResearchSympButton(string str)
 	{
-		if(ResearchSymp(str)) //TODO output la valeur la liste ici
+		if(ResearchSymp(str))
 			Main_Controller.OnSpellUsed ( "ResearchSymp", str );
 	}
 
@@ -269,6 +270,7 @@ public class Main_Controller_def : MonoBehaviour {
 		{
 			research.Add("Recherche de Transmitions");
 			powerD -= 2;
+			GameObject.Find("Recherche_trans").GetComponent<Button>().interactable = false;
 			Main_Controller.Tcd = (int)(15-Main_Controller.virulence);
 			//string foundTrans = Main_Controller.transmitions[Random.Range(0,Main_Controller.symptoms.Count)];
 			if (!foundTransmitions.Contains(transmition)){
