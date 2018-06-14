@@ -39,8 +39,8 @@ public class Main_Controller : MonoBehaviour
 		public double Density;
 		public double Life_expectancy;
 		public double GDP;
-		public int humidity;
-		public int temp;
+		public int average_humidity;
+		public int average_temp;
 		public int r, g, b;
 
 		public long infected = 0; 
@@ -352,8 +352,8 @@ public class Main_Controller : MonoBehaviour
 		HumidityRes = 0;
 		symptoms = new List <string> ();
 		transmitions = new List <string> ();
-		startHum = Earth.regionlist [0].humidity;
-		startTemp = Earth.regionlist [0].temp;
+		startHum = 0;
+		startTemp = 0;
 		HighDensityRes = 0.15f;
         isStarted = false;
         StartRegion = null;
@@ -399,8 +399,8 @@ public class Main_Controller : MonoBehaviour
         {
             StartRegion.infected = 1;
             StartRegion.Population -= 1;
-            startHum = StartRegion.humidity;
-            startTemp = StartRegion.temp;
+	        startHum = StartRegion.average_humidity;
+	        startTemp = StartRegion.average_temp;
 
             powerD.SetActive(isDefending);
             powerO.SetActive(!isDefending);
@@ -431,11 +431,11 @@ public class Main_Controller : MonoBehaviour
                 foreach (var region in continents.countrylist)
                 {
                     //check if climate is ok
-                    if (region.humidity <= startHum + HumidityRes && region.humidity >= startHum - HumidityRes &&
-                        region.temp <= startTemp + tempRes && region.temp >= startTemp - tempRes)
+                    if (region.average_humidity <= startHum + HumidityRes && region.average_humidity >= startHum - HumidityRes &&
+                        region.average_temp <= startTemp + tempRes && region.average_temp >= startTemp - tempRes)
                     {
                         //if that region has 0 infected
-                        if (!isDefending && region.infected == 0)
+                        if (!isDefending && region.infected == 0 && region.Population != 0)
                         {
                             if (Random.Range(0.2f, 10f) < transmitionOther || (region.Name == "Australia" && Random.Range(0.1f, 5f) < transmitionOther))
                             {
@@ -591,7 +591,7 @@ public class Main_Controller : MonoBehaviour
                 PowerOText.text = Main_Controller_off.powerO.ToString();
             //end ui update
 
-            //check if game is over 
+            //check if game is over
             if (totalInfected == 0 && totalSane == 0)
             {
                 HasWon = !isDefending;
@@ -607,7 +607,7 @@ public class Main_Controller : MonoBehaviour
         }
         else if (!isStarted)
         {
-            if (PlayerGameManager.lastContinentClicked != "Oceans" && PlayerGameManager.lastContinentClicked != null)
+            if (!isDefending && PlayerGameManager.lastContinentClicked != "Oceans" && PlayerGameManager.lastContinentClicked != null)
             {
                 isStarted = true;
                 StartRegion = GetCountryFromName(PlayerGameManager.lastContinentClicked);
@@ -641,7 +641,7 @@ public class Main_Controller : MonoBehaviour
 				break;
 			case "NewRegionInfected":
 				Country region = GetCountryFromName(value);
- 
+				region.infected += 1;
 				region.Population -= 1;
 				break;
 			case "CloseBorder":

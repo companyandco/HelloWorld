@@ -53,10 +53,9 @@ public class ShowLastContinentClicked : MonoBehaviour
 				CountryInforamtion.SetActive(false);
 			else
 			{
-                Debug.Log(country.humidity + " " + country.temp);
                 string humidty = "";
                 string temp = "";
-                switch (country.humidity)
+                switch (country.average_humidity)
                 {
                     case -2:
                         humidty = "très faible";
@@ -74,7 +73,7 @@ public class ShowLastContinentClicked : MonoBehaviour
                         humidty = "normal";
                         break;
                 }
-                switch (country.temp)
+                switch (country.average_temp)
                 {
                     case -2:
                         temp = "très faible";
