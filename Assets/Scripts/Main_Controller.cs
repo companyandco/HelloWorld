@@ -506,7 +506,7 @@ public class Main_Controller : MonoBehaviour
                     }
 
                     //update randomEvents
-					if (!isDefending && eventsList.Count > 0 && !gotAnEvent)
+					if (AI.isSP && !isDefending && eventsList.Count > 0 && !gotAnEvent)
                     {
 
                         if (Random.Range(1, maxRand) == 1)
