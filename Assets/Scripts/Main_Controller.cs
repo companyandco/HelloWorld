@@ -518,9 +518,10 @@ public class Main_Controller : MonoBehaviour
                     //update randomEvents
 					if (AI.isSP && !isDefending && eventsList.Count > 0 && !gotAnEvent)
                     {
-
+						Debug.Log("rdn event " + this.maxRand);
                         if (Random.Range(1, maxRand) == 1)
                         {
+	                        Debug.Log("entered rdn event");
                             tempEvent = eventsList[Random.Range(0, eventsList.Count)];
 							//Debug.Log("before");
 							OpenNotification(tempEvent.title, tempEvent.message);
