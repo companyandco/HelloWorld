@@ -101,6 +101,7 @@ public class Main_Controller : MonoBehaviour
 	public Text Message;
 	public Text Title;
 	private static bool gotAnEvent=false;
+	private static bool nuclearExplosion;
 
 
 	public static int Tcd = 50;
@@ -236,8 +237,9 @@ public class Main_Controller : MonoBehaviour
 		rdn = Random.Range (0, 100);
 		eventsList[2].Init("Eruption volcanique","Un volcan éteint depuis des années en Indonesie s'est brusquement réveillé !", 0f, 0, 0f, 162, GetCountryFromName("South East Asia, Asia"));
 		eventsList.Add (new RandomEvent());
-		eventsList[3].Init("Nuage toxique","Un nuage de polution atteint "+eventcountrylist[rdn].Name+". Activités physiques deconseillées.", 0.1f, 0, 0f, 0,  eventcountrylist[rdn]);
-
+		eventsList[3].Init("Nuage toxique","Un nuage de polution atteint "+eventcountrylist[rdn].Name+" et ses environs. Activités physiques deconseillées.", 0.01f, 1, 0f, 0,  eventcountrylist[rdn]);
+		eventsList.Add (new RandomEvent());
+		eventsList[4].Init("Accident nucléaire","Un système de refroidissement endommagé mène à une explosion dans une centrale nucléaire en France.", 0f, 0, 0f, 10,  GetCountryFromName("France, Europe"));
 	}
 
 	void OpenNotification(string title, string message)
@@ -341,6 +343,7 @@ public class Main_Controller : MonoBehaviour
 		sanitaryBonus = "";
 
 		gotAnEvent = false;
+		nuclearExplosion = false;
 
 		transmitionHuman = 0;
 		transmitionOther = 0;
@@ -518,7 +521,9 @@ public class Main_Controller : MonoBehaviour
 							OpenNotification(tempEvent.title, tempEvent.message);
 							//Debug.Log("after");
                             tempEvent.ApplyChanges();
-                            eventsList.Remove(tempEvent);
+							if (tempEvent.title == "Accident nucléaire")
+								nuclearExplosion = true;
+                            //eventsList.Remove(tempEvent);
 							gotAnEvent = true;
                         }
                         if (maxRand <= 1)
@@ -527,6 +532,18 @@ public class Main_Controller : MonoBehaviour
                         }
                         maxRand -= 1;
                     }
+					if (nuclearExplosion) 
+					{
+						var france = (eventsList[4].country);
+						if (france.Population > 50000000 && Random.Range (1, 10) == 1) 
+						{
+							france.dead += 2;
+							france.Population -= 2;
+						}
+					}
+
+
+
 
                     //PowerO generation
                     if (region.infected > 100)
