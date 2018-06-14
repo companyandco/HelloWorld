@@ -2221,6 +2221,16 @@ Prefab:
       propertyPath: CountryInfo
       value: 
       objectReference: {fileID: 2034644389}
+    - target: {fileID: 114420035510615624, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Amerique du Nord :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010400320515064, guid: e5163d2affd3ab44eb9b2dbcc29b4495,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Amerique du Sud :'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5163d2affd3ab44eb9b2dbcc29b4495, type: 2}
   m_IsPrefabParent: 0
