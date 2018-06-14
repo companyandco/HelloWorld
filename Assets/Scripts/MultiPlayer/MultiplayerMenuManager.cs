@@ -8,7 +8,7 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 	public static MultiplayerMenuManager Instance { get; set; }
 
-	public GameObject MainMenu, ConnectMenu, HostMenu;
+	public GameObject MainMenu, ConnectMenu;
 
 	public GameObject HostAddressInputField, NameInputField;
 
@@ -24,8 +24,6 @@ public class MultiplayerMenuManager : MonoBehaviour
 
 //		for ( int i = 0; i < this.MainMenu.transform.childCount; i++ )
 //			this.MainMenu.transform.GetChild ( i ).gameObject.SetActive ( true );
-
-		HostMenu.SetActive ( false );
 
 		ConnectMenu.SetActive ( false );
 		
@@ -50,8 +48,6 @@ public class MultiplayerMenuManager : MonoBehaviour
 	{
 		
 		this.MainMenu.SetActive ( false );
-
-		this.HostMenu.SetActive ( true );
 
 		try
 		{
@@ -139,8 +135,6 @@ public class MultiplayerMenuManager : MonoBehaviour
 	public void BACK_BUTTON ()
 	{
 		MainMenu.SetActive ( true );
-
-		HostMenu.SetActive ( false );
 
 		ConnectMenu.SetActive ( false );
 
