@@ -41,8 +41,14 @@ public class ClickableEarth : MonoBehaviour
 			Transform objectHit = hit.transform;
 
 			//Instantiate ( this.Cube, hit.point, Quaternion.identity );
+			var point=hit.point;
+			Debug.Log (point.y+", "+ (point.y-0.2f*point.y));
+			if (point.y > 1.4 && point.y<1.93)
+				point.y -= 0.1f * point.y;
+			if (point.y > 1.93)
+				point.y -= 0.18f * point.y;
+			Vector3 p = new Vector3 ( point.x, point.y, point.z );
 
-			Vector3 p = new Vector3 ( hit.point.x, hit.point.y-0.2f*hit.point.y, hit.point.z );
 
 			SphericalCoord cs = CoordHelper.TransformToSphericalCoord ( p, this.transform.position );
 
@@ -58,7 +64,7 @@ public class ClickableEarth : MonoBehaviour
 
 		Color32 c = this.texture.GetPixel ( (int)pixelToInspect.x, (int)pixelToInspect.y );
 
-		//Debug.Log ( "Color clicked: " + c );
+		Debug.Log ( "Color clicked: " + c );
 
 		Continent continentClicked;
 

@@ -540,7 +540,7 @@ public class Main_Controller : MonoBehaviour
 					if (nuclearExplosion) 
 					{
 						var france = (eventsList[4].country);
-						if (france.Population > 50000000 && Random.Range (1, 10) == 1) 
+						if (france.Population > 50000000 && Random.Range (1, 100) == 1) 
 						{
 							france.dead += 2;
 							france.Population -= 2;

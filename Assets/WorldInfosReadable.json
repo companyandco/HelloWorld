@@ -26,7 +26,7 @@
 {"Name":"UK","Population":66000000,"Density":274.08,"Life_expectancy":81.77,"GDP":2647.90,"average_humidity":1,"average_temp":-1,"r":0,"g":18,"b":0},
 {"Name":"Spain","Population":45000000,"Density":91.70,"Life_expectancy":83.86,"GDP":1232.09,"average_humidity":-1,"average_temp":1,"r":0,"g":71,"b":0},
 {"Name":"Italy","Population":58000000,"Density":196.76,"Life_expectancy":83.26,"GDP":1849.97,"average_humidity":0,"average_temp":0,"r":0,"g":252,"b":0},
-{"Name":"Norway","Population":5000000,"Density":16.53,"Life_expectancy":82.39,"GDP":370.56,"average_humidity":1,"average_temp":-1,"r":0,"g":199,"b":0},
+{"Name":"Norway","Population":5000000,"Density":16.53,"Life_expectancy":82.39,"GDP":370.56,"average_humidity":1,"average_temp":-1,"r":0,"g":197,"b":0},
 {"Name":"Sweden","Population":10000000,"Density":22.17,"Life_expectancy":82.7,"GDP":511.2,"average_humidity":1,"average_temp":-1,"r":0,"g":216,"b":0},
 {"Name":"Finland","Population":5000000,"Density":16.38,"Life_expectancy":81.57,"GDP":236.79,"average_humidity":1,"average_temp":-1,"r":0,"g":233,"b":0},
 {"Name":"Poland","Population":37000000,"Density":121.87,"Life_expectancy":77.82,"GDP":469.51,"average_humidity":1,"average_temp":-1,"r":0,"g":162,"b":0},
