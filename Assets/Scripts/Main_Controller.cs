@@ -96,7 +96,7 @@ public class Main_Controller : MonoBehaviour
 	public int maxRandEvent;
 	private int maxRand;
 	public RandomEvent tempEvent;
-	public Canvas notif;
+	public GameObject notif;
 	public Text Message;
 	public Text Title;
 	private static bool gotAnEvent=false;
@@ -245,18 +245,18 @@ public class Main_Controller : MonoBehaviour
 	{
 		Title.text = title;
 		Message.text = message;
-		notif.enabled = true;
-	}
-	public void CloseNotification()
+        notif.SetActive(true);
+    }
+    public void CloseNotification()
 	{
-		notif.enabled = false;
-	}
-		
-	/////////////////////////////////////////////////////////
-	/// Interface
-	/////////////////////////////////////////////////////////
-	
-	void Update ()
+        notif.SetActive(false);
+    }
+
+    /////////////////////////////////////////////////////////
+    /// Interface
+    /////////////////////////////////////////////////////////
+
+    void Update ()
 	{
         if (Input.GetKeyDown(KeyCode.F) && isStarted)
         {
@@ -289,10 +289,6 @@ public class Main_Controller : MonoBehaviour
 	        }
 	        //ResetVariables ();
 	        //SceneSelection.LoadNewScreen("main_menu");
-		}
-		else if(Input.GetKeyDown(KeyCode.E))
-		{
-			SceneManager.LoadScene("SinglePlayerEvents");
 		}
 	}
 	
