@@ -87,54 +87,66 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		//Gestion
 		{
 			"Fermeture_temp", 
+			"Coût : " + "\n" + "\n" +
 			"Ferme temporairement une frontiere d'un pays a l'autre"
 		},
 		{
 			"Sanitary_campaign",
+			"Coût : " + "\n" + "\n" +
 			"Envoyer des équipes médicales pour donner le traitement contre le virus à la population"
 		},
 		{
 			"Vaccinate_animals",
+			"Coût : " + "\n" + "\n" +
 			"Vacciner les animaux afin de réduire la transmission autre"
 		},
 		//Recherche
 		{
-			"Recherche_sympt", 
+			"Recherche_sympt",
+			"Coût : " + "\n" + "\n" +
 			"Lance une recherche visant les symptomes du virus, retourne un des symptomes du virus, s'il l'a"
 		},
 		{
-			"Recherche_trans", 
+			"Recherche_trans",
+			"Coût : " + "\n" + "\n" +
 			"Lance une recherche visant les transmitions du virus, retourne un des transmitions du virus, s'il l'a"
 		},
 		{
-			"Recherche_anti", 
+			"Recherche_anti",
+			"Coût : " + "\n" + "\n" +
 			"Lance une recherche de l'antidote"
 		},
 		{
 			"Localisation",
+			"Coût : " + "\n" + "\n" +
 			"Lance la recherche du virus dans le pays selectionne"
 		},
 
 		//Attaque
 		//Transmition
 		{
-			"Res_hum", 
+			"Res_hum",
+			"Coût : " + "\n" + "\n" +
 			"Le virus devient plus resistent au climat sec et humdide."
 		},
 		{
-			"Res_temp", 
+			"Res_temp",
+			"Coût : " + "\n" + "\n" +
 			"Le virus devient plus resistent au chaud et au froid."
 		},
 		{
-			"Res_climat", 
+			"Res_climat",
+			"Coût : " + "\n" + "\n" +
 			"Le virus est capable de survivre dans les regions les plus extremes."
 		},
 		{
 			"High_density_res",
+			"Coût : " + "\n" + "\n" +
 			"Le virus est capable de survivre plus longtemps et de se propager plus rapidement dans les regions à grande population."
 		},
 		{
 			"Infection_animale",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus risquent d'infecter les animaux (augmente la transmission autre)"
 		},
 		
@@ -142,50 +154,62 @@ public class MouseInformation : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		//Symptomes
 		{
 			"Eternuement",
+			"Coût : " + "\n" + "\n" +
 			"Provoque des eternuements, augmentant la transmition et la virulence."
 		},
 		{
 			"Toux",
+			"Coût : " + "\n" + "\n" +
 			"Provoque une legere toux, augmentant la transmition et la virulence."
 		},
 		{
 			"Mal_gorge",
+			"Coût : " + "\n" + "\n" +
 			"Provoque une legere toux, augmentant la virulence."
 		},
 		{
-			"Diarrhee", 
+			"Diarrhee",
+			"Coût : " + "\n" + "\n" +
 			"Provoque des pertes importantes d'eau et des hemoragies internes."
 		},
 		{
 			"Fievre",
+			"Coût : " + "\n" + "\n" +
 			"Provoque de fortes fièvres qui peuvent être fatales pour les plus fragiles."
 		},
 		{
 			"Crise_car",
+			"Coût : " + "\n" + "\n" +
 			"Augmente la lethalite de votre virus"
 		},
 		{
 			"Nausee",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus ont la nausee"
 		},
 		{
 			"Depression",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus sont dépressifs"
 		},
 		{
 			"Grippe",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus ont la grippe"
 		},
 		{
 			"Insomnie",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus sont sujets à des insomnies"
 		},
 		{
 			"AVC",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus risquent de faire un AVC"
 		},
 		{
 			"Paralysie",
+			"Coût : " + "\n" + "\n" +
 			"Les porteurs du virus sont paralysés"
 		},
 	};

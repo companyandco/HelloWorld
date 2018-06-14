@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneSelection : MonoBehaviour
 {
 	public GameObject BackgroundMusic;
+	public GameObject VideoBackground;
 	public GameObject LoadingScreen;
 	public float FadeSpeed = 1f;
 	
-	private bool finishedFading = false;
-
 	public void LaunchCustomScreen(GameObject screen)
 	{
 		StartCoroutine(FadeIn(screen.GetComponent<CanvasGroup>(), screen));
@@ -101,10 +100,8 @@ public class SceneSelection : MonoBehaviour
 	public void GO_ONLINE ()
 	{
 		if (BackgroundMusic != null)
-		{
-			Debug.Log("DontDestroyExecute");
 			DontDestroyOnLoad(BackgroundMusic);
-		}
+
 		Debug.Log ( "GO_ONLINE" );
 		LoadNewScreen( "test3" );
 		//SceneManager.LoadScene ( "test3" );

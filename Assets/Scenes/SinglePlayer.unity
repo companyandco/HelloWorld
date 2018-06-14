@@ -734,16 +734,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114138828118805754, guid: 24b7d33b74c646145a315f6ae1cd537c,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 914983890}
     - target: {fileID: 114142778095480334, guid: 24b7d33b74c646145a315f6ae1cd537c,
         type: 2}
       propertyPath: music
       value: 
       objectReference: {fileID: 841782390}
+    - target: {fileID: 114138828118805754, guid: 24b7d33b74c646145a315f6ae1cd537c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 914983890}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b7d33b74c646145a315f6ae1cd537c, type: 2}
   m_IsPrefabParent: 0

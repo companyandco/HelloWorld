@@ -50,19 +50,56 @@ public class ShowLastContinentClicked : MonoBehaviour
 			Main_Controller.Region region = Main_Controller.GetRegionFromName(regionName);
 			Main_Controller.Country country = Main_Controller.GetCountryFromName(continent);
 			if (region == null || country == null)
-			{
 				CountryInforamtion.SetActive(false);
-			}
 			else
 			{
-				CountryInforamtion.SetActive(true);
+                Debug.Log(country.humidity + " " + country.temp);
+                string humidty = "";
+                string temp = "";
+                switch (country.humidity)
+                {
+                    case -2:
+                        humidty = "très faible";
+                        break;
+                    case -1:
+                        humidty = "faible";
+                        break;
+                    case 1:
+                        humidty = "élevé";
+                        break;
+                    case 2:
+                        humidty = "très élevé";
+                        break;
+                    default:
+                        humidty = "normal";
+                        break;
+                }
+                switch (country.temp)
+                {
+                    case -2:
+                        temp = "très faible";
+                        break;
+                    case -1:
+                        temp = "faible";
+                        break;
+                    case 1:
+                        temp = "élevé";
+                        break;
+                    case 2:
+                        temp = "très élevé";
+                        break;
+                    default:
+                        temp = "normal";
+                        break;
+                }
+                CountryInforamtion.SetActive(true);
 				TitleInformation.text = continent;
 				BasicInformation.text = country.Population + "\n" + 
 				                        country.Density + "\n" +
 				                        country.Life_expectancy + "\n" + 
 				                        country.GDP + "\n" + 
-				                        country.humidity + "\n" + 
-				                        country.temp;
+				                        humidty + "\n" + 
+				                        temp;
 				PopulationInformation.text = country.infected + "\n" +
 				                             country.Population + "\n" +
 				                             (country.infected + country.Population) + "\n" +

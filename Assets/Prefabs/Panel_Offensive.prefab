@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114258465862459634}
   - component: {fileID: 114094780322186060}
   - component: {fileID: 114080452196175842}
+  - component: {fileID: 114220104758257166}
   m_Layer: 5
   m_Name: Crise_car
   m_TagString: Untagged
@@ -97,6 +98,7 @@ GameObject:
   - component: {fileID: 114763402851459894}
   - component: {fileID: 114129997886135900}
   - component: {fileID: 114129247404561896}
+  - component: {fileID: 114391253161495404}
   m_Layer: 5
   m_Name: AVC
   m_TagString: Untagged
@@ -117,6 +119,7 @@ GameObject:
   - component: {fileID: 114489696927840812}
   - component: {fileID: 114598051411775522}
   - component: {fileID: 114424871740424316}
+  - component: {fileID: 114884217017625448}
   m_Layer: 5
   m_Name: Grippe
   m_TagString: Untagged
@@ -172,6 +175,7 @@ GameObject:
   - component: {fileID: 114987828228836332}
   - component: {fileID: 114491924643874528}
   - component: {fileID: 114158051783839552}
+  - component: {fileID: 114306325756527232}
   m_Layer: 5
   m_Name: Res_hum
   m_TagString: Untagged
@@ -192,6 +196,7 @@ GameObject:
   - component: {fileID: 114577425625328722}
   - component: {fileID: 114852919735434928}
   - component: {fileID: 114223901257875904}
+  - component: {fileID: 114428342850826854}
   m_Layer: 5
   m_Name: Nausee
   m_TagString: Untagged
@@ -248,6 +253,7 @@ GameObject:
   - component: {fileID: 114716207367082696}
   - component: {fileID: 114610767079712662}
   - component: {fileID: 114117240907949452}
+  - component: {fileID: 114048639683721632}
   m_Layer: 5
   m_Name: Infection_animale
   m_TagString: Untagged
@@ -268,6 +274,7 @@ GameObject:
   - component: {fileID: 114686230642616864}
   - component: {fileID: 114053027462385748}
   - component: {fileID: 114868308647761956}
+  - component: {fileID: 114452609467340144}
   m_Layer: 5
   m_Name: Fievre
   m_TagString: Untagged
@@ -305,6 +312,7 @@ GameObject:
   - component: {fileID: 114245430516480142}
   - component: {fileID: 114639896777008362}
   - component: {fileID: 114366463136074084}
+  - component: {fileID: 114246441488604472}
   m_Layer: 5
   m_Name: Mal_gorge
   m_TagString: Untagged
@@ -343,6 +351,7 @@ GameObject:
   - component: {fileID: 114850919089997552}
   - component: {fileID: 114163865353068206}
   - component: {fileID: 114953879322618650}
+  - component: {fileID: 114050545648510912}
   m_Layer: 5
   m_Name: Toux
   m_TagString: Untagged
@@ -381,6 +390,7 @@ GameObject:
   - component: {fileID: 114703867224745004}
   - component: {fileID: 114309066688983582}
   - component: {fileID: 114428824165271304}
+  - component: {fileID: 114467678717160702}
   m_Layer: 5
   m_Name: Res_temp
   m_TagString: Untagged
@@ -401,6 +411,7 @@ GameObject:
   - component: {fileID: 114170035910259458}
   - component: {fileID: 114942858327834856}
   - component: {fileID: 114777001880539636}
+  - component: {fileID: 114444962864367036}
   m_Layer: 5
   m_Name: Insomnie
   m_TagString: Untagged
@@ -457,6 +468,7 @@ GameObject:
   - component: {fileID: 114807999303461382}
   - component: {fileID: 114908080511285812}
   - component: {fileID: 114780235185766270}
+  - component: {fileID: 114922953392613628}
   m_Layer: 5
   m_Name: Depression
   m_TagString: Untagged
@@ -549,6 +561,7 @@ GameObject:
   - component: {fileID: 114420353847197984}
   - component: {fileID: 114210190661559958}
   - component: {fileID: 114870872303776074}
+  - component: {fileID: 114183880296791478}
   m_Layer: 5
   m_Name: Eternuement
   m_TagString: Untagged
@@ -620,6 +633,7 @@ GameObject:
   - component: {fileID: 114851955669368576}
   - component: {fileID: 114588606468109636}
   - component: {fileID: 114416943806397688}
+  - component: {fileID: 114998321153166742}
   m_Layer: 5
   m_Name: Res_climat
   m_TagString: Untagged
@@ -640,6 +654,7 @@ GameObject:
   - component: {fileID: 114118123000900314}
   - component: {fileID: 114042310442768806}
   - component: {fileID: 114586341826104174}
+  - component: {fileID: 114275007097164866}
   m_Layer: 5
   m_Name: Paralysie
   m_TagString: Untagged
@@ -677,6 +692,7 @@ GameObject:
   - component: {fileID: 114298143707739404}
   - component: {fileID: 114742104659431982}
   - component: {fileID: 114869323530557750}
+  - component: {fileID: 114717588296529866}
   m_Layer: 5
   m_Name: Diarrhee
   m_TagString: Untagged
@@ -769,6 +785,7 @@ GameObject:
   - component: {fileID: 114641871945764606}
   - component: {fileID: 114132408038874350}
   - component: {fileID: 114093601684416982}
+  - component: {fileID: 114722715025751946}
   m_Layer: 5
   m_Name: High_density_res
   m_TagString: Untagged
@@ -924,6 +941,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!114 &114048639683721632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370955406844824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114049572910733988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -957,6 +986,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Naus\xE9e"
+--- !u!114 &114050545648510912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430360482897696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114053027462385748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1368,6 +1409,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114183880296791478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682405359102976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114192693698781108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1422,6 +1475,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!114 &114220104758257166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028217132328930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114223901257875904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1488,6 +1553,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114246441488604472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388357591715108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114258465862459634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1574,6 +1651,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Infection Animale
+--- !u!114 &114275007097164866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758674167787572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114278692259293950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1724,6 +1813,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114306325756527232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158513856206920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114309066688983582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1865,6 +1966,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114391253161495404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084788489275836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114398379410246734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1971,6 +2084,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   responsePanel: {fileID: 1698249842046154, guid: 62e3c589bae92d64f9d51d36bcd679e5,
     type: 2}
+--- !u!114 &114428342850826854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173943500303244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114428824165271304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1998,6 +2123,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114444962864367036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484469449952952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114445657575051780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2012,6 +2149,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114452609467340144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372877918756748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114453681508753856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2132,6 +2281,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114467678717160702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482509210774430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114489696927840812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2521,7 +2682,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.9882353, g: 0.7058824, b: 0.7058824, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2678,7 +2839,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.9882353, g: 0.7058824, b: 0.7058824, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2731,7 +2892,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.9882353, g: 0.7058824, b: 0.7058824, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2762,6 +2923,30 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114717588296529866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779752016768668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+--- !u!114 &114722715025751946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1963976169621542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114727620738926578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3076,7 +3261,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.9882353, g: 0.7058824, b: 0.7058824, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3180,6 +3365,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114884217017625448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088559024889358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114888545943243846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3301,6 +3498,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Resistance Humidit\xE9"
+--- !u!114 &114922953392613628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569743781751736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!114 &114923569838711318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3566,7 +3775,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.9882353, g: 0.7058824, b: 0.7058824, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3597,6 +3806,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114998321153166742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726881326020274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca5a2c96ba0e6498d6300a1b7ada3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!222 &222017972684778046
 CanvasRenderer:
   m_ObjectHideFlags: 1
